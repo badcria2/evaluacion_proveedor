@@ -656,27 +656,44 @@ function exportarCSV() {
     slaRows.forEach((row, index) => {
         if (index === 0) return; // Skip header row
         const cols = row.querySelectorAll('td');
+        
+        // **Añadir comprobaciones aquí**
+        if (cols.length < 3) {
+            console.warn("Fila de SLA con formato inesperado, saltando:", row.outerHTML);
+            return; // Saltar esta fila mal formada
+        }
+
         const priority = cols[0].textContent.trim();
-        const agreedTime = cols[1].querySelector('input').value || '';
-        const actualTime = cols[2].querySelector('input').value || '';
+        const agreedTime = cols[1].querySelector('input') ? (cols[1].querySelector('input').value || '') : '';
+        const actualTime = cols[2].querySelector('input') ? (cols[2].querySelector('input').value || '') : '';
         csvContent += `${priority},"${agreedTime}","${actualTime}"\n`;
     });
     csvContent += "\n";
 
-    // --- Ticket Statistics ---
+// --- Ticket Statistics ---
     csvContent += "Parámetros de Evaluación - Estadísticas de Tickets\n";
     csvContent += "Métricas,Valor\n";
     const ticketRows = document.querySelectorAll('.flex-item:last-child table tr');
     ticketRows.forEach((row, index) => {
         if (index === 0) return; // Skip header row
         const cols = row.querySelectorAll('td');
+        
+        // **Añadir comprobaciones aquí**
+        // Si el error original estaba en la línea 659, es probable que 'cols[1]' fuera undefined.
+        if (cols.length < 2) { 
+            console.warn("Fila de tickets con formato inesperado, saltando:", row.outerHTML);
+            return; // Saltar esta fila mal formada
+        }
+
         const metric = cols[0].textContent.trim();
+        // Asegúrate de que cols[1] existe antes de intentar querySelector
         const value = cols[1].querySelector('input') ? (cols[1].querySelector('input').value || '') : '';
         csvContent += `${metric},"${value}"\n`;
     });
     csvContent += "\n";
 
-    // --- Evaluation Sections (1 to 6) --- 
+    // --- Evaluation Sections (1 to 6) ---
+    // --- Evaluation Sections (1 to 6) ---
     for (let i = 1; i <= 6; i++) {
         // Find the section table and get its preceding H2 title
         const sectionTable = document.querySelector(`#seccion${i}`);
@@ -700,6 +717,11 @@ function exportarCSV() {
         rows.forEach(row => {
             const cols = row.querySelectorAll('td');
             if (cols.length > 0 && cols[0].textContent.trim() !== 'Criterio') { // Skip header row
+                // Añadir comprobación para cols.length aquí
+                if (cols.length < 5) { // Esperamos 5 columnas: Criterio, Peso, Calificación, Ponderado, Observaciones
+                    console.warn(`Fila de sección ${i} con formato inesperado, saltando:`, row.outerHTML);
+                    return;
+                }
                 const criterio = cols[0].textContent.trim();
                 const peso = cols[1].textContent.trim();
                 const calificacionInput = cols[2].querySelector('.calificacion');
