@@ -676,19 +676,30 @@ function exportarCSV() {
     });
     csvContent += "\n";
 
-    // --- Evaluation Sections (1 to 6) ---
+    // --- Evaluation Sections (1 to 6) --- 
     for (let i = 1; i <= 6; i++) {
-        // Adjust selector to correctly get the H2 title for each section
-        // Assuming H2s are direct children of divs, and sections are in order
-        const sectionTitleElement = document.querySelector(`div:nth-of-type(${i + 2}) > h2`); // Adjust index based on your HTML structure
-        const sectionTitle = sectionTitleElement ? sectionTitleElement.textContent.trim() : `Sección ${i}`;
+        // Find the section table and get its preceding H2 title
+        const sectionTable = document.querySelector(`#seccion${i}`);
+        let sectionTitle = `Sección ${i}`; // Default title
+        
+        if (sectionTable) {
+            // Look for the H2 that comes before this table
+            let parentDiv = sectionTable.closest('div');
+            if (parentDiv) {
+                const h2Element = parentDiv.querySelector('h2');
+                if (h2Element) {
+                    sectionTitle = h2Element.textContent.trim();
+                }
+            }
+        }
+        
         csvContent += `${sectionTitle}\n`;
         csvContent += "Criterio,Peso,Calificación (1-5),Ponderado,Observaciones\n";
 
         const rows = document.querySelectorAll(`#seccion${i} tr:not(.resultado)`);
         rows.forEach(row => {
             const cols = row.querySelectorAll('td');
-            if (cols.length > 0) {
+            if (cols.length > 0 && cols[0].textContent.trim() !== 'Criterio') { // Skip header row
                 const criterio = cols[0].textContent.trim();
                 const peso = cols[1].textContent.trim();
                 const calificacionInput = cols[2].querySelector('.calificacion');
@@ -709,23 +720,6 @@ function exportarCSV() {
         }
         csvContent += "\n";
     }
-
-    // --- Final Results ---
-    csvContent += "Resultados Finales\n";
-    csvContent += "Sección,Peso,Puntaje Ponderado,Calificación\n";
-    const finalResultRows = document.querySelectorAll('#resultados-finales tr');
-    finalResultRows.forEach((row, index) => {
-        if (index === 0) return; // Skip header
-        const cols = row.querySelectorAll('td');
-        if (cols.length > 0) {
-            const section = cols[0].textContent.trim();
-            const weight = cols[1].textContent.trim();
-            const score = cols[2].textContent.trim();
-            const rating = cols[3].textContent.trim();
-            csvContent += `"${section}",${weight},"${score}","${rating}"\n`;
-        }
-    });
-    csvContent += "\n";
 
     // --- Key Metrics Analysis ---
     csvContent += "Análisis de Métricas Clave\n";
