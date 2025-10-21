@@ -1,0 +1,115 @@
+[
+    {
+        "nombre": "Deloitte",
+        "servicios": {
+            "Consultoría Estratégica": {
+                "sla": {
+                    "critica": "2.0 horas",
+                    "alta": "6.0 horas",
+                    "media": "12.0 horas",
+                    "baja": "48.0 horas"
+                }
+            },
+            "Ciberseguridad": {
+                "sla": {
+                    "critica": "1.0 horas",
+                    "alta": "3.0 horas",
+                    "media": "6.0 horas",
+                    "baja": "24.0 horas"
+                }
+            }
+        }
+    },
+    {
+        "nombre": "Sencinet",
+        "servicios": {
+            "Crodwstrike": {
+                "sla": {
+                    "critica": "4.0 horas",
+                    "alta": "80 horas",
+                    "media": "12.0 horas",
+                    "baja": "48.0 horas"
+                }
+            },
+            "Netskope": {
+                "sla": {
+                    "critica": "4.0 horas",
+                    "alta": "80 horas",
+                    "media": "12.0 horas",
+                    "baja": "48.0 horas"
+                }
+            }
+        }
+    },
+    {
+        "nombre": "SoftwareONE",
+        "servicios": {
+            "Licenciamiento Software": {
+                "sla": {
+                    "critica": "3.0 horas",
+                    "alta": "8.0 horas",
+                    "media": "16.0 horas",
+                    "baja": "48.0 horas"
+                }
+            },
+            "Servicios Gestionados Cloud": {
+                "sla": {
+                    "critica": "1.0 horas",
+                    "alta": "3.0 horas",
+                    "media": "6.0 horas",
+                    "baja": "24.0 horas"
+                }
+            }
+        }
+    },
+    {
+        "nombre": "Neosecure",
+        "servicios": {
+            "Seguridad Gestionada": {
+                "sla": {
+                    "critica": "0.5 horas",
+                    "alta": "1.5 horas",
+                    "media": "3.0 horas",
+                    "baja": "12.0 horas"
+                }
+            },
+            "Consultoría de Ciberseguridad": {
+                "sla": {
+                    "critica": "1.5 horas",
+                    "alta": "4.0 horas",
+                    "media": "8.0 horas",
+                    "baja": "24.0 horas"
+                }
+            }
+        }
+    },
+    {
+        "nombre": "Stefanini",
+        "servicios": {
+            "Service Desk": {
+                "sla": {
+                    "critica": "1.0 horas",
+                    "alta": "2.0 horas",
+                    "media": "4.0 horas",
+                    "baja": "16.0 horas"
+                }
+            },
+            "Desarrollo de Software": {
+                "sla": {
+                    "critica": "4.0 horas",
+                    "alta": "12.0 horas",
+                    "media": "24.0 horas",
+                    "baja": "72.0 horas"
+                }
+            },
+            "Gestion Interna": {
+                "sla": {
+                    "critica": "4.0 horas",
+                    "alta": "12.0 horas",
+                    "media": "24.0 horas",
+                    "baja": "72.0 horas"
+                }
+            }
+        }
+    }
+]

@@ -34,10 +34,24 @@
     <div>
         <h2>Datos Generales</h2>
         <table>
-            <tr>
-                <td><strong>Nombre del Proveedor:</strong></td>
-                <td><input type="text" id="proveedor" placeholder="Ingrese nombre del proveedor"></td>
-            </tr>
+             <tr>
+            <td><strong>Seleccionar Proveedor:</strong></td>
+            <td>
+                <select id="proveedor-select">
+                    <option value="">-- Seleccione un proveedor --</option>
+                    <!-- Las opciones se cargarán desde JavaScript -->
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Servicio Elegido:</strong></td>
+            <td>
+                <select id="servicio-select">
+                    <option value="todos">Todos los servicios</option>
+                    <!-- Las opciones se cargarán desde JavaScript si el proveedor tiene servicios específicos -->
+                </select>
+            </td>
+        </tr>
             <tr>
                 <td><strong>Período de Evaluación:</strong></td>
                 <td><input type="text" id="periodo" placeholder="Ej: Enero - Marzo 2025"></td>

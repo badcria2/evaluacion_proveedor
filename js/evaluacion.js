@@ -1,12 +1,16 @@
 /**
  * Evaluación de Proveedor de TI
  * Script para gestionar la evaluación de proveedores de TI
- * * Características:
+ * Características:
  * - Cálculo automático de calificaciones y ponderados
  * - Gestión de criterios no aplicables
  * - Calculadora de conversión de métricas a calificaciones
  * - Exportación a CSV
+ * - Carga de proveedores desde JSON
  */
+
+// Variable global para almacenar los datos de los proveedores
+let proveedoresData = [];
 
 // Inicialización de elementos al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
@@ -18,17 +22,253 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Configurar event listeners
     setupEventListeners();
+    
+    // Cargar proveedores desde el JSON embebido o archivo externo
+    cargarProveedores();
 });
+
+/**
+ * Carga los proveedores desde el JSON
+ */
+function cargarProveedores() {
+    // Datos JSON embebidos (puedes reemplazar esto con fetch a un archivo externo)
+    const jsonData = [
+        {
+            "nombre": "Deloitte",
+            "servicios": {
+                "Consultoría Estratégica": {
+                    "sla": {
+                        "critica": "2.0 horas",
+                        "alta": "6.0 horas",
+                        "media": "12.0 horas",
+                        "baja": "48.0 horas"
+                    }
+                },
+                "Ciberseguridad": {
+                    "sla": {
+                        "critica": "1.0 horas",
+                        "alta": "3.0 horas",
+                        "media": "6.0 horas",
+                        "baja": "24.0 horas"
+                    }
+                }
+            }
+        },
+        {
+            "nombre": "Sencinet",
+            "servicios": {
+                "Conectividad": {
+                    "sla": {
+                        "critica": "1.5 horas",
+                        "alta": "4.0 horas",
+                        "media": "8.0 horas",
+                        "baja": "24.0 horas"
+                    }
+                },
+                "Cloud Híbrida": {
+                    "sla": {
+                        "critica": "2.0 horas",
+                        "alta": "5.0 horas",
+                        "media": "10.0 horas",
+                        "baja": "36.0 horas"
+                    }
+                }
+            }
+        },
+        {
+            "nombre": "SoftwareONE",
+            "servicios": {
+                "Licenciamiento Software": {
+                    "sla": {
+                        "critica": "3.0 horas",
+                        "alta": "8.0 horas",
+                        "media": "16.0 horas",
+                        "baja": "48.0 horas"
+                    }
+                },
+                "Servicios Gestionados Cloud": {
+                    "sla": {
+                        "critica": "1.0 horas",
+                        "alta": "3.0 horas",
+                        "media": "6.0 horas",
+                        "baja": "24.0 horas"
+                    }
+                }
+            }
+        },
+        {
+            "nombre": "Neosecure",
+            "servicios": {
+                "Seguridad Gestionada": {
+                    "sla": {
+                        "critica": "0.5 horas",
+                        "alta": "1.5 horas",
+                        "media": "3.0 horas",
+                        "baja": "12.0 horas"
+                    }
+                },
+                "Consultoría de Ciberseguridad": {
+                    "sla": {
+                        "critica": "1.5 horas",
+                        "alta": "4.0 horas",
+                        "media": "8.0 horas",
+                        "baja": "24.0 horas"
+                    }
+                }
+            }
+        },
+        {
+            "nombre": "Stefanini",
+            "servicios": {
+                "Service Desk": {
+                    "sla": {
+                        "critica": "1.0 horas",
+                        "alta": "2.0 horas",
+                        "media": "4.0 horas",
+                        "baja": "16.0 horas"
+                    }
+                },
+                "Desarrollo de Software": {
+                    "sla": {
+                        "critica": "4.0 horas",
+                        "alta": "12.0 horas",
+                        "media": "24.0 horas",
+                        "baja": "72.0 horas"
+                    }
+                }
+            }
+        }
+    ];
+    
+    proveedoresData = jsonData;
+    populateProveedorSelect(proveedoresData);
+    
+    // Si prefieres cargar desde un archivo externo, descomenta esto:
+    /*
+    fetch('js/proveedores.json')
+        .then(response => response.json())
+        .then(data => {
+            proveedoresData = data;
+            populateProveedorSelect(proveedoresData);
+        })
+        .catch(error => {
+            console.error('Error al cargar los proveedores:', error);
+            showCustomMessage('Error al cargar la lista de proveedores', 'error');
+        });
+    */
+}
+
+/**
+ * Función para poblar el select de proveedores
+ */
+function populateProveedorSelect(proveedores) {
+    const proveedorSelect = document.getElementById('proveedor-select');
+    proveedorSelect.innerHTML = '<option value="">-- Seleccione un proveedor --</option>';
+
+    proveedores.forEach(proveedor => {
+        const option = document.createElement('option');
+        option.value = proveedor.nombre;
+        option.textContent = proveedor.nombre;
+        proveedorSelect.appendChild(option);
+    });
+}
+
+/**
+ * Función para poblar el select de servicios basado en el proveedor seleccionado
+ */
+function populateServicioSelect(nombreProveedor) {
+    const servicioSelect = document.getElementById('servicio-select');
+    servicioSelect.innerHTML = '<option value="todos">Todos los servicios</option>';
+    
+    if (!nombreProveedor) {
+        return;
+    }
+    
+    const proveedor = proveedoresData.find(p => p.nombre === nombreProveedor);
+    
+    if (proveedor && proveedor.servicios) {
+        Object.keys(proveedor.servicios).forEach(servicioNombre => {
+            const option = document.createElement('option');
+            option.value = servicioNombre;
+            option.textContent = servicioNombre;
+            servicioSelect.appendChild(option);
+        });
+    }
+}
+
+/**
+ * Función para aplicar los SLAs a los parámetros del formulario
+ */
+function applySlaToParameters(nombreProveedor, nombreServicio) {
+    if (!nombreProveedor || nombreServicio === 'todos') {
+        return;
+    }
+    
+    const proveedor = proveedoresData.find(p => p.nombre === nombreProveedor);
+    
+    if (!proveedor || !proveedor.servicios) {
+        return;
+    }
+    
+    const servicio = proveedor.servicios[nombreServicio];
+    
+    if (!servicio || !servicio.sla) {
+        return;
+    }
+    
+    // Aplicar los SLAs a los campos correspondientes
+    document.getElementById('sla-critica').value = servicio.sla.critica || '';
+    document.getElementById('sla-alta').value = servicio.sla.alta || '';
+    document.getElementById('sla-media').value = servicio.sla.media || '';
+    document.getElementById('sla-baja').value = servicio.sla.baja || '';
+    
+    showCustomMessage(`SLAs aplicados para ${nombreServicio}`, 'success');
+}
 
 /**
  * Configura todos los event listeners de la aplicación
  */
 function setupEventListeners() {
+    const proveedorSelect = document.getElementById('proveedor-select');
+    const servicioSelect = document.getElementById('servicio-select');
+    
+    // Event listener para el cambio de proveedor
+    if (proveedorSelect) {
+        proveedorSelect.addEventListener('change', () => {
+            const selectedProveedorName = proveedorSelect.value;
+            populateServicioSelect(selectedProveedorName);
+            
+            // Resetear los campos de SLA cuando se cambia de proveedor
+            if (servicioSelect) {
+                servicioSelect.value = 'todos';
+            }
+        });
+    }
+    
+    // Event listener para el cambio de servicio
+    if (servicioSelect) {
+        servicioSelect.addEventListener('change', () => {
+            const selectedProveedorName = proveedorSelect.value;
+            const selectedServiceName = servicioSelect.value;
+            
+            if (selectedServiceName !== 'todos') {
+                applySlaToParameters(selectedProveedorName, selectedServiceName);
+            }
+        });
+    }
     // Botones principales
     document.getElementById('calcular').addEventListener('click', calcularResultados);
     document.getElementById('exportar-csv').addEventListener('click', exportarCSV);
     document.getElementById('imprimir').addEventListener('click', imprimirEvaluacion);
     document.getElementById('toggleGuias').addEventListener('click', toggleGuiasCalificacion);
+    
+    // Botón para abrir calculadora
+    const btnAbrirCalculadora = document.getElementById('abrir-calculadora');
+    if (btnAbrirCalculadora) {
+        btnAbrirCalculadora.addEventListener('click', () => {
+            document.getElementById('calculadoraModal').style.display = 'block';
+        });
+    }
     
     // Calculadora de calificaciones
     document.getElementById('sugerir-calificaciones').addEventListener('click', sugerirCalificaciones);
@@ -56,18 +296,15 @@ function setupEventListeners() {
             const ponderadoCell = fila.querySelector('.ponderado');
             
             if (e.target.checked) {
-                // Si está marcado como N/A
                 calificacion.disabled = true;
                 calificacion.value = "";
                 ponderadoCell.textContent = "N/A";
                 fila.classList.add('na-row');
             } else {
-                // Si se desmarca
                 calificacion.disabled = false;
-                ponderadoCell.textContent = "0"; // Reset ponderado to 0, it will be recalculated
+                ponderadoCell.textContent = "0";
                 fila.classList.remove('na-row');
             }
-            // Recalcular resultados inmediatamente para reflejar el cambio de N/A
             calcularResultados();
         }
     });
@@ -83,26 +320,22 @@ function setupEventListeners() {
  * para criterios "No Aplicables".
  */
 function calcularResultados() {
-    // Iterar a través de cada sección (1 a 6)
     for (let i = 1; i <= 6; i++) {
         let subtotal = 0;
-        let pesoTotalSeccion = 0; // Peso total original de la sección (ej. 0.25 para Sección 1)
-        let pesoNASeccion = 0;    // Peso total de los ítems "No Aplicables" en la sección
+        let pesoTotalSeccion = 0;
+        let pesoNASeccion = 0;
         
-        // Obtener todos los inputs de calificación de la sección actual
         const calificacionesSeccion = document.querySelectorAll(`#seccion${i} .calificacion`);
 
-        // Primera pasada: Calcular el peso total de la sección y el peso de los ítems N/A
         calificacionesSeccion.forEach(function(calificacionInput) {
             const pesoOriginal = parseFloat(calificacionInput.getAttribute('data-peso'));
-            pesoTotalSeccion += pesoOriginal; // Sumar el peso original de todos los ítems
+            pesoTotalSeccion += pesoOriginal;
 
             const fila = calificacionInput.closest('tr');
             const naCheck = fila.querySelector('.na-check');
 
             if (naCheck && naCheck.checked) {
                 pesoNASeccion += pesoOriginal;
-                // Deshabilitar input y marcar como N/A para consistencia visual
                 calificacionInput.disabled = true;
                 calificacionInput.value = "";
                 fila.querySelector('.ponderado').textContent = "N/A";
@@ -113,33 +346,27 @@ function calcularResultados() {
             }
         });
 
-        // Calcular el factor de ajuste para redistribuir los pesos de los ítems N/A
         let factorAjuste = 1;
         const pesoAplicableSeccion = pesoTotalSeccion - pesoNASeccion;
 
         if (pesoNASeccion > 0 && pesoAplicableSeccion > 0) {
-            // Si hay ítems N/A y también ítems aplicables, redistribuir peso
             factorAjuste = pesoTotalSeccion / pesoAplicableSeccion;
         } else if (pesoNASeccion > 0 && pesoAplicableSeccion === 0) {
-            // Si todos los ítems de la sección son N/A, la sección no contribuye al puntaje
-            factorAjuste = 0; 
+            factorAjuste = 0;
         }
-        // Si pesoNASeccion es 0, factorAjuste permanece en 1, no hay redistribución
 
-        // Segunda pasada: Calcular los ponderados individuales y el subtotal, aplicando el factor de ajuste
         calificacionesSeccion.forEach(function(calificacionInput) {
             const fila = calificacionInput.closest('tr');
             const naCheck = fila.querySelector('.na-check');
             const ponderadoCell = fila.querySelector('.ponderado');
 
-            // Solo procesar si el ítem no está marcado como N/A
             if (!(naCheck && naCheck.checked)) {
                 if (calificacionInput.value) {
                     const pesoOriginal = parseFloat(calificacionInput.getAttribute('data-peso'));
                     const valor = parseFloat(calificacionInput.value);
                     let ponderadoCalculado = 0;
 
-                    if (factorAjuste > 0) { // Solo calcular si hay ítems aplicables en la sección
+                    if (factorAjuste > 0) {
                         const pesoAjustado = pesoOriginal * factorAjuste;
                         ponderadoCalculado = (valor * pesoAjustado);
                     }
@@ -147,19 +374,15 @@ function calcularResultados() {
                     ponderadoCell.textContent = ponderadoCalculado.toFixed(3);
                     subtotal += ponderadoCalculado;
                 } else {
-                    // Si no es N/A pero no tiene valor, su ponderado es 0
                     ponderadoCell.textContent = "0";
                 }
             }
         });
         
-        // Obtener el peso total de la sección del HTML para normalización
-        // Esto asume que el peso de la sección está en la fila de subtotal, 2da celda
         const sectionWeightText = document.querySelector(`#seccion${i} .resultado td:nth-child(2)`).textContent.trim();
-        const sectionTotalWeight = parseFloat(sectionWeightText.replace('%', '')) / 100; // Convertir a decimal (ej. 0.25)
+        const sectionTotalWeight = parseFloat(sectionWeightText.replace('%', '')) / 100;
 
-        // Actualizar el subtotal de la sección y su calificación textual
-        if (pesoAplicableSeccion === 0 && pesoTotalSeccion > 0) { // Todos los ítems de la sección son N/A
+        if (pesoAplicableSeccion === 0 && pesoTotalSeccion > 0) {
              document.querySelector(`#seccion${i} .subtotal`).textContent = "N/A";
              document.getElementById(`resultado-seccion${i}`).textContent = "N/A";
              document.getElementById(`cal-seccion${i}`).textContent = "N/A";
@@ -167,30 +390,21 @@ function calcularResultados() {
             document.querySelector(`#seccion${i} .subtotal`).textContent = subtotal.toFixed(3);
             document.getElementById(`resultado-seccion${i}`).textContent = subtotal.toFixed(3);
             
-            // Normalizar el subtotal para la función getCalificacionTexto
-            // El subtotal de la sección varía desde (pesoTotalSeccion * 1) hasta (pesoTotalSeccion * 5)
-            // La normalización a un rango de 0 a 1 es: (subtotal - (pesoTotalSeccion * 1)) / ((pesoTotalSeccion * 5) - (pesoTotalSeccion * 1))
-            // Simplificado: (subtotal - pesoTotalSeccion) / (pesoTotalSeccion * 4)
             const normalizedSubtotal = (subtotal - sectionTotalWeight) / (sectionTotalWeight * 4);
             const calTexto = getCalificacionTexto(normalizedSubtotal);
             document.getElementById(`cal-seccion${i}`).textContent = calTexto;
         }
     }
     
-    // Calcular el total ponderado global
     let totalPonderado = 0;
     const seccionesResultados = document.querySelectorAll('.seccion-resultado');
     seccionesResultados.forEach(function(seccion) {
-        // Sumar solo si el resultado de la sección es un número válido (no "N/A")
         const val = parseFloat(seccion.textContent);
         if (!isNaN(val)) {
             totalPonderado += val;
         }
     });
     
-    // Normalizar el totalPonderado para la función getCalificacionTexto
-    // totalPonderado varía desde 1.0 (si todas las calificaciones son 1) hasta 5.0 (si todas son 5)
-    // La normalización a un rango de 0 a 1 es: (totalPonderado - 1) / (5 - 1) = (totalPonderado - 1) / 4
     const normalizedTotalPonderado = (totalPonderado - 1) / 4;
 
     document.getElementById('total-ponderado').textContent = totalPonderado.toFixed(3);
@@ -199,16 +413,13 @@ function calcularResultados() {
 
 /**
  * Determina la calificación textual basada en un valor numérico normalizado (0-1).
- * La escala de calificación se basa en porcentajes de cumplimiento.
- * @param {number} valor - El valor numérico normalizado (0-1) a convertir en calificación textual.
- * @returns {string} La calificación textual correspondiente.
  */
 function getCalificacionTexto(valor) {
-    if (valor < 0.2) return "Deficiente";    // 0% - 19.99% de cumplimiento
-    if (valor < 0.4) return "Regular";       // 20% - 39.99% de cumplimiento
-    if (valor < 0.6) return "Aceptable";     // 40% - 59.99% de cumplimiento
-    if (valor < 0.8) return "Bueno";         // 60% - 79.99% de cumplimiento
-    return "Excelente";                      // 80% - 100% de cumplimiento
+    if (valor < 0.2) return "Deficiente";
+    if (valor < 0.4) return "Regular";
+    if (valor < 0.6) return "Aceptable";
+    if (valor < 0.8) return "Bueno";
+    return "Excelente";
 }
 
 /**
@@ -244,24 +455,13 @@ function toggleGuiasCalificacion() {
 
 /**
  * Abre el modal de calculadora de calificaciones y sugiere calificaciones.
- * Se ha modificado para usar un cuadro de diálogo personalizado en lugar de `alert()`
- * para confirmar la sugerencia automática.
  */
 function sugerirCalificaciones() {
-    // Reemplazar alert() con un modal o mensaje personalizado
-    // Por simplicidad, y siguiendo la directriz de no usar alert(),
-    // se procederá directamente con la sugerencia y se informará al usuario.
-    // Si se necesita una confirmación explícita, se debería implementar un modal de confirmación.
-    
-    // Calcular calificaciones basadas en datos ingresados
-    
-    // 1. Tickets
     const ticketsAbiertos = parseInt(document.getElementById('tickets-abiertos').value) || 0;
     const ticketsResueltos = parseInt(document.getElementById('tickets-resueltos').value) || 0;
     const ticketsReabiertos = parseInt(document.getElementById('tickets-reabiertos').value) || 0;
     
     if (ticketsAbiertos > 0 && ticketsResueltos > 0) {
-        // Calificación para tickets resueltos vs pendientes
         const porcentajeResolucion = (ticketsResueltos / ticketsAbiertos) * 100;
         let calTicketsResueltos = 1;
         
@@ -270,13 +470,11 @@ function sugerirCalificaciones() {
         else if (porcentajeResolucion >= 75) calTicketsResueltos = 3;
         else if (porcentajeResolucion >= 60) calTicketsResueltos = 2;
         
-        // Asegurarse de que el elemento existe antes de intentar asignar el valor
         const targetTicketsResueltos = document.querySelector('#seccion2 tr:nth-child(2) .calificacion');
         if (targetTicketsResueltos) {
             targetTicketsResueltos.value = calTicketsResueltos;
         }
         
-        // Calificación para reaperturas
         if (ticketsResueltos > 0 && ticketsReabiertos >= 0) {
             const porcentajeReapertura = (ticketsReabiertos / ticketsResueltos) * 100;
             let calReaperturas = 5;
@@ -293,18 +491,16 @@ function sugerirCalificaciones() {
         }
     }
     
-    // 2. SLAs (Tiempo de respuesta a incidentes críticos)
     const slaCritica = document.getElementById('sla-critica').value;
     const actualCritica = document.getElementById('actual-critica').value;
     
     if (slaCritica && actualCritica) {
-        // Convertir a minutos para comparación
         const minutosCompromiso = convertirATiempo(slaCritica);
         const minutosActual = convertirATiempo(actualCritica);
         
         if (minutosCompromiso > 0 && minutosActual >= 0) {
             const porcentajeSLA = (minutosActual / minutosCompromiso) * 100;
-            let calTiempoRespuesta = 3; // Valor por defecto
+            let calTiempoRespuesta = 3;
 
             if (porcentajeSLA > 150) calTiempoRespuesta = 1;
             else if (porcentajeSLA > 100) calTiempoRespuesta = 2;
@@ -319,22 +515,8 @@ function sugerirCalificaciones() {
         }
     }
     
-    // Recalcular resultados después de aplicar las sugerencias
     calcularResultados();
-    
-    // Informar al usuario (sin usar alert)
-    // Podrías mostrar un mensaje temporal en la UI, por ejemplo:
-    const messageDiv = document.createElement('div');
-    messageDiv.textContent = 'Se han sugerido calificaciones para los criterios basados en los datos ingresados. Revise y ajuste según sea necesario.';
-    messageDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background-color: #27ae60; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1001; opacity: 0; transition: opacity 0.5s;';
-    document.body.appendChild(messageDiv);
-    setTimeout(() => {
-        messageDiv.style.opacity = 1;
-    }, 100);
-    setTimeout(() => {
-        messageDiv.style.opacity = 0;
-        messageDiv.addEventListener('transitionend', () => messageDiv.remove());
-    }, 5000); // Mensaje visible por 5 segundos
+    showCustomMessage('Se han sugerido calificaciones basadas en los datos ingresados', 'success');
 }
 
 /**
@@ -345,12 +527,12 @@ function cerrarCalculadora() {
 }
 
 /**
- * Maneja el cambio de criterio en la calculadora, cargando el formulario dinámicamente.
+ * Maneja el cambio de criterio en la calculadora.
  */
 function cambiarCriterioCalculadora() {
     const criterio = document.getElementById('criterio-select').value;
     const formDiv = document.getElementById('calc-form');
-    const calcResultadoDiv = document.getElementById('calc-resultado'); // Reset result area
+    const calcResultadoDiv = document.getElementById('calc-resultado');
     calcResultadoDiv.innerHTML = 'Seleccione un criterio y complete los datos para ver el resultado';
     calcResultadoDiv.dataset.calificacion = '';
     calcResultadoDiv.dataset.criterio = '';
@@ -360,7 +542,6 @@ function cambiarCriterioCalculadora() {
         return;
     }
     
-    // Formularios específicos para cada criterio
     let formHtml = '';
     
     switch(criterio) {
@@ -419,20 +600,16 @@ function cambiarCriterioCalculadora() {
     
     formDiv.innerHTML = formHtml;
     
-    // Agregar event listeners a los botones calculadores después de que el HTML se haya insertado
     setTimeout(() => {
         if (criterio === 'tiempo-respuesta' && document.getElementById('calcular-tr')) {
             document.getElementById('calcular-tr').addEventListener('click', calcularTiempoRespuesta);
         }
-        
         if (criterio === 'uptime' && document.getElementById('calcular-uptime')) {
             document.getElementById('calcular-uptime').addEventListener('click', calcularUptime);
         }
-        
         if (criterio === 'tickets-resueltos' && document.getElementById('calcular-tickets')) {
             document.getElementById('calcular-tickets').addEventListener('click', calcularTicketsResueltos);
         }
-        
         if (criterio === 'entregables' && document.getElementById('calcular-entrega')) {
             document.getElementById('calcular-entrega').addEventListener('click', calcularEntregables);
         }
@@ -447,7 +624,6 @@ function calcularTiempoRespuesta() {
     const real = parseFloat(document.getElementById('tr-real').value) || 0;
     
     if (acordado <= 0) {
-        // Mostrar mensaje de error personalizado en lugar de alert()
         showCustomMessage('Error: Ingrese un tiempo acordado válido (mayor que 0)', 'error');
         return;
     }
@@ -455,12 +631,11 @@ function calcularTiempoRespuesta() {
     const porcentaje = (real / acordado) * 100;
     let calificacion = 0;
     
-    // Reglas de calificación basadas en la guía de SLAs
     if (porcentaje > 150) calificacion = 1;
     else if (porcentaje > 100) calificacion = 2;
     else if (porcentaje >= 90) calificacion = 3;
     else if (porcentaje >= 70) calificacion = 4;
-    else calificacion = 5; // Menor a 70% del SLA
+    else calificacion = 5;
     
     document.getElementById('calc-resultado').innerHTML = `
         <p>Porcentaje del SLA: ${porcentaje.toFixed(2)}%</p>
@@ -468,7 +643,6 @@ function calcularTiempoRespuesta() {
         <p>Justificación: ${obtenerJustificacion('tiempo-respuesta', calificacion)}</p>
     `;
     
-    // Guardar la calificación para poder aplicarla
     document.getElementById('calc-resultado').dataset.calificacion = calificacion;
     document.getElementById('calc-resultado').dataset.criterio = 'tiempo-respuesta';
 }
@@ -480,19 +654,17 @@ function calcularUptime() {
     const uptime = parseFloat(document.getElementById('uptime-porcentaje').value) || 0;
     
     if (uptime < 0 || uptime > 100) {
-        // Mostrar mensaje de error personalizado en lugar de alert()
         showCustomMessage('Error: Ingrese un porcentaje válido (0-100)', 'error');
         return;
     }
     
     let calificacion = 0;
     
-    // Reglas de calificación basadas en la guía de SLAs (Disponibilidad del servicio)
     if (uptime < 98) calificacion = 1;
-    else if (uptime < 99) calificacion = 2; // 98-98.9%
-    else if (uptime < 99.6) calificacion = 3; // 99-99.5%
-    else if (uptime < 99.9) calificacion = 4; // 99.6-99.8%
-    else calificacion = 5; // >99.8%
+    else if (uptime < 99) calificacion = 2;
+    else if (uptime < 99.6) calificacion = 3;
+    else if (uptime < 99.9) calificacion = 4;
+    else calificacion = 5;
     
     document.getElementById('calc-resultado').innerHTML = `
         <p>Uptime: ${uptime}%</p>
@@ -512,7 +684,6 @@ function calcularTicketsResueltos() {
     const resueltos = parseInt(document.getElementById('tr-resueltos').value) || 0;
     
     if (abiertos <= 0) {
-        // Mostrar mensaje de error personalizado en lugar de alert()
         showCustomMessage('Error: Ingrese un número válido de tickets abiertos (mayor que 0)', 'error');
         return;
     }
@@ -520,12 +691,11 @@ function calcularTicketsResueltos() {
     const porcentaje = (resueltos / abiertos) * 100;
     let calificacion = 0;
     
-    // Reglas de calificación basadas en la guía de Gestión de Tickets (Cantidad de tickets resueltos vs. pendientes)
     if (porcentaje < 60) calificacion = 1;
     else if (porcentaje < 75) calificacion = 2;
     else if (porcentaje < 85) calificacion = 3;
     else if (porcentaje < 95) calificacion = 4;
-    else calificacion = 5; // ≥95% resueltos
+    else calificacion = 5;
     
     document.getElementById('calc-resultado').innerHTML = `
         <p>Porcentaje de resolución: ${porcentaje.toFixed(2)}%</p>
@@ -545,7 +715,6 @@ function calcularEntregables() {
     const fechaRealStr = document.getElementById('entrega-real').value;
 
     if (!fechaComprometidaStr || !fechaRealStr) {
-        // Mostrar mensaje de error personalizado en lugar de alert()
         showCustomMessage('Error: Ingrese ambas fechas para calcular.', 'error');
         return;
     }
@@ -554,23 +723,20 @@ function calcularEntregables() {
     const fechaReal = new Date(fechaRealStr);
     
     if (isNaN(fechaComprometida.getTime()) || isNaN(fechaReal.getTime())) {
-        // Mostrar mensaje de error personalizado en lugar de alert()
         showCustomMessage('Error: Formato de fecha inválido. Use AAAA-MM-DD.', 'error');
         return;
     }
     
-    // Calcular diferencia en días (redondeado hacia arriba para incluir el día actual si hay retraso)
     const diffTime = fechaReal.getTime() - fechaComprometida.getTime();
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Convertir milisegundos a días
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
     let calificacion = 0;
     
-    // Reglas de calificación basadas en la guía de Gestión Administrativa (Cumplimiento de entregables documentales)
     if (diffDays > 10) calificacion = 1;
-    else if (diffDays > 5) calificacion = 2; // 6-10 días de retraso
-    else if (diffDays > 2) calificacion = 3; // 3-5 días de retraso
-    else if (diffDays > 0) calificacion = 4; // 1-2 días de retraso
-    else calificacion = 5; // En fecha o anticipado (diffDays <= 0)
+    else if (diffDays > 5) calificacion = 2;
+    else if (diffDays > 2) calificacion = 3;
+    else if (diffDays > 0) calificacion = 4;
+    else calificacion = 5;
     
     document.getElementById('calc-resultado').innerHTML = `
         <p>Días de diferencia: ${diffDays} (positivo = retraso, negativo = anticipado)</p>
@@ -591,48 +757,37 @@ function aplicarCalificacion() {
     const criterio = resultado.dataset.criterio;
     
     if (!calificacion || !criterio) {
-        // Mostrar mensaje de error personalizado en lugar de alert()
         showCustomMessage('Primero debe calcular una calificación en la calculadora.', 'error');
         return;
     }
     
-    // Mapear el criterio seleccionado al campo correspondiente en el formulario
     let targetField = null;
     
     switch(criterio) {
         case 'tiempo-respuesta':
-            // Tiempo de respuesta a incidentes críticos (Sección 1, 2da fila)
             targetField = document.querySelector('#seccion1 tr:nth-child(2) .calificacion');
             break;
         case 'uptime':
-            // Disponibilidad del servicio (uptime) (Sección 1, 4ta fila)
             targetField = document.querySelector('#seccion1 tr:nth-child(4) .calificacion');
             break;
         case 'tickets-resueltos':
-            // Cantidad de tickets resueltos vs. pendientes (Sección 2, 2da fila)
             targetField = document.querySelector('#seccion2 tr:nth-child(2) .calificacion');
             break;
         case 'entregables':
-            // Cumplimiento de entregables documentales (Sección 6, 2da fila)
             targetField = document.querySelector('#seccion6 tr:nth-child(2) .calificacion');
             break;
-        // Puedes añadir más casos aquí si la calculadora se expande a otros criterios
         case 'resolucion-problemas':
-            // Tiempo de resolución de problemas (Sección 1, 3ra fila)
             targetField = document.querySelector('#seccion1 tr:nth-child(3) .calificacion');
             break;
     }
     
     if (targetField) {
         targetField.value = calificacion;
-        // Cerrar el modal
         document.getElementById('calculadoraModal').style.display = 'none';
-        
-        // Actualizar los cálculos para reflejar el cambio
         calcularResultados();
+        showCustomMessage('Calificación aplicada correctamente', 'success');
     } else {
-        // Mostrar mensaje de error personalizado en lugar de alert()
-        showCustomMessage('No se pudo encontrar el campo correspondiente en el formulario principal para aplicar la calificación.', 'error');
+        showCustomMessage('No se pudo encontrar el campo correspondiente en el formulario principal', 'error');
     }
 }
 
@@ -640,27 +795,24 @@ function aplicarCalificacion() {
  * Exporta los datos de la evaluación a un archivo CSV.
  */
 function exportarCSV() {
-    let csvContent = "data:text/csv;charset=utf-8,\uFEFF"; // Add BOM for proper UTF-8 encoding
+    let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
 
-    // --- General Data ---
     csvContent += "Datos Generales\n";
     csvContent += "Nombre del Proveedor," + (document.getElementById('proveedor').value || '') + "\n";
     csvContent += "Período de Evaluación," + (document.getElementById('periodo').value || '') + "\n";
     csvContent += "Responsable de la Evaluación," + (document.getElementById('responsable').value || '') + "\n";
     csvContent += "Fecha de Evaluación," + (document.getElementById('fecha-evaluacion').value || '') + "\n\n";
 
-    // --- SLA Parameters ---
     csvContent += "Parámetros de Evaluación - Tiempos de Respuesta Acordados (SLA)\n";
     csvContent += "Prioridad,Tiempo Acordado,Valor Actual\n";
     const slaRows = document.querySelectorAll('.flex-item:first-child table tr');
     slaRows.forEach((row, index) => {
-        if (index === 0) return; // Skip header row
+        if (index === 0) return;
         const cols = row.querySelectorAll('td');
         
-        // **Añadir comprobaciones aquí**
         if (cols.length < 3) {
             console.warn("Fila de SLA con formato inesperado, saltando:", row.outerHTML);
-            return; // Saltar esta fila mal formada
+            return;
         }
 
         const priority = cols[0].textContent.trim();
@@ -670,37 +822,29 @@ function exportarCSV() {
     });
     csvContent += "\n";
 
-// --- Ticket Statistics ---
     csvContent += "Parámetros de Evaluación - Estadísticas de Tickets\n";
     csvContent += "Métricas,Valor\n";
     const ticketRows = document.querySelectorAll('.flex-item:last-child table tr');
     ticketRows.forEach((row, index) => {
-        if (index === 0) return; // Skip header row
+        if (index === 0) return;
         const cols = row.querySelectorAll('td');
         
-        // **Añadir comprobaciones aquí**
-        // Si el error original estaba en la línea 659, es probable que 'cols[1]' fuera undefined.
         if (cols.length < 2) { 
             console.warn("Fila de tickets con formato inesperado, saltando:", row.outerHTML);
-            return; // Saltar esta fila mal formada
+            return;
         }
 
         const metric = cols[0].textContent.trim();
-        // Asegúrate de que cols[1] existe antes de intentar querySelector
         const value = cols[1].querySelector('input') ? (cols[1].querySelector('input').value || '') : '';
         csvContent += `${metric},"${value}"\n`;
     });
     csvContent += "\n";
 
-    // --- Evaluation Sections (1 to 6) ---
-    // --- Evaluation Sections (1 to 6) ---
     for (let i = 1; i <= 6; i++) {
-        // Find the section table and get its preceding H2 title
         const sectionTable = document.querySelector(`#seccion${i}`);
-        let sectionTitle = `Sección ${i}`; // Default title
+        let sectionTitle = `Sección ${i}`;
         
         if (sectionTable) {
-            // Look for the H2 that comes before this table
             let parentDiv = sectionTable.closest('div');
             if (parentDiv) {
                 const h2Element = parentDiv.querySelector('h2');
@@ -716,9 +860,8 @@ function exportarCSV() {
         const rows = document.querySelectorAll(`#seccion${i} tr:not(.resultado)`);
         rows.forEach(row => {
             const cols = row.querySelectorAll('td');
-            if (cols.length > 0 && cols[0].textContent.trim() !== 'Criterio') { // Skip header row
-                // Añadir comprobación para cols.length aquí
-                if (cols.length < 5) { // Esperamos 5 columnas: Criterio, Peso, Calificación, Ponderado, Observaciones
+            if (cols.length > 0 && cols[0].textContent.trim() !== 'Criterio') {
+                if (cols.length < 5) {
                     console.warn(`Fila de sección ${i} con formato inesperado, saltando:`, row.outerHTML);
                     return;
                 }
@@ -733,7 +876,6 @@ function exportarCSV() {
             }
         });
 
-        // Add subtotal row
         const subtotalRow = document.querySelector(`#seccion${i} .resultado`);
         if (subtotalRow) {
             const subtotalPeso = subtotalRow.querySelector('td:nth-child(2)').textContent.trim();
@@ -743,9 +885,7 @@ function exportarCSV() {
         csvContent += "\n";
     }
 
-    // --- Key Metrics Analysis ---
     csvContent += "Análisis de Métricas Clave\n";
-    // The div containing "Análisis de Métricas Clave" is the 8th div that is a direct child of body
     const metricsDiv = document.querySelector('body > div:nth-of-type(8)'); 
     if (metricsDiv) {
         const metricsRows = metricsDiv.querySelectorAll('table tr');
@@ -761,28 +901,23 @@ function exportarCSV() {
     }
     csvContent += "\n";
 
-    // --- General Observations ---
     csvContent += "Observaciones Generales y Plan de Acción\n";
     csvContent += "Fortalezas identificadas,\"" + (document.getElementById('fortalezas').value.replace(/"/g, '""') || '') + "\"\n";
     csvContent += "Áreas de mejora,\"" + (document.getElementById('areas-mejora').value.replace(/"/g, '""') || '') + "\"\n";
     csvContent += "Plan de acción recomendado,\"" + (document.getElementById('plan-accion').value.replace(/"/g, '""') || '') + "\"\n";
     csvContent += "Fecha de próxima evaluación," + (document.getElementById('proxima-evaluacion').value || '') + "\n";
 
-
-    // Create a hidden link and trigger the download
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
     link.setAttribute("download", "evaluacion_proveedor.csv");
-    document.body.appendChild(link); // Required for Firefox
+    document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 }
 
 /**
- * Convierte un string de tiempo (ej. "1 hora", "45 min", "2.5 horas") a minutos.
- * @param {string} tiempoStr - El string de tiempo a convertir.
- * @returns {number} El tiempo en minutos, o 0 si no se puede parsear.
+ * Convierte un string de tiempo a minutos.
  */
 function convertirATiempo(tiempoStr) {
     tiempoStr = tiempoStr.toLowerCase().trim();
@@ -798,18 +933,13 @@ function convertirATiempo(tiempoStr) {
     } else if (unit.startsWith('hora')) {
         return value * 60;
     } else if (unit.startsWith('día') || unit.startsWith('dia')) {
-        return value * 24 * 60; // 1 día = 24 horas * 60 minutos
+        return value * 24 * 60;
     }
     return 0;
 }
 
-
 /**
- * Obtiene la justificación textual para una calificación específica y criterio.
- * Esto ayuda a proporcionar contexto en la calculadora.
- * @param {string} criterio - El identificador del criterio (ej. 'tiempo-respuesta').
- * @param {number} calificacion - La calificación numérica (1-5).
- * @returns {string} La justificación de la calificación.
+ * Obtiene la justificación textual para una calificación.
  */
 function obtenerJustificacion(criterio, calificacion) {
     const guias = {
@@ -841,7 +971,6 @@ function obtenerJustificacion(criterio, calificacion) {
             4: '1-2 días de retraso',
             5: 'En fecha o anticipado'
         },
-        // Añadir justificaciones para otros criterios si se usan en la calculadora
         'resolucion-problemas': {
             1: '>150% del promedio acordado',
             2: '120-150% del promedio',
@@ -854,18 +983,16 @@ function obtenerJustificacion(criterio, calificacion) {
 }
 
 /**
- * Función para mostrar mensajes personalizados en la UI (reemplazo de alert()).
- * @param {string} message - El texto del mensaje.
- * @param {string} type - El tipo de mensaje ('success' o 'error').
+ * Función para mostrar mensajes personalizados en la UI.
  */
 function showCustomMessage(message, type) {
     const messageDiv = document.createElement('div');
     messageDiv.textContent = message;
     let backgroundColor = '';
     if (type === 'success') {
-        backgroundColor = '#27ae60'; // Green
+        backgroundColor = '#27ae60';
     } else if (type === 'error') {
-        backgroundColor = '#e74c3c'; // Red
+        backgroundColor = '#e74c3c';
     }
     messageDiv.style.cssText = `
         position: fixed;
@@ -882,21 +1009,18 @@ function showCustomMessage(message, type) {
     `;
     document.body.appendChild(messageDiv);
     
-    // Fade in
     setTimeout(() => {
         messageDiv.style.opacity = 1;
     }, 100);
 
-    // Fade out and remove
     setTimeout(() => {
         messageDiv.style.opacity = 0;
         messageDiv.addEventListener('transitionend', () => messageDiv.remove());
-    }, 5000); // Message visible for 5 seconds
+    }, 5000);
 }
 
 /**
  * Función para imprimir la evaluación.
- * Actualmente, solo activa la función de impresión del navegador.
  */
 function imprimirEvaluacion() {
     window.print();
