@@ -30,132 +30,22 @@ document.addEventListener('DOMContentLoaded', function() {
 /**
  * Carga los proveedores desde el JSON
  */
-function cargarProveedores() {
-    // Datos JSON embebidos (puedes reemplazar esto con fetch a un archivo externo)
-    const jsonData = [
-        {
-            "nombre": "Deloitte",
-            "servicios": {
-                "Consultoría Estratégica": {
-                    "sla": {
-                        "critica": "2.0 horas",
-                        "alta": "6.0 horas",
-                        "media": "12.0 horas",
-                        "baja": "48.0 horas"
-                    }
-                },
-                "Ciberseguridad": {
-                    "sla": {
-                        "critica": "1.0 horas",
-                        "alta": "3.0 horas",
-                        "media": "6.0 horas",
-                        "baja": "24.0 horas"
-                    }
-                }
-            }
-        },
-        {
-            "nombre": "Sencinet",
-            "servicios": {
-                "Conectividad": {
-                    "sla": {
-                        "critica": "1.5 horas",
-                        "alta": "4.0 horas",
-                        "media": "8.0 horas",
-                        "baja": "24.0 horas"
-                    }
-                },
-                "Cloud Híbrida": {
-                    "sla": {
-                        "critica": "2.0 horas",
-                        "alta": "5.0 horas",
-                        "media": "10.0 horas",
-                        "baja": "36.0 horas"
-                    }
-                }
-            }
-        },
-        {
-            "nombre": "SoftwareONE",
-            "servicios": {
-                "Licenciamiento Software": {
-                    "sla": {
-                        "critica": "3.0 horas",
-                        "alta": "8.0 horas",
-                        "media": "16.0 horas",
-                        "baja": "48.0 horas"
-                    }
-                },
-                "Servicios Gestionados Cloud": {
-                    "sla": {
-                        "critica": "1.0 horas",
-                        "alta": "3.0 horas",
-                        "media": "6.0 horas",
-                        "baja": "24.0 horas"
-                    }
-                }
-            }
-        },
-        {
-            "nombre": "Neosecure",
-            "servicios": {
-                "Seguridad Gestionada": {
-                    "sla": {
-                        "critica": "0.5 horas",
-                        "alta": "1.5 horas",
-                        "media": "3.0 horas",
-                        "baja": "12.0 horas"
-                    }
-                },
-                "Consultoría de Ciberseguridad": {
-                    "sla": {
-                        "critica": "1.5 horas",
-                        "alta": "4.0 horas",
-                        "media": "8.0 horas",
-                        "baja": "24.0 horas"
-                    }
-                }
-            }
-        },
-        {
-            "nombre": "Stefanini",
-            "servicios": {
-                "Service Desk": {
-                    "sla": {
-                        "critica": "1.0 horas",
-                        "alta": "2.0 horas",
-                        "media": "4.0 horas",
-                        "baja": "16.0 horas"
-                    }
-                },
-                "Desarrollo de Software": {
-                    "sla": {
-                        "critica": "4.0 horas",
-                        "alta": "12.0 horas",
-                        "media": "24.0 horas",
-                        "baja": "72.0 horas"
-                    }
-                }
-            }
-        }
-    ];
-    
-    proveedoresData = jsonData;
-    populateProveedorSelect(proveedoresData);
-    
-    // Si prefieres cargar desde un archivo externo, descomenta esto:
-    /*
+function cargarProveedores() { 
     fetch('js/proveedores.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('No se pudo cargar el archivo JSON');
+            }
+            return response.json();
+        })
         .then(data => {
             proveedoresData = data;
             populateProveedorSelect(proveedoresData);
         })
         .catch(error => {
             console.error('Error al cargar los proveedores:', error);
-            showCustomMessage('Error al cargar la lista de proveedores', 'error');
-        });
-    */
+            showCustomMessage('Error al cargar la lista de proveedores. Verifique que el archivo js/proveedores.json existe.', 'error');
+        }); 
 }
 
 /**
