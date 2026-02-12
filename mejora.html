@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Crecimiento: Analista → Security Controls & Governance Lead</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: #ffffff;
+            padding: 60px 40px;
+            border-bottom: 4px solid #404040;
+        }
+        
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        
+        header .subtitle {
+            font-size: 1.3em;
+            color: #b8b8b8;
+            margin-bottom: 25px;
+        }
+        
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .meta-card {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .meta-card .label {
+            font-size: 0.85em;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .meta-card .value {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-header {
+            background: #f8f8f8;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            border-left: 6px solid #2c2c2c;
+            border-radius: 4px;
+        }
+        
+        .section-header h2 {
+            font-size: 2em;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        .section-header .description {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .project-card {
+            background: #fafafa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            border-color: #2c2c2c;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+        
+        .project-card h3 {
+            font-size: 1.6em;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .tech-stack {
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .tech-stack h4 {
+            font-size: 1.1em;
+            color: #2c2c2c;
+            margin-bottom: 15px;
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tech-tag {
+            background: #2c2c2c;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .kpi-card {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .kpi-card .value {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .kpi-card .label {
+            font-size: 0.95em;
+            color: #b8b8b8;
+        }
+        
+        .architecture-diagram {
+            background: #fafafa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 25px 0;
+        }
+        
+        .architecture-diagram h4 {
+            font-size: 1.1em;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .arch-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .arch-layer {
+            background: #fff;
+            border: 1px solid #d0d0d0;
+            border-radius: 6px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .arch-layer-title {
+            font-weight: 600;
+            color: #2c2c2c;
+            min-width: 150px;
+            font-size: 0.9em;
+        }
+        
+        .arch-layer-content {
+            color: #666;
+            font-size: 0.9em;
+            flex: 1;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .phase-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .phase-list li {
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            background: #f8f8f8;
+            border-left: 4px solid #2c2c2c;
+            border-radius: 4px;
+        }
+        
+        .phase-list li strong {
+            color: #2c2c2c;
+        }
+        
+        .cost-badge {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        footer {
+            background: #2c2c2c;
+            color: #b8b8b8;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Plan de Crecimiento Acelerado</h1>
+            <div class="subtitle">De Analista de Controles a Security Controls & Governance Lead</div>
+            
+            <div class="meta-info">
+                <div class="meta-card">
+                    <div class="label">Duración</div>
+                    <div class="value">12 meses</div>
+                </div>
+                <div class="meta-card">
+                    <div class="label">Inversión</div>
+                    <div class="value">$0 USD</div>
+                </div>
+                <div class="meta-card">
+                    <div class="label">ROI Esperado</div>
+                    <div class="value">∞ (Infinito)</div>
+                </div>
+                <div class="meta-card">
+                    <div class="label">Sector</div>
+                    <div class="value">Financiero LATAM</div>
+                </div>
+                <div class="meta-card">
+                    <div class="label">Stack</div>
+                    <div class="value">Multi-Cloud Híbrido</div>
+                </div>
+                <div class="meta-card">
+                    <div class="label">Dedicación Semanal</div>
+                    <div class="value">10 horas</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- DESCRIPCIÓN DEL PUESTO -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>👔 Descripción del Puesto Objetivo</h2>
+                    <div class="description">Security Controls & Governance Lead</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🎯 Security Controls & Governance Lead - Definición del Rol</h3>
+                    
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">📋 Resumen Ejecutivo del Puesto</h4>
+                        <p style="color: #444; line-height: 1.8; margin-bottom: 15px;">
+                            El <strong>Security Controls & Governance Lead</strong> es el rol estratégico responsable del diseño, implementación, monitoreo y optimización continua de todo el framework de controles de seguridad de la información a nivel corporativo. Este rol trasciende la evaluación técnica de controles para convertirse en el <strong>dueño del proceso end-to-end</strong>: desde la definición de qué controles se necesitan (basado en riesgos y regulaciones), hasta la automatización de su operación, reporte ejecutivo, y gobierno de cambios.
+                        </p>
+                        <p style="color: #444; line-height: 1.8; margin-bottom: 20px;">
+                            A diferencia del rol de Analista de Controles (foco en evaluación y reporting), el Lead tiene <strong>ownership</strong> de resultados de negocio: reducción de riesgo cuantificada, cumplimiento regulatorio multi-jurisdicción, y eficiencia operativa (automatización). Este rol actúa como <strong>puente entre CISOs/Arquitecto (estrategia) y equipos de ejecución (SOC, IT, Cloud)</strong>, traduciendo requerimientos de alto nivel en controles concretos y medibles.
+                        </p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">🔑 Responsabilidades Clave</h4>
+                        <ul class="phase-list">
+                            <li>
+                                <strong>1. Ownership del Control Framework Corporativo:</strong><br>
+                                Diseñar y mantener el framework unificado de controles mapeado a NIST CSF v2.0, ISO 27001, y regulaciones específicas de cada país (SBS Perú, CMF Chile, SFC Colombia, CNBV México). Definir qué controles son críticos, cuáles son "nice to have", y priorizar inversiones basado en análisis de riesgo. Garantizar que el framework evoluciona con el negocio (nuevas tecnologías cloud, adquisiciones, nuevos productos).
+                            </li>
+                            <li>
+                                <strong>2. Gobierno de Controles (Control Governance):</strong><br>
+                                Establecer y operar procesos formales de Change Advisory Board (CAB) para aprobar modificaciones a controles críticos. Definir matriz RACI (Responsible, Accountable, Consulted, Informed) para cada control. Gestionar excepciones temporales con aprobación ejecutiva. Garantizar trazabilidad completa: quién cambió qué, cuándo, por qué, con aprobación de quién. Auditoría interna y externa confían en este proceso.
+                            </li>
+                            <li>
+                                <strong>3. Automatización y Optimización de Controles:</strong><br>
+                                Liderar iniciativas de automatización (como los 3 proyectos de este plan) para reducir operación manual, eliminar errores humanos, y escalar sin aumentar headcount. Medir ROI de automatización (horas ahorradas → $$ → reinversión en controles más estratégicos). Evangelizar "Compliance-as-Code" y "Continuous Control Monitoring" en toda la organización.
+                            </li>
+                            <li>
+                                <strong>4. Reporting Ejecutivo y Risk Quantification:</strong><br>
+                                Traducir métricas técnicas (% vulnerabilidades patcheadas, secure scores, cobertura EDR) a lenguaje ejecutivo (exposición financiera, probabilidad de multa regulatoria, impacto reputacional). Presentaciones mensuales a C-level con recomendaciones accionables. No solo reportar problemas, sino proponer soluciones con business case (coste, timeline, riesgo residual).
+                            </li>
+                            <li>
+                                <strong>5. Coordinación Multi-País y Multi-Equipo:</strong><br>
+                                Trabajar con 3 CISOs de país para garantizar consistencia de controles pero flexibilidad para requerimientos locales. Colaborar con Arquitecto de Ciberseguridad en diseño de soluciones técnicas. Coordinar con SOC para detección/respuesta, con Vulnerabilidades para remediation, con IT/Cloud para implementación. Facilitar alineación, no imponer controles top-down sin consenso.
+                            </li>
+                            <li>
+                                <strong>6. Preparación y Soporte a Auditorías:</strong><br>
+                                Liderar preparación de auditorías internas y externas (ISO 27001, SOC 2, auditorías regulatorias). Garantizar que evidencia está disponible, actualizada, y bien documentada 365 días/año (no solo semanas antes de auditoría). Interactuar directamente con auditores: presentar postura de controles, justificar decisiones técnicas, negociar hallazgos. Meta: zero hallazgos críticos en auditorías.
+                            </li>
+                            <li>
+                                <strong>7. Desarrollo de Equipo y Mentoría:</strong><br>
+                                Supervisar 2-3 analistas de controles junior. Delegar tareas operativas (recolección de evidencia, análisis de alertas) mientras el Lead se enfoca en estrategia. Mentorar en skills técnicos (scripting, APIs, herramientas) y soft skills (presentación ejecutiva, negociación con stakeholders). Crear career path para que analistas crezcan a roles Lead/Manager.
+                            </li>
+                            <li>
+                                <strong>8. Innovación y Mejora Continua:</strong><br>
+                                Mantenerse actualizado en tendencias de industria (IA en ciberseguridad, nuevos frameworks, regulaciones emergentes). Proponer y ejecutar PoCs de nuevas tecnologías (como los proyectos de este plan). Participar en comunidades externas (ISACA, CSA, OWASP) para networking y aprendizaje. Posicionar a la organización como líder en prácticas de control automation.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">💼 Perfil Requerido y Skills Críticas</h4>
+                        
+                        <p style="color: #444; margin-bottom: 15px;"><strong>Experiencia:</strong></p>
+                        <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
+                            <li style="padding: 8px 0; color: #444;">✓ 5-7 años en ciberseguridad, con al menos 3 años en roles de controles/compliance/GRC</li>
+                            <li style="padding: 8px 0; color: #444;">✓ Experiencia comprobada implementando controles en entornos multi-cloud (AWS, Azure, GCP)</li>
+                            <li style="padding: 8px 0; color: #444;">✓ Conocimiento profundo de frameworks: NIST CSF, ISO 27001, COBIT, CIS Controls</li>
+                            <li style="padding: 8px 0; color: #444;">✓ Participación exitosa en auditorías (ISO, SOC 2, regulatorias) con resultados positivos</li>
+                            <li style="padding: 8px 0; color: #444;">✓ Liderazgo de proyectos técnicos complejos con múltiples stakeholders</li>
+                        </ul>
+
+                        <p style="color: #444; margin-bottom: 15px;"><strong>Skills Técnicas:</strong></p>
+                        <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
+                            <li style="padding: 8px 0; color: #444;">✓ <strong>Herramientas de seguridad:</strong> EDR/XDR (Crowdstrike, SentinelOne), CSPM (Wiz, Prisma Cloud, nativo cloud), DLP (Netskope, Forcepoint), SIEM/SOAR</li>
+                            <li style="padding: 8px 0; color: #444;">✓ <strong>Cloud Security:</strong> Configuración de controles en Azure (Entra ID, Defender), AWS (Security Hub, GuardDuty, IAM), GCP (Security Command Center)</li>
+                            <li style="padding: 8px 0; color: #444;">✓ <strong>Scripting/Automatización:</strong> Python (intermedio-avanzado), PowerShell, Bash. APIs REST, JSON/YAML parsing</li>
+                            <li style="padding: 8px 0; color: #444;">✓ <strong>IaC y Compliance-as-Code:</strong> Terraform, CloudFormation, Ansible. Policy-as-Code con OPA (Open Policy Agent) o Cloud Custodian</li>
+                            <li style="padding: 8px 0; color: #444;">✓ <strong>Data & Analytics:</strong> SQL, Pandas, visualización (Grafana, Power BI, Tableau). Familiaridad con ELK stack</li>
+                            <li style="padding: 8px 0; color: #444;">✓ <strong>Deseable: IA/ML aplicado a seguridad</strong> (LangChain, LLMs, embeddings, vector databases) - diferenciador clave vs. candidatos tradicionales</li>
+                        </ul>
+
+                        <p style="color: #444; margin-bottom: 15px;"><strong>Skills de Liderazgo y Comunicación:</strong></p>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 8px 0; color: #444;">✓ <strong>Comunicación ejecutiva:</strong> Capacidad de presentar a C-level traduciendo tech → business impact. Slides concisos, storytelling con datos</li>
+                            <li style="padding: 8px 0; color: #444;">✓ <strong>Influencia sin autoridad:</strong> Lograr alineación entre equipos (DevOps, IT, Cloud) sin ser su manager. Negociación, empatía, business acumen</li>
+                            <li style="padding: 8px 0; color: #444;">✓ <strong>Gestión de stakeholders:</strong> Trabajar con múltiples CISOs, auditores, Legal/Compliance, vendors. Manage up, down, sideways</li>
+                            <li style="padding: 8px 0; color: #444;">✓ <strong>Mentoría:</strong> Desarrollar talento junior. Paciencia, feedback constructivo, crear learning paths</li>
+                            <li style="padding: 8px 0; color: #444;">✓ <strong>Pensamiento estratégico:</strong> Ver más allá de tareas inmediatas. Anticipar riesgos, proponer iniciativas proactivas, alinear seguridad con objetivos de negocio</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">📈 Métricas de Éxito del Rol (KPIs)</h4>
+                        <ul class="phase-list">
+                            <li><strong>Compliance:</strong> 100% controles críticos NIST/ISO implementados y operando. Zero hallazgos críticos en auditorías. <95% controles automatizados (objetivo a 18 meses).</li>
+                            <li><strong>Eficiencia:</strong> Reducción 60-80% en tiempo de preparación de auditorías. Ahorro $150K+ anual en horas-persona. MTTR hallazgos críticos <7 días.</li>
+                            <li><strong>Riesgo:</strong> Reducción 40%+ en exposure regulatorio (cuantificado en $$). Zero incidentes de seguridad por fallas de controles. Visibility 100% de postura de seguridad multi-cloud.</li>
+                            <li><strong>Gobernanza:</strong> 100% cambios a controles críticos pasan por CAB. Zero excepciones sin aprobación ejecutiva. Audit trail completo 365 días.</li>
+                            <li><strong>Innovación:</strong> 2-3 iniciativas de automatización/IA implementadas por año. Presentación en 1+ conferencia externa. Posicionamiento como thought leader interno.</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box" style="background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%); color: #fff; border: none;">
+                        <h4 style="margin-bottom: 15px; color: #fff;">💡 Por Qué Este Rol es el Paso Natural Antes de CISO</h4>
+                        <p style="color: #ddd; line-height: 1.8;">
+                            El Security Controls & Governance Lead tiene visibilidad de <strong>TODA</strong> la operación de seguridad (controles técnicos, procesos, personas, tecnología), pero sin la carga política/presupuestaria de un CISO. Es el "training ground" perfecto para desarrollar skills de CxO: pensamiento estratégico, gestión de presupuestos (ROI de controles), relación con Board/auditores, y liderazgo de equipos distribuidos. Un Lead exitoso en este rol por 2-3 años tiene el skillset completo para ser CISO de empresa mediana o Deputy CISO de enterprise.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MES 1 -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>📊 MES 1: Diagnóstico Estratégico</h2>
+                    <div class="description">Establecer la línea base y identificar oportunidades de alto impacto</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Security Control Intelligence Baseline</h3>
+                    
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">🎯 Objetivo del Proyecto</h4>
+                        <p style="color: #444; line-height: 1.8; margin-bottom: 15px;">
+                            Crear un diagnóstico cuantificado y ejecutivo del estado actual de los controles de seguridad en los 4 países (Perú, Chile, Colombia, México). Este diagnóstico servirá como la <strong>línea base irrefutable</strong> que demostrará el valor de tus próximas iniciativas. El objetivo es transformar métricas técnicas dispersas en un dashboard de riesgo financiero que C-level pueda entender y usar para tomar decisiones.
+                        </p>
+                        <p style="color: #444; line-height: 1.8;">
+                            <strong>Valor ejecutivo:</strong> Identificar el "coste oculto" de la operación manual de controles (horas-persona desperdiciadas), cuantificar gaps regulatorios por país ($$ en multas potenciales), y proporcionar 5 "quick wins" que generen visibilidad inmediata con tu liderazgo. Este mes establece tu credibilidad como estratega, no solo como ejecutor técnico.
+                        </p>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <h4>🛠️ Stack Tecnológico Detallado</h4>
+                        <div style="margin-top: 20px;">
+                            <div class="arch-layer" style="margin-bottom: 15px;">
+                                <div class="arch-layer-title">Python 3.11</div>
+                                <div class="arch-layer-content">
+                                    <strong>Para qué:</strong> Lenguaje base para scripts de extracción y análisis de datos desde APIs. 
+                                    <strong>Cómo:</strong> Scripts que consultan todas las APIs cada 24h, consolidan datos en DataFrames de Pandas, y generan reportes automatizados. Ventaja: gratuito, multiplataforma, ideal para automatización.
+                                </div>
+                            </div>
+                            <div class="arch-layer" style="margin-bottom: 15px;">
+                                <div class="arch-layer-title">Pandas + NumPy</div>
+                                <div class="arch-layer-content">
+                                    <strong>Para qué:</strong> Procesamiento y análisis de grandes volúmenes de datos de controles (logs, configs, eventos). 
+                                    <strong>Cómo:</strong> Pandas lee JSONs de APIs, normaliza estructuras heterogéneas, calcula métricas (% automatización, tiempo promedio respuesta). NumPy para cálculos estadísticos (percentiles, desviación estándar en tiempos de remediación).
+                                </div>
+                            </div>
+                            <div class="arch-layer" style="margin-bottom: 15px;">
+                                <div class="arch-layer-title">Jupyter Notebook</div>
+                                <div class="arch-layer-content">
+                                    <strong>Para qué:</strong> Análisis exploratorio interactivo y generación de gráficos ejecutivos. 
+                                    <strong>Cómo:</strong> Notebooks con visualizaciones (Plotly, Matplotlib): mapas de calor de controles por país, tendencias temporales, comparativas antes/después. Se exportan a PDF para presentaciones C-level. Ventaja: iteración rápida sin compilar código.
+                                </div>
+                            </div>
+                            <div class="arch-layer" style="margin-bottom: 15px;">
+                                <div class="arch-layer-title">Crowdstrike Falcon API</div>
+                                <div class="arch-layer-content">
+                                    <strong>Para qué:</strong> Extraer datos de cobertura EDR, vulnerabilidades detectadas, incidentes, configuración de políticas. 
+                                    <strong>Cómo:</strong> Endpoint <code>/devices/queries/devices/v1</code> para inventario de agentes por país. <code>/vulnerabilities/queries/vulnerabilities/v1</code> para CVEs pendientes. <code>/incidents/queries/incidents/v1</code> para histórico de detecciones. Consolidas en CSV: "1,200 endpoints, 95% con agent, 60 CVEs críticas sin patchear".
+                                </div>
+                            </div>
+                            <div class="arch-layer" style="margin-bottom: 15px;">
+                                <div class="arch-layer-title">Netskope API</div>
+                                <div class="arch-layer-content">
+                                    <strong>Para qué:</strong> Analizar alertas DLP, Shadow IT, tráfico cloud apps, policies aplicadas. 
+                                    <strong>Cómo:</strong> Endpoint <code>/api/v2/events/data/alert</code> para alertas DLP (últimos 30 días). Clasificas por severidad, tipo (exfiltración, sharing público), país. Resultado: "850 alertas DLP/mes, 70% falsos positivos (análisis manual = 16h/semana)". Evidencia del coste de operación manual.
+                                </div>
+                            </div>
+                            <div class="arch-layer" style="margin-bottom: 15px;">
+                                <div class="arch-layer-title">Microsoft Graph API</div>
+                                <div class="arch-layer-content">
+                                    <strong>Para qué:</strong> Auditar configuración Azure AD (MFA, accesos privilegiados, conditional access), Office 365 Security Scores, DLP policies. 
+                                    <strong>Cómo:</strong> <code>/v1.0/identity/conditionalAccess/policies</code> para políticas de acceso. <code>/v1.0/users</code> con filtro <code>assignedLicenses</code> para usuarios privilegiados sin MFA. <code>/beta/security/secureScores</code> para trends de Secure Score. Output: "15% admins sin MFA = violación ISO 27001 AC-3".
+                                </div>
+                            </div>
+                            <div class="arch-layer" style="margin-bottom: 15px;">
+                                <div class="arch-layer-title">Cloudflare API</div>
+                                <div class="arch-layer-content">
+                                    <strong>Para qué:</strong> Inventariar DNS records, WAF rules, SSL/TLS configs, attack logs por dominio (surainvestments.com, sura-im.com, etc). 
+                                    <strong>Cómo:</strong> <code>/zones/{zone_id}/dns_records</code> para inventario completo DNS. <code>/zones/{zone_id}/firewall/waf/packages</code> para reglas WAF activas. Identificas gaps: "20 subdominios sin WAF, 5 certificados expirados, modo proxy deshabilitado en 12 registros tipo A".
+                                </div>
+                            </div>
+                            <div class="arch-layer" style="margin-bottom: 15px;">
+                                <div class="arch-layer-title">AWS Security Hub</div>
+                                <div class="arch-layer-content">
+                                    <strong>Para qué:</strong> Consolidar hallazgos de seguridad multi-cuenta AWS (misconfigurations, compliance checks CIS Benchmark). 
+                                    <strong>Cómo:</strong> <code>GetFindings</code> API con filtros por severidad CRITICAL/HIGH. Mapeas a controles NIST/ISO: "S3 buckets públicos = violación SC-28 (encryption at rest)". Cuantificas por cuenta/región/país.
+                                </div>
+                            </div>
+                            <div class="arch-layer" style="margin-bottom: 15px;">
+                                <div class="arch-layer-title">Azure Security Center</div>
+                                <div class="arch-layer-content">
+                                    <strong>Para qué:</strong> Obtener Secure Score de Azure, recomendaciones de seguridad, compliance con benchmarks (ISO 27001, NIST). 
+                                    <strong>Cómo:</strong> API <code>/subscriptions/{id}/providers/Microsoft.Security/secureScores</code>. Extraes score por suscripción/país. Recomendaciones pendientes se mapean a controles: "Azure SQL sin TDE = SC-28 no compliant". Dashboard: "México 68% score, Colombia 72%".
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">📦 Entregables Detallados</h4>
+                        <ul class="phase-list">
+                            <li>
+                                <strong>1. Inventario completo de controles NIST CSF v2.0 + ISO 27001:</strong><br>
+                                Excel/CSV con 100% controles mapeados a herramientas actuales. Columnas: Control ID, Descripción, Herramienta responsable (Crowdstrike/Netskope/O365/Cloudflare/Manual), Estado (Implementado/Parcial/Gap), Nivel de automatización (0-100%), Owner. Ejemplo: "AC-2 Account Management → Azure AD → Implementado → 80% automatizado (creación auto, eliminación manual) → Owner: IAM Team".
+                            </li>
+                            <li>
+                                <strong>2. Mapa de calor de madurez por país:</strong><br>
+                                Heatmap visual (Plotly/Seaborn) con eje X = países (PE, CL, CO, MX), eje Y = categorías NIST (Identify, Protect, Detect, Respond, Recover). Color verde = >80% automatizado, amarillo = 50-80%, rojo = <50%. Drill-down: click en celda muestra controles específicos. Objetivo: C-level ve en 5 segundos dónde están los gaps.
+                            </li>
+                            <li>
+                                <strong>3. Análisis de tiempo/coste por control:</strong><br>
+                                Tabla con columnas: Control, Horas/mes actuales, Coste (hrs × $50/hr), Potencial de automatización (%), Ahorro anual proyectado. Ejemplo: "DLP Review (Netskope+O365) = 16h/mes × $50 = $800/mes = $9.6K/año. Automatización posible: 70% → Ahorro $6.7K/año". Sumar todos los controles → "Total ahorro potencial: $180K/año con automatización".
+                            </li>
+                            <li>
+                                <strong>4. Gaps de visibilidad multi-cloud:</strong><br>
+                                Diagrama de arquitectura actual con "blind spots" marcados en rojo. Ejemplo: "AWS: 15 cuentas, solo 8 con Security Hub activado. Azure: 20 suscripciones, 12 sin Defender. GCP: 5 proyectos, 0 con Security Command Center". Impacto: "40% de infraestructura cloud sin monitoreo de compliance → exposure desconocido a auditorías".
+                            </li>
+                            <li>
+                                <strong>5. Quantified Risk Dashboard v1.0:</strong><br>
+                                Dashboard Power BI/Grafana con 4 vistas: (1) Exposure regulatorio por país en $$ (multas potenciales SBS/CMF/SFC/CNBV por gaps), (2) MTTR promedio por tipo de hallazgo, (3) Top 10 controles con mayor coste operativo, (4) Tendencia últimos 6 meses. Actualización automática diaria via APIs.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="value">100%</div>
+                        <div class="label">Inventario de controles</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value">5</div>
+                        <div class="label">Quick wins identificados</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value">1</div>
+                        <div class="label">Presentación C-level</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 1 -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>⭐ MESES 2-4: AI-Powered Security Control Copilot</h2>
+                    <div class="description">Automatización inteligente de controles con IA</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🤖 AI-Powered Security Control Copilot <span class="cost-badge">COSTO: $0</span></h3>
+                    
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">🎯 Objetivo del Proyecto</h4>
+                        <p style="color: #444; line-height: 1.8; margin-bottom: 15px;">
+                            Construir un <strong>asistente inteligente</strong> basado en LLMs que automatice las tareas más repetitivas y cognitivamente demandantes del equipo de controles: recolección de evidencia para auditorías, análisis de alertas DLP, investigación de compliance gaps, y generación de reportes. Este copilot actúa como un "analista junior virtual" que trabaja 24/7 sin coste de licencias adicionales.
+                        </p>
+                        <p style="color: #444; line-height: 1.8; margin-bottom: 15px;">
+                            <strong>Problema específico:</strong> Actualmente, preparar evidencia para auditorías ISO 27001 requiere extraer manualmente logs de 5+ herramientas, formatearlos, mapearlos a controles, y escribir narrativas. Proceso: 40 horas/mes. Las alertas DLP generan ~850 eventos/mes, de los cuales 70% son falsos positivos que requieren análisis manual (contexto de usuario, sensibilidad de datos, legitimidad de la acción). Esto consume 16 horas/semana del equipo SOC + Controles.
+                        </p>
+                        <p style="color: #444; line-height: 1.8;">
+                            <strong>Valor ejecutivo:</strong> Reducir 70% el tiempo de generación de evidencia (ahorro: 28h/mes = $16.8K/año), eliminar 50% de falsos positivos DLP (ahorro: 32h/mes = $19.2K/año), y proporcionar capacidad de "ask anything" sobre postura de seguridad en lenguaje natural ("¿Qué usuarios privilegiados accedieron a datos sensibles en México la semana pasada?"). Total: <strong>$36K ahorro anual + capacidad analítica que antes no existía</strong>.
+                        </p>
+                    </div>
+                    
+                    <p style="color: #666; margin: 20px 0; padding: 20px; background: #f8f8f8; border-left: 4px solid #d32f2f; border-radius: 4px;">
+                        <strong>❌ Situación Actual (Problema):</strong> Análisis manual de logs consume >60% del tiempo del equipo. Auditorías ISO 27001 requieren 3 semanas de preparación intensiva. Imposible responder preguntas ad-hoc de C-level en tiempo real ("¿Estamos compliant con control AC-3 en Azure México?"). Dependencia total de personas para tareas repetitivas → cuello de botella, burnout, imposibilidad de escalar.
+                    </p>
+
+                    <div class="architecture-diagram">
+                        <h4>🏗️ Arquitectura Detallada del Sistema</h4>
+                        <p style="color: #666; margin-bottom: 20px; font-size: 0.95em;">Esta arquitectura sigue el patrón <strong>RAG (Retrieval-Augmented Generation)</strong> + <strong>Multi-Agent Orchestration</strong> para combinar conocimiento contextual (documentos NIST/ISO, logs históricos) con capacidades generativas de LLMs.</p>
+                        
+                        <div class="arch-layers">
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Capa de LLM</div>
+                                <div class="arch-layer-content">
+                                    <strong>Claude 3.5 Sonnet (Anthropic API):</strong> Tier gratuito 100K tokens/mes. Para qué: Análisis de contexto complejo, generación de narrativas ejecutivas, razonamiento sobre compliance. Cómo: Llamadas API REST con prompts estructurados. Ventaja: mejor comprensión de texto técnico, salidas precisas, ética en seguridad.<br><br>
+                                    <strong>Llama 3.1 70B (local via Ollama):</strong> Para qué: Procesamiento de volúmenes altos sin coste API (análisis batch de 1000+ logs). Cómo: Instalación local en servidor con GPU (o CPU en modo cuantizado). Ventaja: 100% privado, sin límite de tokens, costo $0 perpetuo.<br><br>
+                                    <strong>OpenAI GPT-4o-mini:</strong> Tier gratuito. Para qué: Clasificación rápida de alertas, extracción de entidades (IPs, users, files). Cómo: API calls con prompts cortos (<500 tokens). Ventaja: velocidad (1-2 seg respuesta), barato para producción si excedes tiers gratuitos.
+                                </div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Orquestación</div>
+                                <div class="arch-layer-content">
+                                    <strong>LangChain 0.1.x:</strong> Para qué: Framework para construir aplicaciones LLM con cadenas de prompts, acceso a tools (APIs), y memoria conversacional. Cómo: Defines "chains" como secuencias de pasos (ej: retrieval → contexto → prompt → LLM → parsing). Ventaja: abstracción de complejidad, integraciones pre-built con vectorDBs/APIs.<br><br>
+                                    <strong>LangGraph:</strong> Para qué: Workflows complejos con múltiples agentes que toman decisiones (ej: si alerta es crítica → Agent A investiga → si confirmed → Agent B remedia). Cómo: Defines grafo con nodos (agentes) y edges (condiciones). Ventaja: workflows visuales, debugging fácil, paralelización.<br><br>
+                                    <strong>Python 3.11:</strong> Para qué: Lenguaje base, glue code entre componentes. Cómo: Scripts que coordinan LangChain, APIs, DBs. Ventaja: ecosistema maduro, librerías para todo.
+                                </div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Fuentes de Datos</div>
+                                <div class="arch-layer-content">
+                                    <strong>Crowdstrike Falcon API:</strong> Endpoints clave: <code>/detects/queries/detects/v1</code> (detecciones EDR), <code>/spotlight/queries/vulnerabilities/v1</code> (CVEs), <code>/devices/queries/devices/v1</code> (inventario agentes). Para qué: Obtener eventos de seguridad endpoint, estado de vulnerabilidades, cobertura de agentes. Cómo: Polling cada 5 min o webhooks para eventos críticos. Output: JSON parseado → ChromaDB para búsqueda semántica.<br><br>
+                                    <strong>Netskope REST API:</strong> Endpoints: <code>/api/v2/events/data/alert</code> (alertas DLP), <code>/api/v2/events/data/application</code> (Shadow IT). Para qué: Analizar exfiltraciones, accesos no autorizados a apps cloud. Cómo: Query últimos 24h, filtrar por severity HIGH/CRITICAL. Output: Alertas en formato estructurado → LLM clasifica verdaderos/falsos positivos.<br><br>
+                                    <strong>Microsoft Graph API:</strong> Endpoints: <code>/v1.0/auditLogs/signIns</code> (logins), <code>/v1.0/users</code> (privileged accounts), <code>/beta/security/secureScores</code>. Para qué: Auditar identidad, access control, secure posture Office 365. Cómo: OAuth2 auth → queries filtradas por país/tiempo. Output: Datos de compliance AC-2, AC-3 (NIST).<br><br>
+                                    <strong>Cloudflare API, AWS Security Hub, Azure Security Center:</strong> Similar, para cobertura multi-cloud y edge.
+                                </div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Vector DB</div>
+                                <div class="arch-layer-content">
+                                    <strong>ChromaDB:</strong> Para qué: Almacenar embeddings de documentos (NIST CSF PDFs, ISO 27001, logs históricos) para retrieval semántico. Cómo: Texts → OpenAI embeddings (o Sentence-BERT local) → ChromaDB. Query: "Busca controles relacionados con 'multi-factor authentication'" → top 5 secciones relevantes. Ventaja: serverless, gratis, fácil setup.<br><br>
+                                    <strong>FAISS (Facebook AI Similarity Search):</strong> Para qué: Búsqueda ultrarrápida en millones de vectores (logs históricos embeddings). Cómo: Index de embeddings en RAM/disco. Ventaja: 10-100x más rápido que ChromaDB en datasets grandes, gratis, producción-ready.
+                                </div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Cache & Storage</div>
+                                <div class="arch-layer-content">
+                                    <strong>Redis:</strong> Para qué: Cache de respuestas LLM (si pregunta repetida → no re-query API), rate limiting, session management. Cómo: Key-value store in-memory. Ejemplo: key="query:usuarios_sin_mfa_mexico", value=resultado cached 1h. Ventaja: reduce costes API 60-80%, latencia <10ms.<br><br>
+                                    <strong>SQLite:</strong> Para qué: Histórico de análisis, audit trail (qué queries se hicieron, cuándo, por quién). Cómo: DB local embebido. Schema: tabla "queries" con timestamp, user, question, answer, sources. Ventaja: zero-admin, portable, suficiente para 100K+ registros.
+                                </div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Interface</div>
+                                <div class="arch-layer-content">
+                                    <strong>Streamlit:</strong> Para qué: Web UI interactiva para hacer queries en lenguaje natural. Cómo: App Python con widgets (text input, buttons, tables). User escribe "¿Qué controles fallan en Chile?" → backend procesa → muestra tabla + gráfico. Ventaja: deploy en minutos, auto-refresh, gratis.<br><br>
+                                    <strong>Slack Bot:</strong> Para qué: Alertas proactivas + queries on-demand desde Slack. Cómo: Slack App con webhooks. Ejemplo: Bot detecta "10 nuevos CVEs críticos en México" → notifica channel #seguridad-mexico. User puede responder "/copilot dame detalles CVE-2024-XXXX". Ventaja: integración con workflow diario, no requiere abrir nueva app.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">🎯 Funcionalidades Clave - Descripción Técnica Detallada</h4>
+                        
+                        <ul class="phase-list">
+                            <li>
+                                <strong>1. Automated Control Evidence Collector:</strong><br><br>
+                                <strong>Qué hace:</strong> Recopila evidencia automática para controles ISO 27001 / NIST CSF extrayendo datos de APIs, parseándolos con LLM, y generando documentos formateados listos para auditores.<br><br>
+                                <strong>Cómo funciona:</strong><br>
+                                • <u>Input:</u> Control ID (ej: "AC-2 Account Management") + Período (ej: "últimos 30 días")<br>
+                                • <u>Proceso:</u> Script consulta Microsoft Graph API (<code>/v1.0/users</code>) → extrae lista de usuarios creados/modificados/eliminados. LLM (Claude) analiza cada usuario: ¿tiene rol privilegiado? ¿aprobación de manager en ticket ServiceNow? ¿MFA habilitado?<br>
+                                • <u>Output:</u> Documento Word/PDF: "Control AC-2: COMPLIANT. Evidencia: 15 usuarios creados en Ene-2026, 100% con aprobación formal (tickets adjuntos), 100% con MFA habilitado en 24h post-creación. Auditor puede verificar en anexo A (lista de usuarios + metadata)".<br><br>
+                                <strong>Tecnologías específicas:</strong><br>
+                                • <u>LangChain DocumentLoaders:</u> Para parsear JSONs de APIs → estructuras Python<br>
+                                • <u>Template prompts:</u> "Analiza estos usuarios creados y determina si cumplen política: 1) Aprobación manager, 2) MFA <24h, 3) Rol apropiado para departamento. Output en formato tabla."<br>
+                                • <u>python-docx:</u> Genera documento Word con formato corporativo (logo, headers, footers)<br>
+                                • <u>Ahorro real:</u> De 4 horas manual (buscar datos en 5 herramientas + escribir narrativa) → 5 minutos automatizado.<br><br>
+                            </li>
+                            <li>
+                                <strong>2. Intelligent Alert Triage (DLP):</strong><br><br>
+                                <strong>Qué hace:</strong> Analiza alertas DLP (Data Loss Prevention) de Netskope + Office 365 con contexto de negocio para separar verdaderos positivos (exfiltración maliciosa) de falsos positivos (uso legítimo).<br><br>
+                                <strong>Problema actual:</strong> 850 alertas DLP/mes. Ejemplos: "Usuario Finance-CFO compartió Excel con dominio @pwc.com" (legítimo: auditoría), "Usuario IT-DevOps subió código a GitHub público" (ilegítimo: exposición de propiedad intelectual). Analista revisa manualmente cada alerta: 16h/semana.<br><br>
+                                <strong>Cómo funciona:</strong><br>
+                                • <u>Input:</u> Alerta DLP con: usuario, archivo, acción (share/upload/email), destino, timestamp<br>
+                                • <u>Enriquecimiento contextual:</u> LLM consulta: Azure AD (rol del usuario, departamento), ServiceNow (tickets abiertos tipo "Audit support" o "Partner collaboration"), Histórico (¿usuario compartió con este dominio antes? ¿aprobado?)<br>
+                                • <u>Análisis LLM:</u> Prompt: "Dado: Usuario=CFO, Archivo=financials_Q4.xlsx, Destino=pwc.com, Contexto=ticket #12345 'Auditoría anual'. ¿Es legítimo? Justifica." → Output: "BAJO RIESGO. CFO compartiendo con auditor externo (PWC) en contexto de auditoría fiscal. Recomendar: validar con Legal que PWC tiene NDA firmado."<br>
+                                • <u>Clasificación:</u> High risk (bloquear + escalar CISO), Medium (revisar humano), Low (auto-aprobar + log)<br><br>
+                                <strong>Tecnologías específicas:</strong><br>
+                                • <u>LangChain Agents con Tools:</u> Agent tiene acceso a "tools" (Azure AD lookup, ServiceNow API, historical DB). Decide autónomamente qué tool usar según contexto.<br>
+                                • <u>Few-shot learning:</u> Entrenas LLM con 50 ejemplos históricos (alertas + etiqueta verdadero/falso positivo). Mejora precisión de 60% → 85%.<br>
+                                • <u>Scoring:</u> Output no es binario (true/false) sino score 0-100 + explicación. Threshold: >80 = auto-aprobar, 20-80 = humano, <20 = bloquear.<br>
+                                • <u>Ahorro real:</u> 60% alertas auto-clasificadas correctamente = 9.6h/semana ahorradas = $28K/año.<br><br>
+                            </li>
+                            <li>
+                                <strong>3. Natural Language Policy Checker:</strong><br><br>
+                                <strong>Qué hace:</strong> Permite a cualquier persona (analistas, CISOs, auditores) hacer preguntas en lenguaje natural sobre postura de seguridad y obtener respuestas basadas en datos reales, en tiempo real.<br><br>
+                                <strong>Ejemplos de queries:</strong><br>
+                                • "¿Qué usuarios privilegiados en Azure no tienen MFA habilitado?"<br>
+                                • "¿Cuántos endpoints en México están sin agent Crowdstrike por más de 7 días?"<br>
+                                • "¿Qué subdominios de surainvestments.com no tienen WAF Cloudflare activo?"<br>
+                                • "Muestra el top 5 de CVEs críticas sin patchear en servidores de producción Chile"<br><br>
+                                <strong>Cómo funciona:</strong><br>
+                                • <u>Interfaz:</u> Web UI (Streamlit) o Slack bot. Usuario escribe pregunta en español o inglés.<br>
+                                • <u>LLM Query Planning:</u> LLM analiza pregunta → identifica: (1) Entidades (Azure, MFA, privilegiados), (2) Filtros (sin MFA), (3) Fuente de datos (Azure AD API). Genera "plan de ejecución": "Llamar Microsoft Graph API /v1.0/users?$filter=assignedRoles contains 'Admin' → Para cada user, check authenticationMethods → Filtrar donde MFA=false".<br>
+                                • <u>Ejecución:</u> Python ejecuta plan: llama API → parsea JSON → filtra datos → formatea tabla.<br>
+                                • <u>LLM Presentation:</u> Resultados crudos (JSON) → LLM genera respuesta ejecutiva: "Encontré 12 usuarios con roles privilegiados sin MFA: [lista]. Riesgo: CRÍTICO. Violación: ISO 27001 AC-3, NIST IA-2. Recomendación: Forzar MFA en próximas 48h vía Conditional Access Policy. ¿Quieres que genere el script de PowerShell?"<br>
+                                • <u>Interactividad:</u> User puede hacer follow-up: "Sí, genera el script" → LLM escribe PowerShell snippet.<br><br>
+                                <strong>Tecnologías específicas:</strong><br>
+                                • <u>LangChain ReAct Agent:</u> Pattern "Reasoning + Acting". Agent razona sobre qué hacer, ejecuta acción (API call), observa resultado, razona siguiente paso. Loop hasta responder query.<br>
+                                • <u>Function Calling (OpenAI):</u> Defines funciones Python como "tools" que LLM puede invocar. Ejemplo: <code>def get_users_without_mfa(cloud='azure', role='admin'):</code> → LLM decide cuándo llamar esta función.<br>
+                                • <u>ChromaDB para context:</u> Si pregunta es ambigua ("¿Qué controles fallan?"), LLM busca en ChromaDB documentos similares (ej: última auditoría ISO) → usa como contexto para mejorar respuesta.<br>
+                                • <u>Valor:</u> Democratiza acceso a datos de seguridad. Antes: solo tú sabías hacer queries complejas. Ahora: CISOs, auditores, analistas junior pueden self-serve. Reduces interrupciones 70%.<br><br>
+                            </li>
+                            <li>
+                                <strong>4. Multi-Cloud CSPM Analyzer:</strong><br><br>
+                                <strong>Qué hace:</strong> Integra con Crowdstrike Falcon Cloud Security + CSPM nativos (AWS Security Hub, Azure Defender, GCP SCC) para analizar misconfigurations, priorizar por impacto regulatorio, y generar código de remediación automática.<br><br>
+                                <strong>Workflow completo:</strong><br>
+                                1. <u>Ingesta:</u> Polling cada 6h de Crowdstrike CSPM API + AWS Security Hub API + Azure Defender API. Extrae todos los findings de severidad CRITICAL/HIGH.<br>
+                                2. <u>Normalización:</u> Cada cloud provider tiene formato diferente. LLM normaliza a schema común: {resource_id, resource_type, misconfiguration, severity, cloud, region, account}.<br>
+                                3. <u>Priorización regulatoria:</u> LLM consulta RAG con regulaciones LATAM (SBS Perú, CMF Chile, etc.). Ejemplo: "S3 bucket público sin encryption" → mapea a SBS Res. 14661 Art. 15 (protección de datos sensibles) → asigna priority=URGENT si bucket está en cuenta Perú.<br>
+                                4. <u>Generación de remediación:</u> Para cada finding, LLM genera código IaC:<br>
+                                   • <u>AWS:</u> Terraform snippet para habilitar S3 bucket encryption + bucket policy para bloquear acceso público<br>
+                                   • <u>Azure:</u> ARM template o Bicep para habilitar TDE en Azure SQL Database<br>
+                                   • <u>GCP:</u> gcloud command o Terraform para habilitar VPC Flow Logs<br>
+                                5. <u>Validación:</u> Código generado pasa por linter (terraform validate, checkov) → si falla, LLM itera y corrige.<br>
+                                6. <u>Deployment:</u> Código se commitea a GitLab como Pull Request. Requiere aprobación humana (Arquitecto o Lead) antes de merge → CI/CD aplica cambio automáticamente.<br><br>
+                                <strong>Tecnologías específicas:</strong><br>
+                                • <u>Code Llama 34B:</u> LLM especializado en generar código. Mejor que Claude/GPT para Terraform/Python. Se ejecuta local (Ollama) → costo $0.<br>
+                                • <u>RAG con regulaciones:</u> PDFs de SBS/CMF/SFC/CNBV → embeddings en ChromaDB. Query: "¿Qué regulación chilena requiere encryption en databases?" → Retrieval: "CMF NCG 400 Art. 12".<br>
+                                • <u>Integration con SOAR Crowdstrike:</u> Findings críticos auto-crean tickets en Crowdstrike Fusion SOAR → asigna a team Cloud Ops → tracking hasta cierre.<br>
+                                • <u>Impacto:</u> De 25 misconfigurations críticas → manual fix 2-3 semanas → Con LLM: remediación en 48h (auto-gen code + aprobación + deploy). Reduce window de exposición 90%.<br><br>
+                            </li>
+                            <li>
+                                <strong>5. Security Control Drift Detection:</strong><br><br>
+                                <strong>Qué hace:</strong> Monitorea configuraciones de controles de seguridad 24/7. Compara estado actual vs. "baseline dorada" (línea base aprobada). Alerta cuando hay "drift" no autorizado.<br><br>
+                                <strong>Ejemplo real:</strong><br>
+                                • <u>Baseline:</u> "WAF Cloudflare en surainvestments.com debe tener: (1) Modo High security, (2) Rate limiting 100 req/min, (3) OWASP ruleset enabled, (4) Bot Fight Mode ON"<br>
+                                • <u>Drift detectado:</u> Alguien (Dev, accidentalmente) cambia Rate Limiting a 1000 req/min para "debugging".<br>
+                                • <u>Detección:</u> Copilot polling Cloudflare API cada 15 min → detecta cambio → compara con baseline → identifica drift.<br>
+                                • <u>Alerta:</u> Slack message a #seguridad-core: "🚨 DRIFT DETECTADO: surainvestments.com Rate Limiting cambió de 100→1000 req/min. Cambio por: user@empresa.com a las 14:35. Riesgo: Posible DDoS sin mitigación. ¿Autorizado? [Aprobar] [Revertir]"<br>
+                                • <u>Remediación:</u> Si no hay respuesta en 1h O user clica [Revertir] → Copilot llama Cloudflare API para restaurar configuración baseline automáticamente.<br><br>
+                                <strong>Cobertura de drift:</strong><br>
+                                • Cloudflare: WAF rules, SSL/TLS settings, DNS configs, Page Rules<br>
+                                • Office 365: DLP policies, Conditional Access, Anti-phishing rules, Retention policies<br>
+                                • Netskope: DLP policies, Cloud App policies, SSL inspection<br>
+                                • Azure: NSG rules, RBAC assignments, Key Vault access policies<br>
+                                • Crowdstrike: Prevention policies, IOA exclusions, Host groups<br><br>
+                                <strong>Tecnologías específicas:</strong><br>
+                                • <u>Baseline storage:</u> Git repo con YAML files por herramienta. Ejemplo: <code>cloudflare_baseline.yaml</code> con estructura: <code>zones: surainvestments.com: waf: mode: high</code><br>
+                                • <u>Drift detection:</u> Script Python con deepdiff library. Compara JSON actual (API) vs. YAML baseline → genera diff report.<br>
+                                • <u>LLM para contextualización:</u> Diff crudo (JSON) → LLM traduce a mensaje legible: "WAF mode cambió. Impacto: Menor protección contra ataques layer 7. Regulación afectada: Ninguna directa, pero aumenta riesgo de disponibilidad."<br>
+                                • <u>Audit trail:</u> Todos los drifts (autorizados o no) se logean en SQLite + Elasticsearch. Auditoría puede verificar: "¿Hubo cambios no autorizados en Q4 2025?" → Query → 0 cambios sin aprobación CAB.<br>
+                                • <u>Valor:</u> Previene "config drift" que es causa #1 de incidentes por mala configuración (Gartner: 70% brechas cloud son misconfig). Garantiza que controles operan como diseñados 100% del tiempo.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="value">70%</div>
+                            <div class="label">↓ Tiempo evidencia auditorías</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="value">50%</div>
+                            <div class="label">↓ MTTR hallazgos críticos</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="value">$0</div>
+                            <div class="label">Costo implementación</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="value">200h</div>
+                            <div class="label">Ahorro anual</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 2 -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>🎯 MESES 4-6: Unified Security Control Orchestration Platform</h2>
+                    <div class="description">Visibilidad ejecutiva en tiempo real</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🎯 Plataforma Unificada de Orquestación <span class="cost-badge">COSTO: $0</span></h3>
+
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">🎯 Objetivo del Proyecto</h4>
+                        <p style="color: #444; line-height: 1.8; margin-bottom: 15px;">
+                            Construir una <strong>plataforma centralizada</strong> que agrega, correlaciona y visualiza datos de seguridad de TODAS las herramientas (Crowdstrike, Netskope, Office 365, Cloudflare, AWS, Azure, GCP) en dashboards ejecutivos y técnicos. Esta plataforma elimina los "silos de visibilidad" actuales donde cada herramienta tiene su propia consola, métricas incompatibles, y reporting aislado.
+                        </p>
+                        <p style="color: #444; line-height: 1.8; margin-bottom: 15px;">
+                            <strong>Problema específico:</strong> Hoy, si C-level pregunta "¿Cuál es nuestra postura de seguridad en Colombia?", requiere: (1) Login a Crowdstrike → extraer coverage EDR, (2) Login a Netskope → revisar DLP alerts, (3) Login a Azure Portal → ver Secure Score, (4) Login a Cloudflare → revisar WAF attacks, (5) Consolidar manualmente en Excel → 4 horas de trabajo. Y la información ya está desactualizada cuando se presenta.
+                        </p>
+                        <p style="color: #444; line-height: 1.8;">
+                            <strong>Valor ejecutivo:</strong> Respuesta instantánea a preguntas ejecutivas con datos en tiempo real. Dashboards que muestran: (1) Postura consolidada por país con semáforo (verde/amarillo/rojo), (2) Trend de mejora/deterioro últimos 3 meses, (3) Top 5 riesgos críticos con owner y ETA de remediación, (4) Compliance status por framework (NIST, ISO, regulatorio). C-level puede abrir dashboard en reunión de Board y decir: "Nuestra postura es 85% automatizada, 12% gaps en proceso de cierre, compliance 98% ISO 27001". <strong>Credibilidad y confianza instantáneas.</strong>
+                        </p>
+                    </div>
+                    
+                    <div style="background: #f5f5f5; border-left: 4px solid #d32f2f; padding: 20px; margin: 20px 0; border-radius: 4px;">
+                        <p style="color: #444; line-height: 1.8;"><strong>❌ Situación Actual (Problema):</strong></p>
+                        <p style="color: #444; line-height: 1.8;">
+                            Controles fragmentados en 5+ herramientas diferentes. C-level no tiene visibilidad de postura de seguridad. Reportes mensuales creados manualmente consumen 16 horas de trabajo (extracción + consolidación + PowerPoint). No hay capacidad de responder preguntas ad-hoc en tiempo real. Incidentes que cruzan múltiples herramientas (ej: compromiso endpoint → exfiltración cloud → acceso identidad anómala) no se detectan porque no hay correlación. MTTR (Mean Time To Remediate) alto porque hallazgos se descubren tarde.
+                        </p>
+                    </div>
+
+                    <div class="architecture-diagram">
+                        <h4>🏗️ Arquitectura del Sistema</h4>
+                        <div class="arch-layers">
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Data Ingestion</div>
+                                <div class="arch-layer-content">Logstash (log parsing) + Custom Python collectors (API polling cada 5 min)</div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Time-Series DB</div>
+                                <div class="arch-layer-content">Elasticsearch 8.x (logs + métricas) + InfluxDB (time-series)</div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Orchestration</div>
+                                <div class="arch-layer-content">Apache Airflow (DAGs para scheduled jobs) + Apache Kafka (streaming)</div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Visualization</div>
+                                <div class="arch-layer-content">Grafana (dashboards técnicos) + Metabase (ejecutivos) + Custom React app</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">🎯 Componentes Clave</h4>
+                        
+                        <ul class="phase-list">
+                            <li>
+                                <strong>Control Posture Dashboard Ejecutivo:</strong> 
+                                Vista única de 100% controles NIST CSF + ISO 27001. Semáforo por país (Perú, Chile, Colombia, México).
+                            </li>
+                            <li>
+                                <strong>Automated Security Control Testing:</strong> 
+                                Simula ataques MITRE ATT&CK contra Crowdstrike Falcon, Netskope DLP, Cloudflare WAF. Genera reportes automáticos de fallas.
+                            </li>
+                            <li>
+                                <strong>Cross-Platform Incident Correlation:</strong> 
+                                LLM correlaciona eventos multi-herramienta. Timeline automático de incidentes. Reduce MTTR 60%.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="value">100%</div>
+                            <div class="label">Visibilidad de controles</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="value">40%</div>
+                            <div class="label">↓ Hallazgos auditoría</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="value">0</div>
+                            <div class="label">Incidentes no detectados</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 3 -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>🔮 MESES 5-6: Predictive Risk Analytics Engine</h2>
+                    <div class="description">De reactivo a predictivo con Machine Learning</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🔮 Predictive Risk Analytics <span class="cost-badge">COSTO: $0</span></h3>
+
+                    <div class="architecture-diagram">
+                        <h4>🏗️ Arquitectura ML</h4>
+                        <div class="arch-layers">
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Data Sources</div>
+                                <div class="arch-layer-content">Crowdstrike Vulnerability Intelligence + Threat Graph | Netskope logs | Azure AD | Multi-cloud CSPM</div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">ML Models</div>
+                                <div class="arch-layer-content">XGBoost (vulnerability exploitation prediction) | Isolation Forest (anomaly detection) | LSTM (time-series)</div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Risk Quantification</div>
+                                <div class="arch-layer-content">FAIR model | Monte Carlo simulation | Regulatory penalty estimation by country</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">🎯 Modelos Predictivos</h4>
+                        
+                        <ul class="phase-list">
+                            <li>
+                                <strong>Vulnerability Exploitation Probability:</strong> 
+                                ML predice qué CVEs serán explotados en próximos 30 días. Reduce ruido 80%.
+                            </li>
+                            <li>
+                                <strong>Advanced User Behavior Analytics:</strong> 
+                                Detecta anomalías en accesos privilegiados, transferencias de archivos, comandos endpoints. LLM contextualiza alertas.
+                            </li>
+                            <li>
+                                <strong>Attack Surface Risk Score by Country:</strong> 
+                                Cuantifica riesgo en $$ por jurisdicción. Ejemplo: "Perú: $850K exposure (no compliance SBS)".
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="value">30%</div>
+                            <div class="label">↓ Ventana exposición</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="value">80%</div>
+                            <div class="label">↓ Ruido en alertas</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="value">$500K</div>
+                            <div class="label">Riesgo evitado</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISIBILIDAD EJECUTIVA -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>📈 MESES 7-9: Visibilidad Ejecutiva y Liderazgo</h2>
+                    <div class="description">De experto técnico a líder estratégico</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🎤 Security Control Business Reviews (SCBR)</h3>
+                    
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">📊 Reunión Mensual con C-Level (20 min)</h4>
+                        
+                        <ul class="phase-list">
+                            <li><strong>Slide 1:</strong> Control Posture Summary - Semáforo por país, tendencia vs. mes anterior</li>
+                            <li><strong>Slide 2:</strong> Business Impact - "$120K multas evitadas", "40% ↓ tiempo auditorías", "Zero incidentes críticos"</li>
+                            <li><strong>Slide 3:</strong> Top 3 Risks & Mitigations - Riesgo cuantificado en $$, owner, plan de acción</li>
+                            <li><strong>Slide 4:</strong> Innovation Highlight - Demo 60 seg AI Copilot predijo exploit 15 días antes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>⚖️ Security Control Governance Framework</h3>
+                    
+                    <div class="highlight-box">
+                        <ul class="phase-list">
+                            <li><strong>Control Ownership Matrix (RACI):</strong> 100% controles con owner nominal</li>
+                            <li><strong>Change Advisory Board (CAB):</strong> Aprobación formal de cambios críticos. Reunión quincenal.</li>
+                            <li><strong>Control Exception Management:</strong> Proceso para excepciones temporales. Aprobación C-level si >$100K exposure.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="value">12</div>
+                        <div class="label">Presentaciones C-level</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value">100%</div>
+                        <div class="label">Cambios con governance</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value">5+</div>
+                        <div class="label">Equipos evangelizados</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INNOVACIÓN -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>🚀 MESES 10-12: Innovación y Posicionamiento LATAM</h2>
+                    <div class="description">Thought leadership y diferenciación externa</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🤖 Multi-Agent Security Orchestration System <span class="cost-badge">INNOVACIÓN DISRUPTIVA</span></h3>
+
+                    <div class="architecture-diagram">
+                        <h4>🏗️ Arquitectura Multi-Agent</h4>
+                        <div class="arch-layers">
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Orchestrator</div>
+                                <div class="arch-layer-content">LangGraph (workflow engine) + Temporal.io (state management)</div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Agent 1: Compliance Auditor</div>
+                                <div class="arch-layer-content">Claude 3.5 Sonnet | RAG: NIST + ISO + Regulaciones LATAM | Output: Gap analysis</div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Agent 2: Threat Hunter</div>
+                                <div class="arch-layer-content">GPT-4o-mini | RAG: MITRE ATT&CK + Crowdstrike Threat Graph | Output: Threat hypotheses</div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Agent 3: Remediation Planner</div>
+                                <div class="arch-layer-content">Code Llama 34B | Tools: Terraform, Ansible | Output: IaC code + runbooks</div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Agent 4: Executive Translator</div>
+                                <div class="arch-layer-content">Claude 3.5 | Input: Technical findings | Output: Executive summary + risk $$$</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">💡 Caso de Uso: Incident Response Automático</h4>
+                        <ul class="phase-list">
+                            <li><strong>T+0s:</strong> Crowdstrike detecta lateral movement</li>
+                            <li><strong>T+10s:</strong> Agent 2 analiza, correlaciona con MITRE ATT&CK</li>
+                            <li><strong>T+25s:</strong> Agent 3 genera playbook: aislar host, revocar credenciales</li>
+                            <li><strong>T+40s:</strong> Agent 1 valida compliance</li>
+                            <li><strong>T+55s:</strong> Agent 4 genera reporte ejecutivo</li>
+                            <li><strong>Resultado:</strong> <5 min vs. 2 horas manual</li>
+                        </ul>
+                    </div>
+
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="value">5-10x</div>
+                            <div class="label">↓ Tiempo tareas complejas</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="value">1°</div>
+                            <div class="label">Financiera LATAM con multi-agent IA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🌎 Networking y Thought Leadership</h3>
+                    
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">🎯 Estrategia de Visibilidad</h4>
+                        <ul class="phase-list">
+                            <li><strong>2 Charlas Conferencias:</strong> Ekoparty, 8.8, DragonJAR - "IA para Ciberseguridad con $0"</li>
+                            <li><strong>Whitepaper:</strong> "Security Control Automation in Multi-Cloud Financial Environments: LATAM Perspective" (25-30 págs)</li>
+                            <li><strong>GitHub Open Source:</strong> "Security-Control-Copilot" + "LATAM-Compliance-as-Code" → Meta: 100+ stars</li>
+                            <li><strong>50+ Conexiones LinkedIn:</strong> CISOs bancos/financieras LATAM</li>
+                        </ul>
+                    </div>
+
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="value">2</div>
+                            <div class="label">Charlas conferencias</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="value">5,000+</div>
+                            <div class="label">Vistas contenido</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="value">50+</div>
+                            <div class="label">Conexiones estratégicas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÉTRICAS FINALES -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>📊 MES 12: Métricas de Éxito y Pitch</h2>
+                    <div class="description">Evidencia para promoción a Security Controls & Governance Lead</div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4 style="margin-bottom: 20px;">🎯 Impacto Operacional Consolidado</h4>
+                    <div style="background: #fff; padding: 20px; border-radius: 6px;">
+                        <p style="margin-bottom: 10px;"><strong>Tiempo evidencia auditoría:</strong> 40h/mes → 12h/mes | <span style="color: #2c2c2c; font-weight: 700;">70% ↓</span></p>
+                        <p style="margin-bottom: 10px;"><strong>MTTR hallazgos críticos:</strong> 15 días → 7 días | <span style="color: #2c2c2c; font-weight: 700;">53% ↓</span></p>
+                        <p style="margin-bottom: 10px;"><strong>Controles automatizados:</strong> 30% → 90% | <span style="color: #2c2c2c; font-weight: 700;">200% ↑</span></p>
+                        <p style="margin-bottom: 10px;"><strong>Hallazgos auditoría:</strong> 25/año → 10/año | <span style="color: #2c2c2c; font-weight: 700;">60% ↓</span></p>
+                        <p><strong>Incidentes críticos no detectados:</strong> 2/año → 0/año | <span style="color: #2c2c2c; font-weight: 700;">100% ↓</span></p>
+                    </div>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="value">$180K</div>
+                        <div class="label">Ahorro anual</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value">$500K</div>
+                        <div class="label">Riesgo mitigado</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value">$0</div>
+                        <div class="label">Costo total</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value">∞</div>
+                        <div class="label">ROI</div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🎯 Pitch de Promoción (10 minutos)</h3>
+                    
+                    <div class="highlight-box">
+                        <ul class="phase-list">
+                            <li><strong>Slide 1:</strong> "Resolví: controles fragmentados, visibilidad cero, auditorías 3 semanas, riesgo opaco en 4 países"</li>
+                            <li><strong>Slide 2:</strong> "3 iniciativas: AI Copilot (70% ↓), Plataforma Unificada (100% visibilidad), Predictive Risk (30% ↓)"</li>
+                            <li><strong>Slide 3:</strong> "Ahorramos $180K, evitamos $500K riesgo, con $0 inversión. ROI = ∞"</li>
+                            <li><strong>Slide 4:</strong> "Liderazgo: Governance adoptada 100%, mentoría SOC, innovación LATAM (charlas + paper)"</li>
+                            <li><strong>Slide 5:</strong> "Propongo: Security Controls & Governance Lead | Ownership framework completo | Team 2-3 analistas"</li>
+                            <li><strong>Slide 6:</strong> "Próximos 12 meses: Agentes IA en SOC, ISO 42001, caso estudio vendors, Security Guild"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p style="margin-bottom: 10px; font-size: 1.1em; color: #fff;">Plan de Crecimiento Acelerado - 12 Meses</p>
+            <p>Sura Investments | Security Controls & Governance Lead</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">Inversión Total: $0 USD | ROI: ∞ (Infinito) | Impacto: Transformacional</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+                    <div class="architecture-diagram">
+                        <h4>🏗️ Arquitectura Detallada del Sistema</h4>
+                        <p style="color: #666; margin-bottom: 20px; font-size: 0.95em;">
+                            Esta arquitectura sigue el patrón <strong>Lambda Architecture</strong> (batch + streaming) para procesar datos históricos y en tiempo real simultáneamente. Se utiliza el stack <strong>ELK</strong> (Elasticsearch, Logstash, Kibana) como base, complementado con Grafana para visualizaciones personalizadas y Apache Airflow para orquestación de jobs.
+                        </p>
+                        
+                        <div class="arch-layers">
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Data Ingestion</div>
+                                <div class="arch-layer-content">
+                                    <strong>Logstash:</strong> Para qué: Parser y transformer de logs de múltiples fuentes. Cómo: Pipelines configuradas por herramienta. Ejemplo: pipeline Crowdstrike parsea JSON de detecciones → normaliza campos → enriquece con geo-IP → envía a Elasticsearch. Ventaja: 150+ plugins pre-built, filtros Grok para parsing, output a múltiples destinos.<br><br>
+                                    <strong>Custom Python Collectors:</strong> Para qué: Polling de APIs cada 5 minutos para datos que no generan logs (ej: Secure Scores, configuraciones). Cómo: Scripts Python en cron con requests library. Si API rate-limited → backoff exponencial. Cache en Redis para evitar re-fetch. Output: JSON → Logstash → Elasticsearch.<br><br>
+                                    <strong>Webhooks:</strong> Para qué: Eventos críticos en tiempo real (alertas DLP, detecciones Crowdstrike). Cómo: Herramientas configuradas para POST a endpoint /webhook → Flask API receiver → valida signature → envía a Kafka topic → Logstash consumer → Elasticsearch. Latencia: <5 segundos desde evento → dashboard.
+                                </div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Time-Series DB</div>
+                                <div class="arch-layer-content">
+                                    <strong>Elasticsearch 8.x:</strong> Para qué: Almacenamiento y búsqueda full-text de logs, eventos, configuraciones. Indexación por tiempo (daily indices). Cómo: Indices separados por fuente (crowdstrike-*, netskope-*, azure-*). Retention policy: 90 días hot storage (SSD), 365 días warm (HDD), >365 delete. Queries con Lucene DSL. Ventaja: búsqueda < 100ms en billones de docs, agregaciones complejas, gratis (open source).<br><br>
+                                    <strong>InfluxDB:</strong> Para qué: Time-series específico para métricas numéricas (Secure Scores, count de vulnerabilidades, uptime de controles). Cómo: Python scripts escriben datos con telegraf protocol. Queries con InfluxQL. Downsampling automático: raw data 7 días, promedios 5min → 90 días, promedios 1h → forever. Ventaja: compresión 90% vs. SQL, queries time-series 10x más rápidas.
+                                </div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Processing & Correlation</div>
+                                <div class="arch-layer-content">
+                                    <strong>Apache Spark (batch):</strong> Para qué: Procesamiento diario de históricos para generar reportes, trends, ML training data. Cómo: PySpark jobs en cluster (3 nodes, local). Lee de Elasticsearch, procesa (joins, aggregations), escribe resultados a PostgreSQL. Ejemplo: "Calcular MTTR promedio por tipo de hallazgo, por país, últimos 90 días". Runtime: 15 min para 10M eventos.<br><br>
+                                    <strong>Apache Kafka (streaming):</strong> Para qué: Event bus para procesamiento real-time. Producers (webhooks, API pollers) → Topics (por fuente) → Consumers (Logstash, correlation engine). Cómo: 3 brokers, replication factor 2. Ventaja: durabilidad (disk persistence), replay de eventos, throughput 1M msgs/sec.<br><br>
+                                    <strong>Python Correlation Engine:</strong> Para qué: Detectar incidentes multi-stage que cruzan herramientas. Cómo: Consume de Kafka. Pattern matching: [Crowdstrike: endpoint compromise T1078] + [Netskope: bulk download files dentro de 1h] + [Azure AD: login desde IP anómala] = ALERTA CRÍTICA: posible data exfiltration. Usa reglas if-then + ML (Isolation Forest para anomalías). Output: Incident ticket en ServiceNow + alerta Slack.
+                                </div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Orchestration</div>
+                                <div class="arch-layer-content">
+                                    <strong>Apache Airflow:</strong> Para qué: Scheduler de workflows complejos (DAGs). Ejemplo: DAG "Daily Security Report": (1) Extract datos de APIs, (2) Process con Spark, (3) Generate PDF report, (4) Email a CISOs, (5) Upload a SharePoint. Cómo: Python DAGs con operators (BashOperator, PythonOperator, EmailOperator). Ventaja: retry automático si falla, alertas por email, UI para monitorear jobs.
+                                </div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Visualization</div>
+                                <div class="arch-layer-content">
+                                    <strong>Grafana:</strong> Para qué: Dashboards técnicos (SOC, analistas). Cómo: Data sources: Elasticsearch + InfluxDB. Paneles con queries. Ejemplo: Panel "Crowdstrike Detections by Severity" → query Elasticsearch: <code>group by severity, count over time</code> → gráfico de barras stacked. Alerting: si count CRITICAL > 10 en 1h → Slack alert. Ventaja: templating (1 dashboard para 4 países, variable={{country}}), plugins 200+.<br><br>
+                                    <strong>Metabase:</strong> Para qué: Dashboards ejecutivos (C-level, auditores). No requieren SQL. Cómo: GUI drag-and-drop. Queries a PostgreSQL (datos procesados por Spark). Ejemplo: Dashboard "Compliance Status" con cards: % ISO compliant, hallazgos pendientes, MTTR promedio. Export a PDF para board meetings. Ventaja: business-friendly, embeddable en intranet.<br><br>
+                                    <strong>Custom React App:</strong> Para qué: Control Posture Dashboard (semáforo de controles). Cómo: React + FastAPI backend. Frontend consume API REST → muestra matriz: Eje X=países, Eje Y=categorías NIST. Cada celda = color (verde/amarillo/rojo) + drill-down. Click en celda roja → lista de controles failing + owner + ETA. Ventaja: UX customizada para tu caso de uso específico.
+                                </div>
+                            </div>
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">Alerting</div>
+                                <div class="arch-layer-content">
+                                    <strong>Prometheus Alertmanager:</strong> Para qué: Alertas basadas en métricas. Cómo: Prometheus scrapes /metrics endpoints (exporters para Crowdstrike, Netskope, etc.). Reglas: if crowdstrike_agent_coverage_pct < 95 for 1h → alert. Alertmanager agrupa alerts similares, deduplica, routea a Slack/PagerDuty según severity. Ventaja: alerting declarativo (YAML), silencing de alerts durante maintenance.<br><br>
+                                    <strong>Slack Webhooks:</strong> Para qué: Notificaciones rápidas a channels específicos (#seguridad-peru, #seguridad-chile, etc.). Cómo: Python/Logstash envía POST a webhook URL con mensaje formateado (Markdown). Ventaja: contexto inmediato para equipos, threading de conversaciones, reacciones con emojis para ACK alerts.<br><br>
+                                    <strong>PagerDuty:</strong> Para qué: On-call para incidentes críticos fuera de horario. Cómo: Alertas severity=CRITICAL → routed a PagerDuty → llama a on-call engineer vía phone/SMS. Escalation policy: si no ACK en 15 min → escala a manager. Ventaja: garantiza respuesta 24/7, audit trail de quién respondió cuándo.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 15px;">🎯 Componentes Funcionales Detallados</h4>
+                        
+                        <ul class="phase-list">
+                            <li>
+                                <strong>1. Control Posture Dashboard Ejecutivo:</strong><br><br>
+                                <strong>Qué muestra:</strong> Vista única de 100% controles NIST CSF + ISO 27001 con semáforo por estado: <span style="color: #2e7d32;">●</span> Verde (automated + compliant + tested), <span style="color: #f9a825;">●</span> Amarillo (implementado pero manual), <span style="color: #c62828;">●</span> Rojo (gap o failing).<br><br>
+                                <strong>Dimensiones de filtrado:</strong><br>
+                                • Por país: Perú, Chile, Colombia, México → ve postura específica de cada jurisdicción<br>
+                                • Por framework: NIST CSF (Identify/Protect/Detect/Respond/Recover), ISO 27001 (Anexo A), Regulatorio (SBS/CMF/SFC/CNBV)<br>
+                                • Por criticidad: Tier 1 (críticos business), Tier 2 (importantes), Tier 3 (deseables)<br>
+                                • Por owner: CISO Perú, Arquitecto, SOC, IT Cloud, DevOps<br><br>
+                                <strong>Drill-down interactivo:</strong> Click en celda roja "Colombia - Protect - Tier 1" → muestra lista de controles: "PR.AC-1: Identity management → FAILING: 15% usuarios privilegiados sin MFA. Owner: IAM Team. ETA: 2026-03-01. Ticket: #12345".<br><br>
+                                <strong>Actualización:</strong> Tiempo real (refresh cada 5 min). Datos de última actualización visible: "Last sync: 2026-02-12 14:35 UTC".<br><br>
+                                <strong>Export:</strong> Botón "Generate Board Report" → PDF con snapshot del dashboard + top 5 risks + trending → attacheable a email para Board/CEO.
+                            </li>
+                            <li>
+                                <strong>2. Regulatory Compliance View (por país):</strong><br><br>
+                                <strong>Qué resuelve:</strong> Cada país LATAM tiene regulaciones específicas que requieren controles distintos. Auditorías regulatorias preguntan "¿Cumples Art. 15 SBS Res. 14661?" no "¿Cumples NIST PR.DS-1?".<br><br>
+                                <strong>Implementación:</strong> Dashboards específicos por jurisdicción:<br>
+                                • <strong>Perú Dashboard:</strong> Mapeo controles → SBS Res. 14661 artículos. Vista: "Art. 15 Protección de datos sensibles: ✅ COMPLIANT (controles SC-28, SC-8, PR.DS-1 implementados)". Drill-down a evidencia técnica.<br>
+                                • <strong>Chile Dashboard:</strong> CMF NCG 400. "Art. 12 Encriptación: ✅ COMPLIANT". "Art. 8 Gestión accesos: ⚠️ PARCIAL (pendiente implementar break-glass procedure)".<br>
+                                • <strong>Colombia Dashboard:</strong> SFC Circular Externa 007/2018.<br>
+                                • <strong>México Dashboard:</strong> CNBV regulaciones específicas.<br><br>
+                                <strong>Beneficio:</strong> Auditores regulatorios reciben reporte específico para SU framework. No necesitan traducir de NIST/ISO. Aumenta credibilidad en auditorías. Meta: cero hallazgos críticos en auditorías regulatorias.
+                            </li>
+                            <li>
+                                <strong>3. Automated Security Control Testing (Purple Team):</strong><br><br>
+                                <strong>Qué hace:</strong> Ejecuta ataques simulados (red team techniques) contra controles de seguridad para validar que REALMENTE funcionan, no solo que están "configurados".<br><br>
+                                <strong>Framework:</strong> MITRE ATT&CK. Simula TTPs (Tactics, Techniques, Procedures) de adversarios reales.<br><br>
+                                <strong>Workflow:</strong><br>
+                                1. <u>Planificación:</u> Airflow DAG "Weekly Control Testing" selecciona 10 controles random para testear.<br>
+                                2. <u>Ejecución:</u> Integración con MITRE Caldera (open source adversary emulation platform). Ejemplo test: "T1059.001 Command Injection vía PowerShell" → Caldera ejecuta en endpoint de prueba → Crowdstrike debería detectar y bloquear.<br>
+                                3. <u>Validación:</u> Query Crowdstrike API: ¿Se generó detection? ¿Se bloqueó? ¿Latencia < 10 seg? Si NO → FAILING control.<br>
+                                4. <u>Report:</u> "Control DE.CM-1 (Detection Malicious Code) - PASSED: Crowdstrike detectó y bloqueó T1059 en 3.2 segundos." o "FAILED: No detection generada → revisar policy exceptions".<br><br>
+                                <strong>Cobertura de testing:</strong><br>
+                                • EDR (Crowdstrike): Evasion techniques, lateral movement, privilege escalation<br>
+                                • DLP (Netskope + O365): Exfiltración vía email, upload a cloud storage, copy to USB<br>
+                                • WAF (Cloudflare): OWASP Top 10 payloads (SQLi, XSS, RCE)<br>
+                                • Identity (Azure AD): Password spray, brute force, MFA bypass attempts<br>
+                                • Network (Cloud firewalls): Port scanning, unauthorized protocols<br><br>
+                                <strong>Valor:</strong> Descubre "false sense of security". Ejemplo real: Control configurado pero con exception para "trusted process" → malware usa ese proceso → bypassa control. Testing descubre gap ANTES de atacante real.
+                            </li>
+                            <li>
+                                <strong>4. Cross-Platform Incident Correlation:</strong><br><br>
+                                <strong>Problema:</strong> Incidentes sofisticados usan múltiples vectores. Ejemplo: Atacante compromete laptop (Crowdstrike detecta) → usa credenciales robadas para login Azure (Azure AD log) → exfiltra datos a Dropbox (Netskope detecta). Si SOC analiza cada herramienta aisladamente → 3 alertas separadas, no conectadas. MTTR alto porque no ven "big picture".<br><br>
+                                <strong>Solución:</strong> Correlation engine (Python) que:<br>
+                                1. Consume eventos de Kafka topics (crowdstrike-alerts, azuread-signins, netskope-alerts).<br>
+                                2. Correlaciona por: Tiempo (ventana 2h), Usuario (mismo username), Host (mismo hostname/IP), Severity (al menos 1 evento HIGH).<br>
+                                3. Patrón matching: Si [Crowdstrike: malware detection] THEN busca [Azure AD: login desde IP externa] dentro 2h THEN busca [Netskope: bulk file upload] → Confirma: INCIDENT.<br>
+                                4. LLM genera timeline automático: "14:23 - Malware 'Emotet' detectado en LAPTOP-123 (user: juan.perez). 14:45 - Login Azure AD exitoso desde IP 45.33.X.X (Panamá, no usual para juan.perez). 15:10 - Upload 500MB a Dropbox personal desde juan.perez@empresa.com. CONCLUSIÓN: Posible data exfiltration post-compromise. RECOMENDACIÓN: (1) Aislar LAPTOP-123, (2) Revocar sesiones Azure AD juan.perez, (3) Bloquear IP 45.33.X.X en firewall, (4) Contactar juan.perez para validar actividad legítima".<br>
+                                5. Ticket auto-creado en ServiceNow severity=CRITICAL + asignado a SOC Tier 2.<br><br>
+                                <strong>Tecnologías:</strong><br>
+                                • <u>Windowing:</u> Tumbling windows 2h para agrupar eventos relacionados.<br>
+                                • <u>Entity Resolution:</u> Normalizar usernames (juan.perez = jperez@empresa.com = jperezo365).<br>
+                                • <u>ML:</u> Isolation Forest detecta comportamiento anómalo ADEMÁS de rules.<br><br>
+                                <strong>Impacto:</strong> MTTR 15 días → 7 días (53% reducción). SOC ve incidentes complejos en contexto completo, no fragmentado.
+                            </li>
+                            <li>
+                                <strong>5. Compliance-as-Code Pipeline:</strong><br><br>
+                                <strong>Qué hace:</strong> Integra validación de compliance DENTRO del CI/CD pipeline de infraestructura cloud. No se puede desplegar infra que viole controles.<br><br>
+                                <strong>Workflow GitOps:</strong><br>
+                                1. Developer escribe Terraform para crear S3 bucket en AWS.<br>
+                                2. Git push → GitLab CI trigger.<br>
+                                3. Pipeline ejecuta:<br>
+                                   • <code>terraform validate</code> (sintaxis correcta)<br>
+                                   • <code>checkov -f main.tf</code> (policy-as-code scanner). Reglas: S3 must have encryption, versioning, block public access, logging.<br>
+                                   • Si checkov encuentra violación → BUILD FAILS. Message: "❌ Policy violation: S3 bucket 'mi-bucket' missing encryption at rest (violates ISO 27001 SC-28, SBS Art. 15). Fix: Add server_side_encryption_configuration block."<br>
+                                   • Developer corrige → re-push → pasa checks → terraform apply.<br>
+                                4. Post-deploy: Crowdstrike CSPM escanea cuenta AWS → valida que config deployed == config aprobada (no drift).<br><br>
+                                <strong>Integración SOAR:</strong> Si post-deploy se detecta violación → Crowdstrike Fusion SOAR auto-remedia:<br>
+                                • Tipo 1 (bajo riesgo): Auto-fix. Ejemplo: "Habilitar encryption en S3" → SOAR llama AWS API → habilita.<br>
+                                • Tipo 2 (alto riesgo): Auto-cuarentena + ticket humano. Ejemplo: "Bucket público con PII" → SOAR bloquea acceso público → crea ticket para Security Lead.<br><br>
+                                <strong>Beneficio:</strong> "Shift left security". Detectar violaciones en DEV, no en PROD. Evita deuda técnica de seguridad. Desarrolladores aprenden controles (feedback loop educativo).
+                            </li>
+                        </ul>
+                    </div>
