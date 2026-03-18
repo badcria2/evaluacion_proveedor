@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead de Ingeniería de Controles e Innovación - Perfil del Rol</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ffffff;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.8em;
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            color: #bdc3c7;
+            font-weight: 300;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        .section {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 50px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease;
+        }
+        
+        .section h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 400;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 15px;
+        }
+        
+        .section h3 {
+            font-size: 1.5em;
+            color: #34495e;
+            margin-bottom: 20px;
+            margin-top: 35px;
+            font-weight: 400;
+        }
+        
+        .section h4 {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            font-weight: 500;
+        }
+        
+        .mission-box {
+            background: #f8f9fa;
+            border-left: 4px solid #7f8c8d;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        
+        .mission-box p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #34495e;
+        }
+        
+        .mission-box strong {
+            color: #2c3e50;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 30px;
+            margin: 30px 0;
+            align-items: center;
+        }
+        
+        .comparison-box {
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .comparison-box:hover {
+            border-color: #95a5a6;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-title {
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .comparison-value {
+            font-size: 1.3em;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        .arrow {
+            font-size: 2em;
+            color: #95a5a6;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: #e0e0e0;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 30px 0;
+        }
+        
+        .skill-header {
+            background: #34495e;
+            color: #ffffff;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 0.95em;
+            text-align: center;
+        }
+        
+        .skill-cell {
+            background: #ffffff;
+            padding: 20px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .skill-cell:hover {
+            background: #f8f9fa;
+        }
+        
+        .skill-cell p {
+            margin: 0;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .skill-cell strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .objectives-list {
+            list-style: none;
+            padding: 0;
+            margin: 25px 0;
+        }
+        
+        .objectives-list li {
+            background: #f8f9fa;
+            border-left: 4px solid #95a5a6;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            animation: slideInRight 0.5s ease;
+        }
+        
+        .objectives-list li:hover {
+            border-left-color: #7f8c8d;
+            background: #f0f0f0;
+            transform: translateX(5px);
+        }
+        
+        .objectives-list li strong {
+            font-size: 1.15em;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .objectives-list li p {
+            color: #555;
+            line-height: 1.7;
+            margin-top: 8px;
+        }
+        
+        .responsibility-item {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .responsibility-item:hover {
+            border-color: #bdc3c7;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .responsibility-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .responsibility-title .letter {
+            background: #7f8c8d;
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            font-weight: 700;
+        }
+        
+        .responsibility-item ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+        
+        .responsibility-item ul li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .responsibility-item ul li::before {
+            content: '•';
+            position: absolute;
+            left: 8px;
+            color: #95a5a6;
+            font-weight: bold;
+        }
+        
+        .architecture-section {
+            background: #fafafa;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+        
+        .architecture-section h3 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 35px;
+            font-size: 1.8em;
+        }
+        
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .agent-card {
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .agent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #7f8c8d, #95a5a6);
+        }
+        
+        .agent-card:hover {
+            border-color: #95a5a6;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
+        }
+        
+        .agent-number {
+            display: inline-block;
+            background: #34495e;
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .agent-name {
+            font-size: 1.3em;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .agent-role {
+            font-size: 1.05em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .agent-detail {
+            margin: 15px 0;
+        }
+        
+        .agent-detail-label {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #95a5a6;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .agent-detail-value {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .tech-tag {
+            display: inline-block;
+            background: #ecf0f1;
+            color: #555;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin: 3px;
+            border: 1px solid #ddd;
+        }
+        
+        .orchestrator-box {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .orchestrator-box h4 {
+            color: #ffffff;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .orchestrator-box p {
+            color: #bdc3c7;
+            font-size: 1.05em;
+        }
+        
+        .mermaid-container {
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .mermaid-code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 30px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            text-align: left;
+            overflow-x: auto;
+            line-height: 1.8;
+            white-space: pre;
+        }
+        
+        .mermaid-note {
+            background: #f8f9fa;
+            border-left: 4px solid #7f8c8d;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 4px;
+            text-align: left;
+        }
+        
+        .mermaid-note p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .mermaid-note strong {
+            color: #2c3e50;
+        }
+        
+        .mermaid-note strong {
+            color: #2c3e50;
+        }
+        
+        .mermaid-note strong {
+            color: #2c3e50;
+        }
+        
+        /* ESTILOS PIXEL ART OFFICE */
+        .pixel-office-container {
+            background: #e8e8e8;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .pixel-office {
+            background: #8b7355;
+            border: 4px solid #5d4e37;
+            border-radius: 8px;
+            padding: 20px;
+            display: grid;
+            grid-template-areas:
+                "shelf1 shelf1 shelf2 shelf2"
+                "agent1 hub agent2 agent3"
+                "agent1 hub agent2 agent3";
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            min-height: 400px;
+            position: relative;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.1);
+        }
+        
+        .workstation {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+        
+        .desk {
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(180deg, #8b6914 0%, #6b5310 100%);
+            border: 2px solid #4a3a0f;
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .computer {
+            position: absolute;
+            bottom: 40px;
+            width: 50px;
+            height: 40px;
+        }
+        
+        .screen {
+            width: 50px;
+            height: 35px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            border: 3px solid #1a252f;
+            border-radius: 2px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            animation: screenGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes screenGlow {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.6); }
+        }
+        
+        .screen::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: linear-gradient(135deg, transparent 0%, rgba(0, 255, 255, 0.1) 100%);
+        }
+        
+        .agent-sprite {
+            width: 40px;
+            height: 60px;
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: agentIdle 3s ease-in-out infinite;
+        }
+        
+        @keyframes agentIdle {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-3px); }
+        }
+        
+        .agent-face {
+            width: 24px;
+            height: 24px;
+            background: #f4d0a8;
+            border: 2px solid #d4a574;
+            border-radius: 50%;
+            margin: 0 auto 2px;
+            position: relative;
+        }
+        
+        .agent-face::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #2c3e50;
+            border-radius: 50%;
+            top: 8px;
+            left: 6px;
+        }
+        
+        .agent-face::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #2c3e50;
+            border-radius: 50%;
+            top: 8px;
+            right: 6px;
+        }
+        
+        .agent1-sprite .agent-body {
+            width: 30px;
+            height: 32px;
+            background: #3498db;
+            border: 2px solid #2980b9;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+        
+        .agent2-sprite .agent-body {
+            width: 30px;
+            height: 32px;
+            background: #e74c3c;
+            border: 2px solid #c0392b;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+        
+        .agent3-sprite .agent-body {
+            width: 30px;
+            height: 32px;
+            background: #2ecc71;
+            border: 2px solid #27ae60;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+        
+        .status-indicator {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            background: #95a5a6;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .status-indicator.active {
+            background: #27ae60;
+            box-shadow: 0 0 10px rgba(39, 174, 96, 0.8);
+        }
+        
+        .status-indicator.processing {
+            background: #f39c12;
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.8);
+        }
+        
+        .status-indicator.waiting {
+            background: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .agent-label {
+            margin-top: 50px;
+            font-size: 0.8em;
+            color: #2c3e50;
+            font-weight: 600;
+            text-align: center;
+            background: rgba(255,255,255,0.8);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .plant {
+            position: absolute;
+            bottom: 35px;
+            width: 20px;
+            height: 25px;
+        }
+        
+        .plant.left { left: 5px; }
+        .plant.right { right: 5px; }
+        
+        .plant::before {
+            content: '🌿';
+            font-size: 20px;
+        }
+        
+        .bookshelf {
+            background: linear-gradient(180deg, #6b4423 0%, #4a2f1a 100%);
+            border: 3px solid #3a1f0a;
+            border-radius: 4px;
+            position: relative;
+            height: 60px;
+        }
+        
+        .bookshelf::after {
+            content: '📚📗📘📙';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2em;
+        }
+        
+        .communication-hub {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            border: 3px solid #1a252f;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .hub-icon {
+            font-size: 3em;
+            animation: rotate 4s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .hub-label {
+            margin-top: 10px;
+            color: #ecf0f1;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        /* Mensajes flotantes entre agentes */
+        #message-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .floating-message {
+            position: absolute;
+            background: rgba(52, 73, 94, 0.95);
+            color: #ecf0f1;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.75em;
+            font-weight: 600;
+            border: 2px solid #34495e;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            white-space: nowrap;
+            animation: messageFloat 2s ease-in-out forwards;
+        }
+        
+        .floating-message::before {
+            content: '💬';
+            margin-right: 5px;
+        }
+        
+        @keyframes messageFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0.8);
+            }
+            20% {
+                opacity: 1;
+                transform: translateY(-20px) scale(1);
+            }
+            80% {
+                opacity: 1;
+                transform: translateY(-40px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-60px) scale(0.8);
+            }
+        }
+        
+        .activity-panel {
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .activity-panel h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .activity-log {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+        }
+        
+        .log-line {
+            padding: 4px 0;
+            color: #555;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .log-line:last-child {
+            border-bottom: none;
+        }
+        
+        .log-line.success {
+            color: #27ae60;
+        }
+        
+        .log-line.warning {
+            color: #f39c12;
+        }
+        
+        .log-line.error {
+            color: #e74c3c;
+        }
+        
+        .log-line.info {
+            color: #3498db;
+        }
+        
+        .stats-panel-pixel {
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .stats-panel-pixel h4 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            border-color: #95a5a6;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .stat-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .stat-text {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        @media (max-width: 1024px) {
+            .pixel-office {
+                grid-template-areas:
+                    "shelf1 shelf2"
+                    "agent1 agent2"
+                    "hub hub"
+                    "agent3 agent3";
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .pixel-office {
+                grid-template-areas:
+                    "shelf1"
+                    "agent1"
+                    "shelf2"
+                    "agent2"
+                    "hub"
+                    "agent3";
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .section {
+                padding: 30px 25px;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .agent-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Nuevos sprites para iconos de agentes */
+        .agent-icon {
+            position: absolute;
+            top: 20px; /* Ajustar posición */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em; /* Tamaño de los iconos */
+            z-index: 5;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+        }
+
+        /* Animación de teclado simple */
+        @keyframes typing {
+            0%, 100% { background-position: 0 0; }
+            50% { background-position: -2px -2px; } /* Simula movimiento */
+        }
+
+        .computer.typing .screen {
+            animation: screenGlow 2s ease-in-out infinite, typing 0.5s steps(2) infinite;
+        }
+
+        /* Animación para el Hub */
+        @keyframes hubPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(52, 152, 219, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(52, 152, 219, 0.6); }
+        }
+        .communication-hub.active {
+            animation: hubPulse 2s ease-in-out infinite;
+        }
+
+        /* Para las líneas de conexión (implementadas con JS) */
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5); /* Color de línea */
+            border-radius: 1px;
+            pointer-events: none;
+            opacity: 0;
+            animation: drawLine 1s linear forwards;
+            box-shadow: 0 0 5px rgba(255,255,255,0.7);
+        }
+
+        @keyframes drawLine {
+            0% { width: 0; opacity: 1; }
+            100% { opacity: 0; } /* La anchura se maneja por JS */
+        }
+        
+        /* Detalles de oficina */
+        .pixel-decoration {
+            position: absolute;
+            font-size: 1.5em;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+        }
+        .cat-sprite {
+            left: 10%; bottom: 10px; content: '🐱'; animation: catSleep 5s ease-in-out infinite;
+        }
+        @keyframes catSleep {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-2px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Lead de Ingeniería de Controles e Innovación</h1>
+        <p class="subtitle">GRC Automation & Data-Driven Security</p>
+    </div>
+
+    <div class="container">
+        <!-- MISIÓN DEL PUESTO -->
+        <div class="section">
+            <h2>Misión del Puesto</h2>
+            <div class="mission-box">
+                <p>
+                    Transformar el marco de control estático de la compañía en un <strong>ecosistema dinámico y automatizado</strong>, 
+                    integrando la seguridad en el ADN digital de la organización para garantizar el <strong>cumplimiento continuo</strong> 
+                    y la <strong>resiliencia operativa</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- TRANSICIÓN DEL ROL -->
+        <div class="section">
+            <h2>Evolución del Rol</h2>
+             
+            <div class="comparison-grid">
+                <div class="comparison-box">
+                    <div class="comparison-title">Antes</div>
+                    <div class="comparison-value">Experto en Controles</div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="comparison-box">
+                    <div class="comparison-title">Ahora</div>
+                    <div class="comparison-value">Lead de Innovación</div>
+                </div>
+            </div>
+
+            <h3>Comparativa de Competencias</h3>
+            
+            <div class="skills-grid">
+                <div class="skill-header">Competencia</div>
+                <div class="skill-header">Enfoque Anterior</div>
+                <div class="skill-header">Enfoque Evolucionado</div>
+                
+                <div class="skill-cell">
+                    <p><strong>Técnica</strong></p>
+                </div>
+                <div class="skill-cell">
+                    <p>Revisión de Checklists / Excel</p>
+                </div>
+                <div class="skill-cell">
+                    <p>Python/Bash, APIs, GRC Cloud Tools, Multi-Agent AI Systems</p>
+                </div>
+                
+                <div class="skill-cell">
+                    <p><strong>Visión</strong></p>
+                </div>
+                <div class="skill-cell">
+                    <p>Enfocado en "Qué falló" (Pasado)</p>
+                </div>
+                <div class="skill-cell">
+                    <p>Enfocado en "Cómo lo automatizo" (Futuro)</p>
+                </div>
+                
+                <div class="skill-cell">
+                    <p><strong>Soft Skills</strong></p>
+                </div>
+                <div class="skill-cell">
+                    <p>Auditoría y Reporte</p>
+                </div>
+                <div class="skill-cell">
+                    <p>Negociación con equipos técnicos + Mentalidad de producto</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- OBJETIVOS ESTRATÉGICOS -->
+        <div class="section">
+            <h2>Objetivos Estratégicos</h2>
+            
+            <ul class="objectives-list">
+                <li>
+                    <strong>1. Automatización de Cumplimiento (Compliance-as-Code)</strong>
+                    <p>Eliminar la recolección manual de evidencias, implementando mecanismos de validación automática integrados en pipelines CI/CD.</p>
+                </li>
+                
+                <li>
+                    <strong>2. Monitoreo Continuo de Controles (CCM)</strong>
+                    <p>Establecer vigilancia en tiempo real sobre controles críticos (SWIFT, PCI-DSS, Protección de Datos). Dashboard de salud de controles 24/7.</p>
+                </li>
+                
+                <li>
+                    <strong>3. Eficiencia Operativa</strong>
+                    <p>Reducir tiempo dedicado a auditorías internas/externas mediante tableros automatizados y evidencia on-demand.</p>
+                </li>
+                
+                <li>
+                    <strong>4. Innovación en Ciberseguridad</strong>
+                    <p>Evaluar y pilotar nuevas tecnologías: IA para anomalías en controles, Blockchain para logs de auditoría, Multi-Agent Systems.</p>
+                </li>
+            </ul>
+        </div>
+ 
+ 
+
+        <!-- ANIMACIÓN DE AGENTES EN ACCIÓN - PIXEL ART STYLE -->
+        <div class="section">
+            <h2>Agentes en Acción - Simulación Pixel Art</h2>
+            <p style="color: #555; margin-bottom: 30px;">Oficina virtual donde 3 agentes AI colaboran en tiempo real</p>
+            
+            <div class="pixel-office-container">
+                <!-- Oficina Pixel Art --> 
+                <div class="pixel-office" id="pixel-office">
+                    <!-- Agent 1 Workstation -->
+                    <div class="workstation" id="station1" style="grid-area: agent1;">
+                        <div class="agent-icon">📄</div> <!-- Icono para Doc Validator -->
+                        <div class="desk"></div>
+                        <div class="computer" id="computer1">
+                            <div class="screen"></div>
+                        </div>
+                        <div class="agent-sprite agent1-sprite" id="agent1-sprite">
+                            <div class="agent-face"></div>
+                            <div class="agent-body"></div>
+                            <div class="status-indicator" id="status1"></div>
+                        </div>
+                        <div class="agent-label">Agent 1<br><span style="font-size: 0.75em;">Doc Validator</span></div>
+                        <div class="plant left"></div>
+                    </div>
+
+                    <!-- Repetir para Agent 2 (lupa 🔍) y Agent 3 (engranaje ⚙️) -->
+                    <div class="workstation" id="station2" style="grid-area: agent2;">
+                        <div class="agent-icon">🔍</div> <!-- Icono para Alert Monitor -->
+                        <div class="desk"></div>
+                        <div class="computer" id="computer2">
+                            <div class="screen"></div>
+                        </div>
+                        <div class="agent-sprite agent2-sprite" id="agent2-sprite">
+                            <div class="agent-face"></div>
+                            <div class="agent-body"></div>
+                            <div class="status-indicator" id="status2"></div>
+                        </div>
+                        <div class="agent-label">Agent 2<br><span style="font-size: 0.75em;">Alert Monitor</span></div>
+                    </div>
+
+                    <div class="workstation" id="station3" style="grid-area: agent3;">
+                        <div class="agent-icon">⚙️</div> <!-- Icono para Finding Analyzer -->
+                        <div class="desk"></div>
+                        <div class="computer" id="computer3">
+                            <div class="screen"></div>
+                        </div>
+                        <div class="agent-sprite agent3-sprite" id="agent3-sprite">
+                            <div class="agent-face"></div>
+                            <div class="agent-body"></div>
+                            <div class="status-indicator" id="status3"></div>
+                        </div>
+                        <div class="agent-label">Agent 3<br><span style="font-size: 0.75em;">Finding Analyzer</span></div>
+                        <div class="plant right"></div>
+                    </div>
+
+                    <!-- Bookshelf decoración -->
+                    <div class="bookshelf" style="grid-area: shelf1;"></div>
+                    <div class="bookshelf" style="grid-area: shelf2;"></div>
+
+                    <!-- Zona de comunicación central -->
+                    <div class="communication-hub" id="communication-hub" style="grid-area: hub;">
+                        <div class="hub-icon">🔄</div>
+                        <div class="hub-label">Message Queue</div>
+                    </div>
+
+                    <!-- Decoraciones adicionales -->
+                    <div class="pixel-decoration cat-sprite" style="grid-area: agent3; align-self: end; justify-self: start; left: 20px;"></div>
+                    <div class="pixel-decoration" style="position: absolute; top: 10px; right: 10px; font-size: 1.2em;">⏰</div> <!-- Reloj de pared -->
+                    <div class="pixel-decoration" style="position: absolute; top: 10px; left: 10px; font-size: 1.2em;">☕</div> <!-- Taza de café -->
+
+                    <!-- Mensajes flotantes y líneas de conexión -->
+                    <div id="message-container"></div>
+                    <div id="connection-lines-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5;"></div>
+                </div>
+
+                <!-- Panel de actividad en tiempo real -->
+                <div class="activity-panel">
+                    <h4>📊 Registro de Actividad</h4>
+                    <div class="activity-log" id="activity-log">
+                        <div class="log-line">Sistema iniciado. Esperando comandos...</div>
+                    </div>
+                </div>
+
+                <!-- Panel de métricas -->
+                <div class="stats-panel-pixel">
+                    <h4>📈 Métricas del Sistema</h4>
+                    <div class="stat-grid">
+                        <div class="stat-box">
+                            <div class="stat-icon">📄</div>
+                            <div class="stat-number" id="docs-count">0</div>
+                            <div class="stat-text">Documentos</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-icon">⚠️</div>
+                            <div class="stat-number" id="alerts-count">0</div>
+                            <div class="stat-text">Alertas</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-icon">🔍</div>
+                            <div class="stat-number" id="findings-count">0</div>
+                            <div class="stat-text">Hallazgos</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-icon">💬</div>
+                            <div class="stat-number" id="messages-count">0</div>
+                            <div class="stat-text">Mensajes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controles -->
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="control-btn" id="startBtn">▶ Iniciar Simulación</button>
+                    <button class="control-btn" id="pauseBtn" disabled>⏸ Pausar</button>
+                    <button class="control-btn" id="resetBtn">↻ Reiniciar</button>
+                </div>
+            </div>
+        </div>
+
+ 
+
+    </div>
+ <script>
+        let isRunning = false;
+        let isPaused = false;
+        let messageCounter = 0;
+
+        let docsCount = 0;
+        let alertsCount = 0;
+        let findingsCount = 0;
+        let messagesCount = 0;
+
+        const tasks = {
+            agent1: [
+                { action: 'Validando ISO_27001_Policy.pdf', status: 'success', duration: 2000 },
+                { action: 'Analizando NIST_CSF_Mapping.xlsx', status: 'success', duration: 1800 },
+                { action: 'Revisando PCI_DSS_Audit.docx', status: 'warning', duration: 2200 }
+            ],
+            agent2: [
+                { action: 'Detectando alerta DLP crítica', status: 'warning', duration: 1500 },
+                { action: 'Analizando sign-in anómalo', status: 'error', duration: 2500 },
+                { action: 'Clasificando alertas MFA', status: 'success', duration: 1700 }
+            ],
+            agent3: [
+                { action: 'Escaneando Crowdstrike findings', status: 'warning', duration: 2000 },
+                { action: 'Generando Terraform fix', status: 'success', duration: 2300 },
+                { action: 'Validando código remediación', status: 'success', duration: 1900 }
+            ]
+        };
+
+        const messages = [
+            { from: 1, to: 'hub', text: 'Doc validado → Enviando a queue' },
+            { from: 'hub', to: 2, text: 'Nueva alerta → Procesando' },
+            { from: 2, to: 'hub', text: 'Alerta clasificada → Critical' },
+            { from: 'hub', to: 3, text: 'Generar remediación para hallazgo' },
+            { from: 3, to: 'hub', text: 'Código generado → Validando' },
+            { from: 'hub', to: 1, text: 'Compliance check → Aprobado' },
+            { from: 1, to: 2, text: 'Usuario sin MFA detectado' },
+            { from: 2, to: 3, text: 'Escalando finding crítico' },
+            { from: 3, to: 1, text: 'Solicitando validación policy' }
+        ];
+
+        function addLog(text, type = 'info') {
+            const log = document.getElementById('activity-log');
+            const line = document.createElement('div');
+            line.className = `log-line ${type}`;
+            const timestamp = new Date().toLocaleTimeString();
+            line.textContent = `[${timestamp}] ${text}`;
+            log.appendChild(line);
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function setAgentStatus(agentNum, status) {
+            const indicator = document.getElementById(`status${agentNum}`);
+            indicator.className = 'status-indicator';
+            if (status) indicator.classList.add(status);
+
+            const computer = document.getElementById(`computer${agentNum}`);
+            if (computer) {
+                if (status === 'processing') {
+                    computer.classList.add('typing');
+                } else {
+                    computer.classList.remove('typing');
+                }
+            }
+        }
+
+        function getElementCenter(elementId) {
+            const element = document.getElementById(elementId);
+            if (!element) return { x: 0, y: 0 };
+            const rect = element.getBoundingClientRect();
+            const parentRect = document.getElementById('pixel-office').getBoundingClientRect();
+            return {
+                x: rect.left - parentRect.left + rect.width / 2,
+                y: rect.top - parentRect.top + rect.height / 2
+            };
+        }
+
+        function createFloatingMessage(fromAgent, toAgent, text) {
+            const container = document.getElementById('message-container');
+            const message = document.createElement('div');
+            message.className = 'floating-message';
+            message.textContent = text;
+
+            let fromPos;
+            if (fromAgent === 'hub') {
+                fromPos = getElementCenter('communication-hub');
+            } else {
+                fromPos = getElementCenter(`agent${fromAgent}-sprite`);
+            }
+
+            message.style.left = fromPos.x + 'px';
+            message.style.top = fromPos.y + 'px';
+
+            container.appendChild(message);
+            messagesCount++;
+            document.getElementById('messages-count').textContent = messagesCount;
+
+            // Dibuja la línea de conexión
+            drawConnectionLine(fromAgent, toAgent);
+
+            setTimeout(() => {
+                message.remove();
+            }, 2000);
+        }
+
+        function drawConnectionLine(fromAgent, toAgent) {
+            const linesContainer = document.getElementById('connection-lines-container');
+            let startElementId, endElementId;
+
+            if (fromAgent === 'hub') {
+                startElementId = 'communication-hub';
+            } else {
+                startElementId = `agent${fromAgent}-sprite`;
+            }
+
+            if (toAgent === 'hub') {
+                endElementId = 'communication-hub';
+            } else {
+                endElementId = `agent${toAgent}-sprite`;
+            }
+
+            const startPos = getElementCenter(startElementId);
+            const endPos = getElementCenter(endElementId);
+
+            const line = document.createElement('div');
+            line.className = 'connection-line';
+
+            const angle = Math.atan2(endPos.y - startPos.y, endPos.x - startPos.x) * 180 / Math.PI;
+            const distance = Math.sqrt(Math.pow(endPos.x - startPos.x, 2) + Math.pow(endPos.y - startPos.y, 2));
+
+            line.style.width = `${distance}px`;
+            line.style.transform = `rotate(${angle}deg)`;
+            line.style.left = `${startPos.x}px`;
+            line.style.top = `${startPos.y}px`;
+            line.style.transformOrigin = `0 0`; // Rota desde el inicio
+
+            linesContainer.appendChild(line);
+
+            // Animar la línea
+            setTimeout(() => {
+                line.style.opacity = 0; // Se desvanece
+                // line.style.width = '0px'; // Se encoge
+                // O simplemente removerla
+                setTimeout(() => line.remove(), 1000);
+            }, 1000); // Duración de la animación de la línea
+
+        }
+
+        async function sleep(ms) {
+            while (isPaused) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function runAgent1() {
+            for (let task of tasks.agent1) {
+                if (!isRunning) break;
+
+                setAgentStatus(1, 'processing');
+                addLog(`Agent 1: ${task.action}`, 'info');
+
+                await sleep(task.duration);
+
+                if (!isRunning) break;
+
+                const logType = task.status === 'success' ? 'success' : 'warning';
+                addLog(`Agent 1: Completado (${task.status})`, logType);
+                docsCount++;
+                document.getElementById('docs-count').textContent = docsCount;
+
+                createFloatingMessage(1, 'hub', messages[Math.floor(Math.random() * 3)].text);
+                await sleep(500);
+
+                setAgentStatus(1, 'waiting');
+                await sleep(800);
+            }
+
+            if (isRunning) {
+                setAgentStatus(1, 'active');
+                addLog('Agent 1: Todas las tareas completadas', 'success');
+            }
+        }
+
+        async function runAgent2() {
+            await sleep(500); // Delay inicial
+
+            for (let task of tasks.agent2) {
+                if (!isRunning) break;
+
+                setAgentStatus(2, 'processing');
+                addLog(`Agent 2: ${task.action}`, 'info');
+
+                await sleep(task.duration);
+
+                if (!isRunning) break;
+
+                const logType = task.status === 'success' ? 'success' : task.status === 'error' ? 'error' : 'warning';
+                addLog(`Agent 2: Completado (${task.status})`, logType);
+                alertsCount++;
+                document.getElementById('alerts-count').textContent = alertsCount;
+
+                if (task.status === 'error') {
+                    createFloatingMessage(2, 'hub', 'Alerta CRÍTICA detectada');
+                    await sleep(300);
+                    createFloatingMessage('hub', 3, 'Generar remediación urgente');
+                } else {
+                    createFloatingMessage(2, 'hub', 'Alerta procesada');
+                }
+
+                await sleep(500);
+                setAgentStatus(2, 'waiting');
+                await sleep(1000);
+            }
+
+            if (isRunning) {
+                setAgentStatus(2, 'active');
+                addLog('Agent 2: Monitoreo completado', 'success');
+            }
+        }
+
+        async function runAgent3() {
+            await sleep(1000); // Delay inicial
+
+            for (let task of tasks.agent3) {
+                if (!isRunning) break;
+
+                setAgentStatus(3, 'processing');
+                addLog(`Agent 3: ${task.action}`, 'info');
+
+                await sleep(task.duration);
+
+                if (!isRunning) break;
+
+                const logType = task.status === 'success' ? 'success' : 'warning';
+                addLog(`Agent 3: Completado (${task.status})`, logType);
+                findingsCount++;
+                document.getElementById('findings-count').textContent = findingsCount;
+
+                if (task.action.includes('código')) {
+                    createFloatingMessage(3, 'hub', 'Código generado → Validar');
+                    await sleep(400);
+                    createFloatingMessage('hub', 1, 'Validar compliance código');
+                    await sleep(600);
+                    createFloatingMessage(1, 'hub', 'Código aprobado ✓');
+                }
+
+                await sleep(500);
+                setAgentStatus(3, 'waiting');
+                await sleep(900);
+            }
+
+            if (isRunning) {
+                setAgentStatus(3, 'active');
+                addLog('Agent 3: Análisis completado', 'success');
+            }
+        }
+
+        async function randomCommunication() {
+            while (isRunning) {
+                await sleep(3000 + Math.random() * 2000);
+
+                if (!isRunning) break;
+
+                const msg = messages[Math.floor(Math.random() * messages.length)];
+                createFloatingMessage(msg.from, msg.to, msg.text);
+            }
+        }
+
+        document.getElementById('startBtn').addEventListener('click', function() {
+            if (!isRunning) {
+                isRunning = true;
+                isPaused = false;
+
+                this.disabled = true;
+                document.getElementById('pauseBtn').disabled = false;
+                document.getElementById('communication-hub').classList.add('active'); // Activa animación del hub
+
+                setAgentStatus(1, 'active');
+                setAgentStatus(2, 'active');
+                setAgentStatus(3, 'active');
+
+                addLog('=== SISTEMA INICIADO ===', 'success');
+                addLog('Agentes activados. Iniciando procesamiento...', 'info');
+
+                runAgent1();
+                runAgent2();
+                runAgent3();
+                randomCommunication();
+            }
+        });
+
+        document.getElementById('pauseBtn').addEventListener('click', function() {
+            isPaused = !isPaused;
+            this.textContent = isPaused ? '▶ Reanudar' : '⏸ Pausar';
+            addLog(isPaused ? 'Sistema pausado' : 'Sistema reanudado', 'info');
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            isRunning = false;
+            isPaused = false;
+
+            docsCount = 0;
+            alertsCount = 0;
+            findingsCount = 0;
+            messagesCount = 0;
+
+            document.getElementById('docs-count').textContent = '0';
+            document.getElementById('alerts-count').textContent = '0';
+            document.getElementById('findings-count').textContent = '0';
+            document.getElementById('messages-count').textContent = '0';
+
+            setAgentStatus(1, '');
+            setAgentStatus(2, '');
+            setAgentStatus(3, '');
+            document.getElementById('communication-hub').classList.remove('active'); // Desactiva animación del hub
+
+
+            document.getElementById('activity-log').innerHTML = '<div class="log-line">Sistema reiniciado. Esperando comandos...</div>';
+
+            document.getElementById('message-container').innerHTML = '';
+            document.getElementById('connection-lines-container').innerHTML = ''; // Limpiar líneas de conexión
+
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('pauseBtn').disabled = true;
+            document.getElementById('pauseBtn').textContent = '⏸ Pausar';
+
+            addLog('=== SISTEMA REINICIADO ===', 'info');
+        });
+    </script>
+</body>
+</html>
