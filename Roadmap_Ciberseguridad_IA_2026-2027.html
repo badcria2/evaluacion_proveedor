@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roadmap de Ciberseguridad + IA · 2025-2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#5B6B6C; --teal-dark:#43504F; --navy:#26292C; --navy-2:#3A3E42;
+  --gold:#8A7A5E; --paper:#F2F2F0; --paper-2:#FFFFFF; --ink:#212427; --ink-soft:#5D6266;
+  --line:#DFDFDD;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --paper:#17181A; --paper-2:#1E1F21; --ink:#EDEDEC; --ink-soft:#A3A6A8; --line:#333537; }
+}
+:root[data-theme="dark"]{ --paper:#17181A; --paper-2:#1E1F21; --ink:#EDEDEC; --ink-soft:#A3A6A8; --line:#333537; }
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*{margin:0;box-sizing:border-box;}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.55;}
+.wrap{max-width:1000px;margin:0 auto;padding:0 28px;}
+h1,h2,h3{font-family:'Fraunces',serif;color:var(--navy);}
+:root[data-theme="dark"] h1, :root[data-theme="dark"] h2, :root[data-theme="dark"] h3{color:#EDEDEC;}
+p{color:var(--ink-soft);max-width:68ch;}
+
+.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 60%,var(--teal-dark) 100%);color:#fff;padding:64px 0 48px;}
+.hero .wrap{display:flex;flex-direction:column;gap:18px;}
+.eyebrow{color:#9FD4CE;font-size:14px;letter-spacing:.02em;}
+.hero h1{font-size:clamp(26px,3.6vw,40px);color:#fff;font-weight:600;max-width:20ch;}
+.hero p{color:#CFE3E0;max-width:58ch;font-size:16px;}
+.hero-track{display:flex;gap:0;margin-top:22px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.18)}
+.hero-step{flex:1;padding:16px 18px;border-right:1px solid rgba(255,255,255,.18);}
+.hero-step:last-child{border-right:none;}
+.hero-step .yr{font-family:'Fraunces',serif;font-size:22px;color:#fff;}
+.hero-step .lb{font-size:13px;color:#B9D4D0;margin-top:4px;}
+.hero-step.now{background:rgba(255,255,255,.08);}
+
+section{padding:52px 0;border-bottom:1px solid var(--line);}
+section:last-of-type{border-bottom:none;}
+.tag{display:inline-block;font-size:13px;color:var(--teal-dark);background:rgba(14,124,123,.1);padding:4px 10px;border-radius:20px;margin-bottom:10px;}
+:root[data-theme="dark"] .tag{color:#9CA8A7;background:rgba(143,217,211,.12);}
+h2{font-size:25px;font-weight:600;margin-bottom:6px;}
+.lede{margin-bottom:26px;}
+
+.stackgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;}
+.stackitem{background:var(--paper-2);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:14px;}
+.stackitem b{display:block;color:var(--navy);font-size:14px;}
+:root[data-theme="dark"] .stackitem b{color:#EDEDEC;}
+.stackitem span{color:var(--ink-soft);font-size:12.5px;}
+
+.proj{background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:22px 24px;margin-bottom:16px;}
+.proj-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+.proj-head h3{font-size:18px;}
+.status{font-size:12px;padding:3px 9px;border-radius:20px;background:rgba(14,124,123,.12);color:var(--teal-dark);white-space:nowrap;}
+:root[data-theme="dark"] .status{color:#9CA8A7;background:rgba(143,217,211,.14);}
+.proj .meta{color:var(--ink-soft);font-size:13.5px;margin:6px 0 12px;}
+.impact-row{display:flex;gap:22px;flex-wrap:wrap;margin-top:10px;}
+.impact{min-width:140px;}
+.impact .num{font-family:'Fraunces',serif;font-size:22px;color:var(--teal-dark);}
+:root[data-theme="dark"] .impact .num{color:#9CA8A7;}
+.impact .lbl{font-size:12.5px;color:var(--ink-soft);}
+
+.rm{display:flex;flex-direction:column;gap:16px;}
+.rmcard{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper-2);}
+.rmhead{display:flex;align-items:baseline;gap:14px;padding:18px 22px;background:linear-gradient(90deg,rgba(14,124,123,.08),transparent);border-bottom:1px solid var(--line);}
+.rmhead .n{font-family:'Fraunces',serif;font-size:24px;color:var(--teal-dark);width:32px;}
+:root[data-theme="dark"] .rmhead .n{color:#9CA8A7;}
+.rmhead h3{font-size:17px;}
+.rmhead .obj{font-size:13px;color:var(--ink-soft);margin-top:2px;}
+.rmbody{padding:18px 22px 22px;display:grid;grid-template-columns:1.25fr 1fr;gap:22px;}
+@media(max-width:640px){.rmbody{grid-template-columns:1fr;}}
+.archlabel{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--teal-dark);margin:10px 0 4px;}
+:root[data-theme="dark"] .archlabel{color:#9CA8A7;}
+.archrow{font-size:13.5px;color:var(--ink);padding:4px 0;border-bottom:1px dashed var(--line);}
+.archrow:last-child{border-bottom:none;}
+.archrow b{color:var(--navy);font-weight:600;}
+:root[data-theme="dark"] .archrow b{color:#EDEDEC;}
+.kci-list{list-style:none;font-size:13.5px;color:var(--ink);}
+.kci-list li{padding:6px 0;border-bottom:1px dashed var(--line);}
+.kci-list li:last-child{border-bottom:none;}
+.roi-box{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-top:12px;}
+.roi-box .num{font-family:'Fraunces',serif;font-size:19px;color:var(--gold);}
+.roi-box .lbl{font-size:12px;color:var(--ink-soft);}
+
+.bars{display:flex;flex-direction:column;gap:14px;}
+.barrow{display:grid;grid-template-columns:180px 1fr 1fr;align-items:center;gap:10px;font-size:13.5px;}
+.barlabel{color:var(--ink);}
+.bartrack{background:var(--line);border-radius:6px;height:10px;position:relative;overflow:hidden;}
+.barfill{height:100%;border-radius:6px;}
+.barfill.a{background:#C7C8C5;}
+.barfill.b{background:var(--teal);}
+.barlegend{display:flex;gap:18px;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;}
+
+.recgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:720px){.recgrid{grid-template-columns:1fr;}}
+.reccard{background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:22px;position:relative;}
+.recbadge{display:inline-block;font-size:11px;letter-spacing:.03em;background:var(--gold);color:#fff;padding:3px 9px;border-radius:20px;margin-bottom:10px;}
+.reccard h3{font-size:17px;margin-bottom:4px;}
+.recwhy{font-size:13px;color:var(--teal-dark);margin-bottom:12px;}
+:root[data-theme="dark"] .recwhy{color:#9CA8A7;}
+.recroi{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:12px 0;}
+.recroi .num{font-family:'Fraunces',serif;font-size:18px;color:var(--gold);}
+.recroi .lbl{font-size:12px;color:var(--ink-soft);}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+.chip{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:3px 10px;font-size:11.5px;color:var(--ink-soft);}
+
+.hero-stats{display:flex;gap:32px;margin-top:6px;flex-wrap:wrap;}
+.hero-stats .stat{display:flex;flex-direction:column;}
+.hero-stats .stat-num{font-family:'Fraunces',serif;font-size:30px;color:#fff;line-height:1;}
+.hero-stats .stat-lbl{font-size:12.5px;color:#B9D4D0;margin-top:4px;}
+
+.quote{border-left:3px solid var(--teal);padding:6px 0 6px 20px;margin:36px 0 0;}
+.quote p{font-family:'Fraunces',serif;font-style:italic;font-size:19px;color:var(--navy);max-width:52ch;}.profile-path{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 28px;}
+@media(max-width:820px){.profile-path{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.profile-path{grid-template-columns:1fr;}}
+.profile-step{position:relative;background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:18px;min-height:170px;}
+.profile-step::after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;z-index:2;}
+.profile-step:last-child::after{display:none;}
+@media(max-width:820px){.profile-step:nth-child(2)::after{display:none;}.profile-step:nth-child(1)::after,.profile-step:nth-child(3)::after{display:flex;}}
+.profile-step .year{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-dark);margin-bottom:7px;}
+.profile-step h3{font-size:17px;margin-bottom:6px;}
+.profile-step p{font-size:12.5px;margin:0;}
+.profile-step.current{border-top:3px solid var(--teal);}
+.profile-step.target{border-top:3px solid var(--gold);background:linear-gradient(180deg,rgba(138,122,94,.08),var(--paper-2));}
+.profile-note{margin-top:20px;padding:16px 18px;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:8px;background:var(--paper-2);}
+.profile-note strong{color:var(--navy);}
+.profile-note p{font-size:13px;margin:0;}
+.profile-note .sub{margin-top:8px;}
+
+:root[data-theme="dark"] .quote p{color:#EDEDEC;}
+
+.bartrack .barfill{width:0;transition:width 1.3s cubic-bezier(.2,.7,.2,1);}
+
+.roi-chart-wrap{background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:26px 26px 14px;}
+.roi-chart svg{width:100%;height:auto;overflow:visible;}
+.roi-legend{display:flex;gap:18px;font-size:12.5px;color:var(--ink-soft);margin-top:10px;}
+
+.tl{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px;}
+@media(max-width:720px){.tl{grid-template-columns:1fr;}}
+.tl-q{background:var(--paper-2);border:1px solid var(--line);border-top:3px solid var(--teal);border-radius:8px;padding:16px;}
+.tl-q .qlabel{font-size:12px;color:var(--teal-dark);letter-spacing:.02em;margin-bottom:6px;}
+:root[data-theme="dark"] .tl-q .qlabel{color:#9CA8A7;}
+.tl-q h4{font-family:'Fraunces',serif;font-size:15.5px;color:var(--navy);margin-bottom:4px;}
+:root[data-theme="dark"] .tl-q h4{color:#EDEDEC;}
+.tl-q p{font-size:12.5px;margin:0;}
+
+.backlog{margin-top:26px;}
+.backlog h4{font-size:14px;color:var(--navy);margin-bottom:10px;font-family:'Inter',sans-serif;font-weight:600;}
+:root[data-theme="dark"] .backlog h4{color:#EDEDEC;}
+.blist{display:flex;flex-direction:column;gap:8px;}
+.britem{display:flex;gap:10px;align-items:baseline;background:var(--paper-2);border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:13.5px;}
+.britem .bn{font-family:'Fraunces',serif;color:var(--ink-soft);width:22px;flex-shrink:0;}
+.britem b{color:var(--navy);}
+:root[data-theme="dark"] .britem b{color:#EDEDEC;}
+
+.navbar{position:sticky;top:0;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+:root[data-theme="dark"] .navbar, :root:not([data-theme="light"]) .navbar{background:rgba(23,24,26,.86);}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .navbar{background:rgba(23,24,26,.86);} }
+.navbar .wrap{display:flex;gap:6px;padding:10px 28px;overflow-x:auto;max-width:1000px;}
+.navbtn{font-family:'Inter',sans-serif;font-size:13px;color:var(--ink-soft);background:transparent;border:1px solid transparent;border-radius:20px;padding:7px 14px;white-space:nowrap;cursor:pointer;text-decoration:none;transition:background .25s ease, color .25s ease, transform .15s ease, border-color .25s ease;}
+.navbtn:hover{background:var(--paper);color:var(--ink);transform:translateY(-1px);}
+.navbtn:active{transform:translateY(0) scale(.97);}
+.navbtn:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+.navbtn.active{color:#fff;background:var(--navy);border-color:var(--navy);}
+
+.top-btn{position:fixed;right:18px;bottom:18px;width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;border:none;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .3s ease, transform .3s ease, background .25s ease;box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:50;}
+.top-btn.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+.top-btn:hover{background:var(--teal-dark);}
+.top-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+
+.reccard, .rmcard, .tl-q, .britem, .proj{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
+.reccard:hover, .rmcard:hover, .tl-q:hover, .britem:hover, .proj:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(30,30,30,.08);border-color:#C9CAC8;}
+.chip{transition:background .2s ease, color .2s ease;}
+.stackitem:hover .chip, .chip:hover{background:var(--navy);color:#fff;}
+
+h2{position:relative;}
+h2::after{content:"";display:block;width:36px;height:3px;background:var(--teal);margin-top:10px;border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .6s ease;}
+h2.in-view::after{transform:scaleX(1);}
+
+.tag{transition:transform .2s ease;}
+section:hover .tag{transform:translateX(2px);}
+
+footer{padding:36px 0 60px;text-align:center;color:var(--ink-soft);font-size:13px;}
+.note{font-size:12.5px;color:var(--ink-soft);background:var(--paper);border:1px dashed var(--line);border-radius:8px;padding:12px 14px;margin-top:14px;}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="wrap">
+    <a class="navbtn" href="#stack">Stack actual</a>
+    <a class="navbtn" href="#y2026">2026</a>
+    <a class="navbtn" href="#perfil">Evolución del perfil</a>
+    <a class="navbtn" href="#roadmap">Roadmap 2027</a>
+    <a class="navbtn" href="#priorizados">Priorizados</a>
+    <a class="navbtn" href="#roi">ROI</a>
+    <a class="navbtn" href="#timeline">Timeline</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Ciberseguridad · Cloud Security · Visibilidad de aplicativos · IA aplicada</div>
+    <h1>De operar controles a dar visibilidad, cobertura y alerta temprana</h1>
+    <p>El rol no es remediar: es cubrir, vigilar y alertar — sobre controles, activos, aplicaciones, bases de datos y superficie externa (dominios, certificados). Este roadmap lleva el stack actual hacia agentes de IA local que amplían esa visión sin exponer datos a la nube.</p>
+    <div class="hero-track">
+      <div class="hero-step">
+        <div class="yr">2025</div>
+        <div class="lb">Operación manual de controles y reportes</div>
+      </div>
+      <div class="hero-step now">
+        <div class="yr">2026</div>
+        <div class="lb">Construido: automatización de reportes y testing de controles</div>
+      </div>
+      <div class="hero-step">
+        <div class="yr">2027</div>
+        <div class="lb">Cobertura, threat intelligence y vigilancia de dominios con IA local</div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" data-target="10">0</span><span class="stat-lbl">proyectos identificados</span></div>
+      <div class="stat"><span class="stat-num" data-target="4">0</span><span class="stat-lbl">priorizados para 2027</span></div>
+      <div class="stat"><span class="stat-num" data-target="0">0</span><span class="stat-lbl">datos expuestos a IA en la nube</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="stack">
+  <div class="wrap">
+    <span class="tag">Estado actual</span>
+    <h2>Qué se opera hoy</h2>
+    <p class="lede">Stack en producción, con propiedad directa de configuración y administración de seguridad.</p>
+    <div class="stackgrid">
+      <div class="stackitem"><b>CrowdStrike</b><span>EDR, Firewall, Device Control, CSPM, ASPM</span></div>
+      <div class="stackitem"><b>Netskope</b><span>Protección de navegación y DLP</span></div>
+      <div class="stackitem"><b>Microsoft 365</b><span>Graph API, admin de seguridad</span></div>
+      <div class="stackitem"><b>Cloudflare</b><span>Perímetro y gestión de certificados SSL</span></div>
+      <div class="stackitem"><b>AWS · Azure · GCP · OCI</b><span>Postura de seguridad multicloud</span></div>
+      <div class="stackitem"><b>Splunk</b><span>Correlación y visibilidad</span></div>
+      <div class="stackitem"><b>Power BI · Dataverse</b><span>Reporting ejecutivo</span></div>
+      <div class="stackitem"><b>n8n · Python</b><span>Orquestación y automatización</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="y2026">
+  <div class="wrap">
+    <span class="tag">Construido en 2026</span>
+    <h2>Lo entregado este año</h2>
+    <p class="lede">Base de automatización sobre la que se apoya el roadmap 2027.</p>
+
+    <div class="proj">
+      <div class="proj-head">
+        <h3>Automatización de reportería ejecutiva</h3>
+        <span class="status">En producción</span>
+      </div>
+      <p class="meta">n8n · Dataverse · Microsoft Graph API · Power BI</p>
+      <p>Pipeline que extrae datos de seguridad desde múltiples fuentes vía API, los consolida en Dataverse y los publica como reporting ejecutivo en Power BI sin intervención manual.</p>
+      <div class="impact-row">
+        <div class="impact"><div class="num">100%</div><div class="lbl">reportes generados sin intervención manual</div></div>
+        <div class="impact"><div class="num">4+</div><div class="lbl">fuentes de datos integradas por API</div></div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <h3>Testing automatizado de controles</h3>
+        <span class="status">Migrando de Airflow a n8n</span>
+      </div>
+      <p class="meta">Orquestado originalmente en Airflow · cobertura EDR (CrowdStrike) y DLP (Netskope)</p>
+      <p>Suite de pruebas periódicas que valida que las políticas de EDR y DLP están efectivamente aplicadas. Airflow se retira del stack; el proyecto 1 del roadmap 2027 hereda esta base sobre n8n.</p>
+      <div class="impact-row">
+        <div class="impact"><div class="num">2</div><div class="lbl">familias de control con test continuo</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="quote"><p>"No se puede proteger lo que no se puede ver — y no se puede confiar en lo que no se ha probado."</p></div></div>
+
+<section id="roadmap">
+  <div class="wrap">
+    <span class="tag">Hoja de ruta 2027</span>
+    <h2>Proyectos 2027 que materializan la evolución del rol</h2>
+    <p class="lede">Todos corren sobre Ollama (modelo open-source autoalojado, p. ej. Llama 3.1 8B) como motor de razonamiento, orquestado por n8n y Python — sin enviar datos a IA en la nube. El objetivo es ver más y alertar antes, no remediar. Catálogo completo para elegir — 4 recomendados en detalle en el siguiente apartado.</p>
+
+    <div class="rm">
+      <div class="rmcard">
+        <div class="rmhead">
+          <div class="n">01</div>
+          <div><h3>Control Coverage Testing 2.0</h3><div class="obj">Objetivo: cobertura y alerta continua de EDR/DLP — reemplaza Airflow</div></div>
+        </div>
+        <div class="rmbody">
+          <div>
+            <div class="archlabel">Arquitectura</div>
+            <div class="archrow"><b>Fuentes</b> — API CrowdStrike Falcon, API REST Netskope</div>
+            <div class="archrow"><b>Orquestación</b> — n8n (workflows programados)</div>
+            <div class="archrow"><b>Procesamiento / IA</b> — Python + Ollama (Llama 3.1 8B local) clasifica resultado y redacta evidencia mapeada a NIST CSF</div>
+            <div class="archrow"><b>Almacenamiento</b> — PostgreSQL / Dataverse como repositorio de evidencia</div>
+            <div class="archrow"><b>Alerta / visualización</b> — Power BI (KCI) + Teams webhook ante drift crítico</div>
+          </div>
+          <div>
+            <ul class="kci-list">
+              <li>% de controles con cobertura validada / mes</li>
+              <li>MTTA de drift de configuración</li>
+              <li>Horas de evidencia generadas sin intervención manual</li>
+            </ul>
+            <div class="roi-box"><div class="num">95%+</div><div class="lbl">meta de cobertura de controles con validación mensual continua</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rmcard">
+        <div class="rmhead">
+          <div class="n">02</div>
+          <div><h3>Mapa de cobertura de activos, aplicaciones y bases de datos</h3><div class="obj">Objetivo: saber qué existe y qué está — o no — protegido</div></div>
+        </div>
+        <div class="rmbody">
+          <div>
+            <div class="archlabel">Arquitectura</div>
+            <div class="archrow"><b>Fuentes de inventario</b> — AWS Resource Explorer, Azure Resource Graph, GCP Asset Inventory, OCI Search, CrowdStrike CSPM/ASPM, catálogo de apps en Dataverse</div>
+            <div class="archrow"><b>Orquestación</b> — n8n (barrido periódico multicloud)</div>
+            <div class="archrow"><b>Procesamiento / IA</b> — Python correlaciona activo vs. agente EDR vs. cobertura DLP vs. monitoreo de BD; Ollama redacta la narrativa de brechas</div>
+            <div class="archrow"><b>Almacenamiento</b> — Dataverse (histórico de cobertura)</div>
+            <div class="archrow"><b>Alerta / visualización</b> — Power BI "Coverage Score" + alerta a Teams ante activo nuevo sin cobertura</div>
+          </div>
+          <div>
+            <ul class="kci-list">
+              <li>% de activos con cobertura completa (EDR + DLP + monitoreo)</li>
+              <li>N.º de blind spots detectados / mes</li>
+              <li>Tiempo medio de detección de activo no cubierto</li>
+            </ul>
+            <div class="roi-box"><div class="num">0</div><div class="lbl">meta: activos productivos sin cobertura EDR/DLP conocida</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rmcard">
+        <div class="rmhead">
+          <div class="n">03</div>
+          <div><h3>Agente de Threat Intelligence interno</h3><div class="obj">Objetivo: alertar de vulnerabilidades relevantes para el stack propio, antes que terceros</div></div>
+        </div>
+        <div class="rmbody">
+          <div>
+            <div class="archlabel">Arquitectura</div>
+            <div class="archrow"><b>Fuentes gratuitas</b> — NVD CVE API, CISA KEV, GitHub Security Advisories, AlienVault OTX, abuse.ch (URLhaus / ThreatFox)</div>
+            <div class="archrow"><b>Orquestación</b> — n8n (polling programado de feeds)</div>
+            <div class="archrow"><b>Procesamiento / IA</b> — Python cruza CVEs contra el inventario de activos/software del proyecto 2; Ollama redacta la alerta priorizada con contexto ("afecta a tu activo público X")</div>
+            <div class="archrow"><b>Almacenamiento</b> — Dataverse (histórico de alertas y triage)</div>
+            <div class="archrow"><b>Alerta / visualización</b> — Teams / correo + KCI en Power BI</div>
+          </div>
+          <div>
+            <ul class="kci-list">
+              <li>Tiempo medio entre publicación de CVE y alerta interna (MTTA)</li>
+              <li>% de CVEs triados automáticamente por relevancia</li>
+              <li>N.º de vulnerabilidades críticas aplicables detectadas / mes</li>
+            </ul>
+            <div class="roi-box"><div class="num">Horas, no semanas</div><div class="lbl">meta: tiempo entre CVE público y alerta ante un activo propio afectado</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rmcard">
+        <div class="rmhead">
+          <div class="n">04</div>
+          <div><h3>Evaluador de dominios y superficie de ataque externa</h3><div class="obj">Objetivo: vigilar dominios propios y detectar typosquatting/phishing, apoyado en la gestión ya existente de SSL y Cloudflare</div></div>
+        </div>
+        <div class="rmbody">
+          <div>
+            <div class="archlabel">Arquitectura</div>
+            <div class="archrow"><b>Fuentes gratuitas</b> — crt.sh (certificate transparency), dnstwist (open-source, genera variantes typosquat), urlscan.io, VirusTotal (API community), Shodan (free tier), WHOIS/RDAP, SSL Labs API</div>
+            <div class="archrow"><b>Orquestación</b> — n8n (barrido diario)</div>
+            <div class="archrow"><b>Procesamiento / IA</b> — Python + dnstwist genera variantes de dominio; VirusTotal/urlscan las puntúa; Ollama prioriza y redacta el reporte de riesgo</div>
+            <div class="archrow"><b>Almacenamiento</b> — Dataverse (histórico de dominios vigilados)</div>
+            <div class="archrow"><b>Alerta / visualización</b> — Power BI "Domain Risk Score" + alerta inmediata ante dominio sospechoso activo o certificado próximo a expirar</div>
+          </div>
+          <div>
+            <ul class="kci-list">
+              <li>N.º de dominios sospechosos / typosquat detectados por mes</li>
+              <li>Días de anticipación a expiración de certificados SSL</li>
+              <li>% de dominios propios con grado SSL A/A+</li>
+            </ul>
+            <div class="roi-box"><div class="num">Detección temprana</div><div class="lbl">meta: identificar dominio fraudulento antes de una campaña de phishing activa</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="rmcard">
+        <div class="rmhead">
+          <div class="n">05</div>
+          <div><h3>Shadow AI Discovery & Governance</h3><div class="obj">Objetivo: visibilidad de qué herramientas de IA usa la organización, antes de que se conviertan en fuga de datos</div></div>
+        </div>
+        <div class="rmbody">
+          <div>
+            <div class="archlabel">Arquitectura</div>
+            <div class="archrow"><b>Fuentes</b> — logs CASB/DLP de Netskope (categoría apps de IA), Microsoft Graph (uso de Copilot/M365), logs de Cloudflare Gateway</div>
+            <div class="archrow"><b>Orquestación</b> — n8n (agregación periódica de tráfico y eventos DLP)</div>
+            <div class="archrow"><b>Procesamiento / IA</b> — Python clasifica dominios/apps de IA contra un catálogo curado; Ollama redacta el riesgo por app y por área de negocio</div>
+            <div class="archrow"><b>Almacenamiento</b> — Dataverse (registro histórico de apps de IA detectadas)</div>
+            <div class="archrow"><b>Alerta / visualización</b> — Power BI "Shadow AI Risk Score" + Teams si una app de IA no aprobada mueve datos sensibles</div>
+          </div>
+          <div>
+            <ul class="kci-list">
+              <li>N.º de apps de IA no autorizadas detectadas / mes</li>
+              <li>% de tráfico hacia apps de IA con política DLP aplicada</li>
+              <li>Cobertura de política de uso de IA por área</li>
+            </ul>
+            <div class="roi-box"><div class="num">Visibilidad total</div><div class="lbl">meta: inventario vivo de toda app de IA usada en la organización</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rmcard">
+        <div class="rmhead">
+          <div class="n">06</div>
+          <div><h3>Visibilidad DevSecOps: SBOM, secretos y dependencias</h3><div class="obj">Objetivo: saber qué corre dentro de cada aplicación, no solo qué la rodea</div></div>
+        </div>
+        <div class="rmbody">
+          <div>
+            <div class="archlabel">Arquitectura</div>
+            <div class="archrow"><b>Fuentes</b> — CrowdStrike ASPM, API de GitHub/GitLab, Trivy (escaneo de vulnerabilidades open-source), Syft (generación de SBOM), Gitleaks (secretos expuestos)</div>
+            <div class="archrow"><b>Orquestación</b> — n8n dispara el escaneo por repositorio, en pipeline o de forma periódica</div>
+            <div class="archrow"><b>Procesamiento / IA</b> — Python consolida los hallazgos de los scanners; Ollama los correlaciona con la criticidad de negocio del aplicativo (catálogo del proyecto 2) y redacta el riesgo real por app</div>
+            <div class="archrow"><b>Almacenamiento</b> — Dataverse (histórico de SBOM y hallazgos)</div>
+            <div class="archrow"><b>Alerta / visualización</b> — Power BI + alerta inmediata ante secreto expuesto o dependencia crítica sin parchear</div>
+          </div>
+          <div>
+            <ul class="kci-list">
+              <li>% de aplicaciones con SBOM vigente</li>
+              <li>N.º de secretos expuestos detectados / mes</li>
+              <li>Tiempo medio de exposición de un secreto hasta la alerta</li>
+            </ul>
+            <div class="roi-box"><div class="num">100%</div><div class="lbl">meta: aplicaciones críticas con SBOM e inventario de dependencias vigente</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rmcard">
+        <div class="rmhead">
+          <div class="n">07</div>
+          <div><h3>Gobernanza y red-teaming de agentes de IA internos</h3><div class="obj">Objetivo: asegurar los propios agentes construidos en n8n/Ollama antes de que alguien más lo haga</div></div>
+        </div>
+        <div class="rmbody">
+          <div>
+            <div class="archlabel">Arquitectura</div>
+            <div class="archrow"><b>Fuentes</b> — registro interno de workflows n8n activos, logs de Ollama, catálogo de agentes en Dataverse</div>
+            <div class="archrow"><b>Orquestación</b> — n8n ejecuta una batería programada de pruebas de red-team (prompt injection, fuga de datos, escalamiento de permisos) contra cada agente</div>
+            <div class="archrow"><b>Procesamiento / IA</b> — Python corre los payloads de prueba alineados a OWASP Top 10 for LLM Applications; Ollama actúa como juez, evaluando si el agente filtró datos o fue manipulado</div>
+            <div class="archrow"><b>Almacenamiento</b> — Dataverse (hallazgos por agente y versión)</div>
+            <div class="archrow"><b>Alerta / visualización</b> — Power BI "AI Agent Risk Score" + alerta si un agente falla una prueba crítica</div>
+          </div>
+          <div>
+            <ul class="kci-list">
+              <li>% de agentes de IA con evaluación de seguridad vigente</li>
+              <li>% de pruebas OWASP LLM superadas por agente</li>
+              <li>Tiempo medio de detección de un agente mal configurado</li>
+            </ul>
+            <div class="roi-box"><div class="num">0</div><div class="lbl">meta: agentes de IA en producción sin evaluación de seguridad</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="rmcard">
+        <div class="rmhead">
+          <div class="n">08</div>
+          <div><h3>Radar de herramientas de seguridad open-source</h3><div class="obj">Objetivo: vigilar, evaluar y operacionalizar herramientas nuevas de GitHub/comunidad antes que la competencia o un atacante</div></div>
+        </div>
+        <div class="rmbody">
+          <div>
+            <div class="archlabel">Arquitectura</div>
+            <div class="archrow"><b>Fuentes</b> — GitHub API (trending, releases, topics security-tools/osint/dns/phishing), GitHub Security Advisories, RSS de boletines (tl;dr sec, r/netsec)</div>
+            <div class="archrow"><b>Orquestación</b> — n8n (polling programado + triggers por release)</div>
+            <div class="archrow"><b>Procesamiento / IA</b> — Python + Ollama clasifica README y metadata (categoría, madurez, relevancia, riesgo); sandbox Docker efímero para prueba controlada</div>
+            <div class="archrow"><b>Almacenamiento</b> — Dataverse (catálogo de herramientas evaluadas)</div>
+            <div class="archrow"><b>Alerta / visualización</b> — Power BI "Tooling Radar" + Teams ante herramienta de alta relevancia</div>
+          </div>
+          <div>
+            <ul class="kci-list">
+              <li>Tiempo medio de triage de una herramienta relevante</li>
+              <li>% de herramientas evaluadas que terminan integradas al stack</li>
+              <li>N.º de herramientas evaluadas / mes</li>
+            </ul>
+            <div class="roi-box"><div class="num">&lt; 5 días</div><div class="lbl">meta: tiempo entre publicación de herramienta relevante y su evaluación</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rmcard">
+        <div class="rmhead">
+          <div class="n">09</div>
+          <div><h3>Exposición de correo y phishing de marca</h3><div class="obj">Objetivo: visibilidad de la postura de correo del dominio propio y detección de phishing que suplanta la marca</div></div>
+        </div>
+        <div class="rmbody">
+          <div>
+            <div class="archlabel">Arquitectura</div>
+            <div class="archrow"><b>Fuentes</b> — verificación DNS (SPF/DKIM/DMARC), Have I Been Pwned API (correos corporativos expuestos en brechas), PhishTank y OpenPhish (feeds de phishing), Netskope (correlación de tráfico bloqueado)</div>
+            <div class="archrow"><b>Orquestación</b> — n8n (barrido diario)</div>
+            <div class="archrow"><b>Procesamiento / IA</b> — Python valida configuración SPF/DKIM/DMARC; Ollama redacta el riesgo y prioriza para coordinación con el equipo de correo</div>
+            <div class="archrow"><b>Almacenamiento</b> — Dataverse</div>
+            <div class="archrow"><b>Alerta / visualización</b> — Power BI "Email Exposure Score" + alerta ante credencial corporativa filtrada o campaña de phishing con marca propia activa</div>
+          </div>
+          <div>
+            <ul class="kci-list">
+              <li>% de dominios propios con DMARC en enforcement</li>
+              <li>N.º de credenciales corporativas expuestas detectadas / mes</li>
+              <li>N.º de campañas de phishing con marca propia detectadas</li>
+            </ul>
+            <div class="roi-box"><div class="num">100%</div><div class="lbl">meta: dominios de correo propios con SPF/DKIM/DMARC verificado</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rmcard">
+        <div class="rmhead">
+          <div class="n">10</div>
+          <div><h3>Visibilidad de identidad y postura SaaS (SSPM)</h3><div class="obj">Objetivo: visibilidad de accesos, permisos OAuth y cuentas de riesgo dentro del perímetro que ya administras en Microsoft 365</div></div>
+        </div>
+        <div class="rmbody">
+          <div>
+            <div class="archlabel">Arquitectura</div>
+            <div class="archrow"><b>Fuentes</b> — Microsoft Graph API (Identity Protection, consentimientos OAuth de apps de terceros, señales de riesgo de sign-in), Splunk (correlación)</div>
+            <div class="archrow"><b>Orquestación</b> — n8n (barrido periódico + trigger ante nuevo consentimiento OAuth)</div>
+            <div class="archrow"><b>Procesamiento / IA</b> — Python detecta apps con permisos excesivos, cuentas sin MFA, sign-ins anómalos; Ollama prioriza y redacta el hallazgo</div>
+            <div class="archrow"><b>Almacenamiento</b> — Dataverse</div>
+            <div class="archrow"><b>Alerta / visualización</b> — Power BI "Identity Exposure Score" + Teams ante app de terceros con permisos de alto riesgo recién autorizada</div>
+          </div>
+          <div>
+            <ul class="kci-list">
+              <li>% de cuentas con MFA activo</li>
+              <li>N.º de apps OAuth de alto riesgo detectadas</li>
+              <li>N.º de cuentas privilegiadas sin actividad reciente (stale)</li>
+            </ul>
+            <div class="roi-box"><div class="num">0</div><div class="lbl">meta: apps OAuth de alto riesgo sin revisar</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="note">Las metas 2027 son referencias a validar con la línea base real de cada métrica (cobertura actual, activos totales, tiempo actual de reacción ante CVE) durante el primer mes de cada proyecto.</p>
+  </div>
+</section>
+
+<section id="priorizados">
+  <div class="wrap">
+    <span class="tag">Selección recomendada</span>
+    <h2>4 proyectos sugeridos para priorizar en 2027</h2>
+    <p class="lede">Criterio de selección: uno da continuidad a lo ya construido, uno es un quick-win de alta visibilidad, uno es un diferenciador estratégico de perfil, y uno sostiene la vigencia de todos los demás.</p>
+    <div class="recgrid">
+
+      <div class="reccard">
+        <span class="recbadge">Continuidad</span>
+        <h3>01 · Control Coverage Testing 2.0</h3>
+        <div class="recwhy">Evoluciona lo ya construido este año; riesgo de ejecución bajo, resultado visible rápido.</div>
+        <div class="recroi"><div class="num">95%+ cobertura</div><div class="lbl">meta de controles críticos con validación mensual continua, vs. sin medición continua hoy</div></div>
+        <p style="font-size:13px;margin-bottom:6px;"><b style="color:var(--navy)">Métricas:</b> % controles validados/mes · MTTA de drift · horas de evidencia automatizadas</p>
+        <div class="chips"><span class="chip">n8n</span><span class="chip">CrowdStrike API</span><span class="chip">Netskope API</span><span class="chip">Python</span><span class="chip">Ollama (Llama 3.1 8B)</span><span class="chip">PostgreSQL/Dataverse</span><span class="chip">Power BI</span></div>
+      </div>
+
+      <div class="reccard">
+        <span class="recbadge">Quick win</span>
+        <h3>04 · Evaluador de dominios y superficie de ataque</h3>
+        <div class="recwhy">Apalanca algo que ya posees (SSL, Cloudflare); resultado visible en semanas, no meses.</div>
+        <div class="recroi"><div class="num">&lt; 24h</div><div class="lbl">detección de dominio fraudulento/typosquat desde su registro, vs. semanas o nunca hoy</div></div>
+        <p style="font-size:13px;margin-bottom:6px;"><b style="color:var(--navy)">Métricas:</b> dominios sospechosos/mes · días de anticipación a expiración SSL · % dominios con grado A/A+</p>
+        <div class="chips"><span class="chip">n8n</span><span class="chip">crt.sh</span><span class="chip">dnstwist</span><span class="chip">VirusTotal API</span><span class="chip">urlscan.io</span><span class="chip">SSL Labs API</span><span class="chip">Ollama</span></div>
+      </div>
+
+      <div class="reccard">
+        <span class="recbadge">Diferenciador</span>
+        <h3>07 · Gobernanza y red-teaming de agentes de IA</h3>
+        <div class="recwhy">Posiciona el perfil como experto en IA + seguridad, no solo en automatización; muy pocos lo muestran hoy.</div>
+        <div class="recroi"><div class="num">0</div><div class="lbl">meta: agentes de IA propios en producción sin evaluación de seguridad (hoy: sin proceso formal)</div></div>
+        <p style="font-size:13px;margin-bottom:6px;"><b style="color:var(--navy)">Métricas:</b> % agentes evaluados · % pruebas OWASP LLM superadas · tiempo de detección de agente mal configurado</p>
+        <div class="chips"><span class="chip">n8n</span><span class="chip">Python</span><span class="chip">Ollama (juez + agente)</span><span class="chip">OWASP LLM Top 10</span><span class="chip">Dataverse</span><span class="chip">Power BI</span></div>
+      </div>
+
+      <div class="reccard">
+        <span class="recbadge">Sostenibilidad</span>
+        <h3>08 · Radar de herramientas de seguridad open-source</h3>
+        <div class="recwhy">Mantiene vigente todo lo demás; convierte el descubrimiento casual en proceso medible.</div>
+        <div class="recroi"><div class="num">&lt; 5 días</div><div class="lbl">tiempo entre publicación de herramienta relevante y su evaluación, vs. proceso informal/reactivo hoy</div></div>
+        <p style="font-size:13px;margin-bottom:6px;"><b style="color:var(--navy)">Métricas:</b> Time to Triage · % herramientas integradas al stack · cobertura de categorías vigiladas</p>
+        <div class="chips"><span class="chip">n8n</span><span class="chip">GitHub API</span><span class="chip">GitHub Advisories</span><span class="chip">Docker sandbox</span><span class="chip">Python</span><span class="chip">Ollama</span><span class="chip">Dataverse</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="perfil">
+  <div class="wrap">
+    <span class="tag">Evolución profesional</span>
+    <h2>De especialista de herramientas a líder de Cybersecurity Engineering &amp; Controls</h2>
+    <p class="lede">La evolución propuesta no compite con Security Architecture: complementa ese rol desde el frente tecnológico, llevando estándares y requisitos a controles implementables, automatizados, medibles y continuamente verificables.</p>
+
+    <div class="profile-path">
+      <div class="profile-step">
+        <div class="year">2025 · Base</div>
+        <h3>Especialista de herramientas</h3>
+        <p>Operación y administración de CrowdStrike, Netskope, Microsoft, cloud y controles de seguridad; foco en cobertura, configuración y atención de hallazgos.</p>
+      </div>
+      <div class="profile-step current">
+        <div class="year">2026 · Evolución</div>
+        <h3>Security Controls + Automation</h3>
+        <p>Integración por API, Graph, n8n, Python, Dataverse y Power BI; automatización de indicadores y pruebas de controles sobre el stack existente.</p>
+      </div>
+      <div class="profile-step target">
+        <div class="year">2027 · Rol objetivo</div>
+        <h3>Cybersecurity Engineering &amp; Controls Lead</h3>
+        <p>Diseño de capacidades transversales de control continuo, visibilidad, exposición, inteligencia y automatización; arquitectura de soluciones de seguridad.</p>
+      </div>
+      <div class="profile-step">
+        <div class="year">Siguiente etapa</div>
+        <h3>Lo que papa Dios diga</h3>
+        <p>Liderazgo de equipo y portafolio: estrategia técnica, priorización, capacidades de ingeniería, métricas ejecutivas y evolución de la función.</p>
+      </div>
+    </div>
+
+    <div class="profile-note">
+      <p><strong>Qué cambia:</strong> de administrar herramientas a diseñar mecanismos de seguridad; de generar reportes a construir inteligencia; de revisar controles periódicamente a validarlos continuamente; de integrar productos de forma aislada a construir una capa tecnológica común sobre APIs, automatización y datos.</p>
+      <p class="sub"><strong>Encaje organizacional:</strong> Security Architecture define principios, estándares y arquitectura objetivo; Cybersecurity Engineering &amp; Controls convierte esos lineamientos en capacidades técnicas, controles automatizados, evidencia y monitoreo continuo; Security Operations ejecuta y responde sobre la operación diaria.</p>
+    </div>
+
+    <div class="quote" style="margin-top:28px;"><p>"El objetivo del siguiente rol no es administrar más herramientas; es diseñar cómo la organización obtiene visibilidad, prueba sus controles y convierte datos de seguridad en decisiones."</p></div>
+
+    <h3 style="font-size:17px;margin:34px 0 10px;">Capacidades que ganan peso hacia 2027</h3>
+    <div class="barlegend">
+      <span><span class="dot" style="background:#C7C8C5"></span>2026</span>
+      <span><span class="dot" style="background:#5B6B6C"></span>2027 (proyectado)</span>
+    </div>
+    <div class="bars">
+      <div class="barrow"><div class="barlabel">Operación de controles</div><div class="bartrack"><div class="barfill a" data-w="80%"></div></div><div class="bartrack"><div class="barfill b" data-w="50%"></div></div></div>
+      <div class="barrow"><div class="barlabel">Ingeniería de controles</div><div class="bartrack"><div class="barfill a" data-w="40%"></div></div><div class="bartrack"><div class="barfill b" data-w="85%"></div></div></div>
+      <div class="barrow"><div class="barlabel">Automatización (n8n/Python)</div><div class="bartrack"><div class="barfill a" data-w="55%"></div></div><div class="bartrack"><div class="barfill b" data-w="80%"></div></div></div>
+      <div class="barrow"><div class="barlabel">IA aplicada a seguridad</div><div class="bartrack"><div class="barfill a" data-w="10%"></div></div><div class="bartrack"><div class="barfill b" data-w="70%"></div></div></div>
+      <div class="barrow"><div class="barlabel">Visibilidad de activos, apps y BD</div><div class="bartrack"><div class="barfill a" data-w="25%"></div></div><div class="bartrack"><div class="barfill b" data-w="75%"></div></div></div>
+      <div class="barrow"><div class="barlabel">Threat intelligence y superficie externa</div><div class="bartrack"><div class="barfill a" data-w="5%"></div></div><div class="bartrack"><div class="barfill b" data-w="65%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="roi">
+  <div class="wrap">
+    <span class="tag">ROI proyectado</span>
+    <h2>Cobertura y visibilidad esperada, trimestre a trimestre</h2>
+    <p class="lede">Estimación de avance del índice combinado de cobertura de controles, activos y superficie externa a medida que se despliegan los 4 proyectos priorizados. Línea base a validar con datos reales del primer trimestre.</p>
+    <div class="roi-chart-wrap">
+      <div class="roi-chart">
+        <svg viewBox="0 0 640 230" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="fillgrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5B6B6C" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#5B6B6C" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <line x1="60" y1="200" x2="600" y2="200" stroke="#DFDFDD" stroke-width="1"/>
+          <path d="M60,155 L185,128 L310,107 L435,85 L560,64 L560,200 L60,200 Z" fill="url(#fillgrad)" stroke="none"/>
+          <path class="draw-path" d="M60,155 L185,128 L310,107 L435,85 L560,64" fill="none" stroke="#5B6B6C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="60" cy="155" r="4" fill="#43504F"/>
+          <circle cx="185" cy="128" r="4" fill="#43504F"/>
+          <circle cx="310" cy="107" r="4" fill="#43504F"/>
+          <circle cx="435" cy="85" r="4" fill="#43504F"/>
+          <circle cx="560" cy="64" r="4" fill="#43504F"/>
+          <text x="60" y="220" font-size="12" fill="#5D6266" text-anchor="middle">Base 2026</text>
+          <text x="185" y="220" font-size="12" fill="#5D6266" text-anchor="middle">Q1 2027</text>
+          <text x="310" y="220" font-size="12" fill="#5D6266" text-anchor="middle">Q2 2027</text>
+          <text x="435" y="220" font-size="12" fill="#5D6266" text-anchor="middle">Q3 2027</text>
+          <text x="560" y="220" font-size="12" fill="#5D6266" text-anchor="middle">Q4 2027</text>
+          <text x="60" y="145" font-size="12" fill="#43504F" text-anchor="middle">28%</text>
+          <text x="185" y="118" font-size="12" fill="#43504F" text-anchor="middle">45%</text>
+          <text x="310" y="97" font-size="12" fill="#43504F" text-anchor="middle">58%</text>
+          <text x="435" y="75" font-size="12" fill="#43504F" text-anchor="middle">72%</text>
+          <text x="560" y="54" font-size="12" fill="#43504F" text-anchor="middle">85%</text>
+        </svg>
+      </div>
+      <div class="roi-legend"><span>Índice combinado: cobertura de controles + activos + dominios vigilados</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <span class="tag">Ejecución</span>
+    <h2>Línea de tiempo 2027</h2>
+    <p class="lede">Secuencia sugerida para los 4 proyectos priorizados, y el resto del catálogo como backlog priorizable por la jefatura.</p>
+    <div class="tl">
+      <div class="tl-q"><div class="qlabel">Q1</div><h4>01 · Control Coverage Testing 2.0</h4><p>Migración de Airflow a n8n + IA local para evidencia de controles.</p></div>
+      <div class="tl-q"><div class="qlabel">Q2</div><h4>04 · Evaluador de dominios</h4><p>Vigilancia de dominios, typosquatting y certificados SSL.</p></div>
+      <div class="tl-q"><div class="qlabel">Q3</div><h4>07 · Gobernanza de agentes IA</h4><p>Red-teaming de los agentes propios bajo OWASP LLM Top 10.</p></div>
+      <div class="tl-q"><div class="qlabel">Q4</div><h4>08 · Radar de herramientas OSS</h4><p>Proceso de vigilancia y triage de nuevas herramientas de seguridad.</p></div>
+    </div>
+
+    <div class="backlog">
+      <h4>Backlog priorizable (no seleccionados en esta ronda)</h4>
+      <div class="blist">
+        <div class="britem"><span class="bn">02</span><span><b>Mapa de cobertura de activos, apps y BD</b> — visibilidad de qué está y qué no está protegido en multicloud.</span></div>
+        <div class="britem"><span class="bn">03</span><span><b>Agente de Threat Intelligence interno</b> — alerta de CVEs relevantes cruzadas contra inventario propio.</span></div>
+        <div class="britem"><span class="bn">05</span><span><b>Shadow AI Discovery & Governance</b> — visibilidad de apps de IA no autorizadas usadas en la organización.</span></div>
+        <div class="britem"><span class="bn">06</span><span><b>Visibilidad DevSecOps (SBOM, secretos, dependencias)</b> — qué corre dentro de cada aplicación.</span></div>
+        <div class="britem"><span class="bn">09</span><span><b>Exposición de correo y phishing de marca</b> — postura SPF/DKIM/DMARC y suplantación de marca.</span></div>
+        <div class="britem"><span class="bn">10</span><span><b>Visibilidad de identidad y postura SaaS (SSPM)</b> — accesos, MFA y permisos OAuth en Microsoft 365.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="quote"><p>"La automatización reduce el esfuerzo; la inteligencia decide qué merece atención."</p></div></div>
+
+<footer>
+  <div class="wrap">Roadmap de ciberseguridad + IA · 2025 → 2027</div>
+</footer>
+
+<button class="top-btn" id="topBtn" aria-label="Volver arriba">↑</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.stat-num').forEach(function(el){
+    var target = parseInt(el.dataset.target,10);
+    var cur = 0;
+    var step = Math.max(1, Math.round(target/30) || 1);
+    if(target===0){ return; }
+    var t = setInterval(function(){
+      cur += step;
+      if(cur>=target){ cur=target; clearInterval(t); }
+      el.textContent = cur;
+    }, 40);
+  });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var fill = entry.target.querySelector('.barfill');
+        if(fill){ fill.style.width = fill.dataset.w; }
+        var path = entry.target.querySelector('.draw-path');
+        if(path){
+          var len = path.getTotalLength();
+          path.style.strokeDasharray = len;
+          path.style.strokeDashoffset = len;
+          path.getBoundingClientRect();
+          path.style.transition = 'stroke-dashoffset 1.6s ease';
+          path.style.strokeDashoffset = '0';
+        }
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.3});
+
+  document.querySelectorAll('.bartrack').forEach(function(el){ io.observe(el); });
+  document.querySelectorAll('.roi-chart').forEach(function(el){ io.observe(el); });
+
+  var h2io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in-view'); h2io.unobserve(e.target); } });
+  }, {threshold:0.6});
+  document.querySelectorAll('h2').forEach(function(el){ h2io.observe(el); });
+
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    topBtn.classList.toggle('show', window.scrollY > 480);
+  }, {passive:true});
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  var navBtns = document.querySelectorAll('.navbtn');
+  var navSections = Array.prototype.map.call(navBtns, function(b){
+    return document.querySelector(b.getAttribute('href'));
+  });
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      var idx = navSections.indexOf(entry.target);
+      if(idx > -1 && entry.isIntersecting){
+        navBtns.forEach(function(b){ b.classList.remove('active'); });
+        navBtns[idx].classList.add('active');
+      }
+    });
+  }, {threshold:0.25, rootMargin:'-80px 0px -60% 0px'});
+  navSections.forEach(function(s){ if(s) spy.observe(s); });
+});
+</script>
+
+</body>
+</html>
